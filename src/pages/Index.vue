@@ -21,7 +21,7 @@
                   style="font-size:350%;margin-top:60px;"
                 >I WORK IN THE DARK ARTS.</h1>
                 <br>
-                <img class="raised" src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4" style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;"/>
+                <img id="avatar" class="raised" src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4" style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;"/>
               </div>
             </div>
           </div>
@@ -124,6 +124,15 @@ export default {
 </script>
 
 <style>
+
+@media(max-width: 991px){
+  #avatar {
+    position: absolute !important;
+    left: calc(50% - 50px) !important;
+    top: 275px !important;
+  }
+}
+
 .bg::after {
   content: "";
   position: absolute;
