@@ -6,10 +6,13 @@ import BootstrapVue from 'bootstrap-vue' //Bootstrap Vue
 import 'bootstrap/dist/css/bootstrap.css' //Bootstrap Vue
 import 'bootstrap-vue/dist/bootstrap-vue.css' //Bootstrap Vue
 import { IconsPlugin } from 'bootstrap-vue' //Bootstrap Vue
+import VideoBackground from 'vue-responsive-video-background-player' //Video Background Player
+
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.use(BootstrapVue) // Bootstrap Vue
   Vue.use(IconsPlugin) // Bootstrap Vue
+  Vue.component('video-background', VideoBackground); //Video Background Player
 }

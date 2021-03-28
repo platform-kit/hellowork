@@ -1,8 +1,9 @@
 <template>
   <Layout>
-    <div
+    <video-background
       class="bg w-100 text-center"
-      style="background:url('https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80'); background-position:center; background-size:cover !important;min-height:500px;"
+      src="/bg-vid.mp4"
+      style="min-height:500px;max-height: 400px; height: 100vh;"
     >
       <div class="container-fluid">
         <div class="row" style="padding-top:150px;">
@@ -20,20 +21,30 @@
                   class="d-inline-block text-light"
                   style="font-size:350%;margin-top:60px;"
                 >I WORK IN THE DARK ARTS.</h1>
-                <br>
-                <img id="avatar" class="raised" src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4" style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;"/>
+                <br />
+                <img
+                  id="avatar"
+                  class="raised"
+                  src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
+                  style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </video-background>
 
     <div class="container p-5" style="z-index:2222 !important;">
       <div class="row">
         <div class="col-md-6 mb-3">
           <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Marketing</span>
-          <b-card no-body class="overflow-hidden border-0 raised  w-100"  onclick="window.open('https://www.promofoundry.com', '_blank')" style="cursor:pointer;">
+          <b-card
+            no-body
+            class="overflow-hidden border-0 raised w-100"
+            onclick="window.open('https://www.promofoundry.com', '_blank')"
+            style="cursor:pointer;"
+          >
             <b-row no-gutters>
               <b-col md="6">
                 <b-card-img
@@ -53,7 +64,12 @@
 
         <div class="col-md-6 mb-3">
           <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Self Development</span>
-          <b-card no-body class="overflow-hidden border-0 raised  w-100" onclick="window.open('https://www.dharmaworks.com', '_blank')" style="cursor:pointer;">
+          <b-card
+            no-body
+            class="overflow-hidden border-0 raised w-100"
+            onclick="window.open('https://www.dharmaworks.com', '_blank')"
+            style="cursor:pointer;"
+          >
             <b-row no-gutters>
               <b-col md="6">
                 <b-card-img
@@ -64,7 +80,7 @@
               </b-col>
               <b-col md="6">
                 <b-card-body title="DharmaWorks">
-                  <b-card-text> I’ve published a small collection of the most impactful spiritual teachings I’ve discovered throughout my life. Read in your browser or subscribe to get lessons via email.</b-card-text>
+                  <b-card-text>I’ve published a small collection of the most impactful spiritual teachings I’ve discovered throughout my life. Read in your browser or subscribe to get lessons via email.</b-card-text>
                 </b-card-body>
               </b-col>
             </b-row>
@@ -73,7 +89,12 @@
 
         <div class="col-md-6 mb-3">
           <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Software Development</span>
-          <b-card no-body class="overflow-hidden border-0 raised  w-100"  onclick="window.open('https://www.platformkit.com', '_blank')" style="cursor:pointer;">
+          <b-card
+            no-body
+            class="overflow-hidden border-0 raised w-100"
+            onclick="window.open('https://www.platformkit.com', '_blank')"
+            style="cursor:pointer;"
+          >
             <b-row no-gutters>
               <b-col md="6">
                 <b-card-img
@@ -93,7 +114,12 @@
 
         <div class="col-md-6 mb-3">
           <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Design</span>
-          <b-card no-body class="overflow-hidden border-0 raised  w-100"  onclick="window.open('https://www.popculturealchemy.com', '_blank')" style="cursor:pointer;">
+          <b-card
+            no-body
+            class="overflow-hidden border-0 raised w-100"
+            onclick="window.open('https://www.popculturealchemy.com', '_blank')"
+            style="cursor:pointer;"
+          >
             <b-row no-gutters>
               <b-col md="6">
                 <b-card-img
@@ -124,8 +150,7 @@ export default {
 </script>
 
 <style>
-
-@media(max-width: 991px){
+@media (max-width: 991px) {
   #avatar {
     position: absolute !important;
     left: calc(50% - 50px) !important;
