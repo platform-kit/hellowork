@@ -37,7 +37,7 @@
           :sources="['bg-vid.mp4']"
           img="https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
           class="bg w-100 text-center"
-          style="min-height:650px;max-height: 400px; height: 100vh; opacity:0.5;"
+          style="height:650px;min-height:650px;max-height: 400px; height: 100vh; opacity:0.5;"
         ></video-bg>
       </div>
     </ClientOnly>
