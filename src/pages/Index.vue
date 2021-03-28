@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <ClientOnly>
-    <video-bg :sources="['bg-vid.mp4']" 
+      <video-bg
+        :sources="['bg-vid.mp4']"
         class="bg w-100 text-center"
-        
         style="min-height:500px;max-height: 400px; height: 100vh;"
       >
         <div class="container-fluid">
@@ -22,13 +22,6 @@
                     class="d-inline-block text-light"
                     style="font-size:350%;margin-top:60px;"
                   >I WORK IN THE DARK ARTS.</h1>
-                  <br />
-                  <img
-                    id="avatar"
-                    class="raised"
-                    src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
-                    style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;z-index:999 !important;"
-                  />
                 </div>
               </div>
             </div>
@@ -36,6 +29,12 @@
         </div>
       </video-bg>
     </ClientOnly>
+    <img
+      id="avatar"
+      class="raised"
+      src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
+      style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;z-index:999 !important;"
+    />
 
     <div class="container p-5" style="z-index:2222 !important;">
       <div class="row">
@@ -152,11 +151,16 @@ export default {
 </script>
 
 <style>
+#avatar {
+  position: absolute !important;
+  left: calc(50% - 50px) !important;
+  top: 285px !important;
+}
 @media (max-width: 991px) {
   #avatar {
     position: absolute !important;
     left: calc(50% - 50px) !important;
-    top: 275px !important;
+    top: 425px !important;
   }
 }
 
