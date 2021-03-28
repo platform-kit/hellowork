@@ -166,7 +166,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(50, 0, 00, 0.85), rgba(0, 0, 0, 0));
+  background: linear-gradient(rgba(0, 0, 00, 0.85), rgba(0, 0, 0, 0));
 }
 
 .bg-none {
