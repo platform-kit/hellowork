@@ -1,13 +1,18 @@
 <template>
   <Layout>
     <ClientOnly>
+      <div style="background:#000;">
       <video-bg
         :sources="['bg-vid.mp4']"
         img="https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
         class="bg w-100 text-center"
-        style="min-height:650px;max-height: 400px; height: 100vh;"
+        style="min-height:650px;max-height: 400px; height: 100vh; opacity:0.5;"
       >
-        <div class="container-fluid">
+        
+      </video-bg>
+      </div>
+    </ClientOnly>
+    <div class="container-fluid text-center" style="position:absolute;top:0px;left:0px;">
           <div class="row" style="padding-top:150px;">
             <div class="col-12 mx-auto">
               <div class="card bg-none border-0 justify-content-center">
@@ -28,8 +33,6 @@
             </div>
           </div>
         </div>
-      </video-bg>
-    </ClientOnly>
     <img
       id="avatar"
       class="raised"
@@ -165,16 +168,7 @@ export default {
   }
 }
 
-.bg::after {
-  content: "";
-  position: absolute;
-  z-index: 0 !important;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0, 0, 00, 0.85), rgba(0, 0, 0, 0));
-}
+
 
 .bg-none {
   background: none !important;
