@@ -1,38 +1,67 @@
 <template>
   <Layout>
+    <div>
+      <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent">
+        <b-navbar-brand class="d-none d-md-inline-block" href="#">My Work:</b-navbar-brand>
+        <b-navbar-brand class="d-inline-block d-md-none" href="#">James Hunter Carter</b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item href="https://www.promofoundry.com" target="_blank">Marketing</b-nav-item>
+            <b-nav-item href="https://www.platformkit.com" target="_blank">Software</b-nav-item>
+            <b-nav-item href="https://www.dharmaworks.com" target="_blank">Coaching</b-nav-item>
+            <b-nav-item href="https://www.popculturealchemy.com" target="_blank">Design</b-nav-item>
+          </b-navbar-nav>
+
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item href="https://represent.io/jameshuntercarter" target="_blank">Resume</b-nav-item>
+            <b-nav-item href="https://github.com/platform-kit" target="_blank">
+              <b-icon icon="github" aria-hidden="true"></b-icon>
+            </b-nav-item>
+            <b-nav-item href="https://twitter.com/popalchemist" target="_blank">
+              <b-icon icon="twitter" aria-hidden="true"></b-icon>
+            </b-nav-item>
+            <b-nav-item href="https://instagram.com/jameshuntercarter" target="_blank">
+              <b-icon icon="instagram" aria-hidden="true"></b-icon>
+            </b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
     <ClientOnly>
       <div style="background:#000;">
-      <video-bg 
-        :sources="['bg-vid.mp4']"
-        img="https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-        class="bg w-100 text-center"
-        style="min-height:650px;max-height: 400px; height: 100vh; opacity:0.5;"
-      >
-        
-      </video-bg>
+        <video-bg
+          :sources="['bg-vid.mp4']"
+          img="https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
+          class="bg w-100 text-center"
+          style="min-height:650px;max-height: 400px; height: 100vh; opacity:0.5;"
+        ></video-bg>
       </div>
     </ClientOnly>
     <div class="container-fluid text-center" style="position:absolute;top:0px;left:0px;">
-          <div class="row" style="padding-top:150px;">
-            <div class="col-12 mx-auto">
-              <div class="card bg-none border-0 justify-content-center">
-                <div
-                  class="justify-content-center align-self-center"
-                  style="position:relative; z-index:999;"
-                >
-                  <h1
-                    class="d-inline-block"
-                    style="font-size:150%;margin-top:120px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
-                  >JAMES HUNTER CARTER</h1>
-                  <h1
-                    class="d-inline-block text-light"
-                    style="font-size:350%;margin-top:120px;"
-                  >I WORK IN THE DARK ARTS.</h1>
-                </div>
-              </div>
+      <div class="row" style="padding-top:150px;">
+        <div class="col-12 mx-auto">
+          <div class="card bg-none border-0 justify-content-center">
+            <div
+              class="justify-content-center align-self-center"
+              style="position:relative; z-index:999;"
+            >
+              <h1
+                class="d-none d-md-inline-block"
+                style="font-size:150%;margin-top:120px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
+              >JAMES HUNTER CARTER</h1>
+              <h1
+                class="d-inline-block text-light"
+                style="font-size:350%;margin-top:120px;"
+              >I WORK IN THE DARK ARTS.</h1>
             </div>
           </div>
         </div>
+      </div>
+    </div>
     <img
       id="avatar"
       class="raised"
@@ -168,8 +197,6 @@ export default {
   }
 }
 
-
-
 .bg-none {
   background: none !important;
 }
@@ -186,5 +213,20 @@ export default {
 }
 .home-links a {
   margin-right: 1rem;
+}
+
+.navbar-transparent {
+  background: rgba(0, 0, 0, 0) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  position: absolute;
+  z-index: 999999 !important;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .navbar-transparent {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)) !important;
+  }
 }
 </style>
