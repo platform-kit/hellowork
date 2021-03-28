@@ -9052,8 +9052,9 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue-videobg@github:pespantelis/vue-videobg":
-  "resolved" "git+ssh://git@github.com/pespantelis/vue-videobg.git#68c5fc6ce23727a7d4d5dd4242076ac45304e22b"
+"vue-videobg@https://github.com/pespantelis/vue-videobg/tarball/master":
+  "integrity" "sha512-DBVfV2ck6d/6CgaO84yCRWU/g9mTLqADLxAGbtdd/q19oDuMEyBSKMcPv4bixiAXCByozL3gCRfnRhYrpurq/A=="
+  "resolved" "https://github.com/pespantelis/vue-videobg/tarball/master"
   "version" "2.0.0"
   dependencies:
     "babel-runtime" "^5.8.0"
