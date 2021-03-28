@@ -18,6 +18,8 @@
           <!-- Right aligned nav items -->
           <b-navbar-nav class="ml-auto">
             <b-nav-item href="https://represent.io/jameshuntercarter" target="_blank">Resume</b-nav-item>
+            <b-nav-item href="https://represent.io/jameshuntercarter/click/email/31600" target="_blank">E-Mail</b-nav-item>
+            
             <b-nav-item href="https://github.com/platform-kit" target="_blank">
               <b-icon icon="github" aria-hidden="true"></b-icon>
             </b-nav-item>
