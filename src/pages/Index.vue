@@ -5,7 +5,7 @@
         :sources="['bg-vid.mp4']"
         img="https://images.unsplash.com/photo-1476370648495-3533f64427a2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
         class="bg w-100 text-center"
-        style="min-height:500px;max-height: 400px; height: 100vh;"
+        style="min-height:650px;max-height: 400px; height: 100vh;"
       >
         <div class="container-fluid">
           <div class="row" style="padding-top:150px;">
@@ -17,11 +17,11 @@
                 >
                   <h1
                     class="d-inline-block"
-                    style="font-size:150%;margin-top:60px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
+                    style="font-size:150%;margin-top:120px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
                   >JAMES HUNTER CARTER</h1>
                   <h1
                     class="d-inline-block text-light"
-                    style="font-size:350%;margin-top:60px;"
+                    style="font-size:350%;margin-top:120px;"
                   >I WORK IN THE DARK ARTS.</h1>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default {
 #avatar {
   position: absolute !important;
   left: calc(50% - 50px) !important;
-  top: 285px !important;
+  top: 345px !important;
 }
 @media (max-width: 991px) {
   #avatar {
