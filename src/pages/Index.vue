@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <ClientOnly>
     <video-background
       class="bg w-100 text-center"
       src="/bg-vid.mp4"
@@ -34,6 +35,7 @@
         </div>
       </div>
     </video-background>
+    </ClientOnly>
 
     <div class="container p-5" style="z-index:2222 !important;">
       <div class="row">
