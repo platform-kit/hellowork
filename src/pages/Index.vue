@@ -193,7 +193,7 @@ export default {
   #avatar {
     position: absolute !important;
     left: calc(50% - 50px) !important;
-    top: 475px !important;
+    top: 575px !important;
   }
 }
 
