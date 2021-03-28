@@ -6,7 +6,8 @@ import BootstrapVue from 'bootstrap-vue' //Bootstrap Vue
 import 'bootstrap/dist/css/bootstrap.css' //Bootstrap Vue
 import 'bootstrap-vue/dist/bootstrap-vue.css' //Bootstrap Vue
 import { IconsPlugin } from 'bootstrap-vue' //Bootstrap Vue
-import VideoBackground from 'vue-responsive-video-background-player' //Video Background Player
+//import VideoBackground from 'vue-responsive-video-background-player' //Video Background Player
+import VideoBg from 'vue-videobg' //Video Background Player
 
 
 export default function (Vue, { router, head, isClient }) {
@@ -14,5 +15,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
   Vue.use(BootstrapVue) // Bootstrap Vue
   Vue.use(IconsPlugin) // Bootstrap Vue
-  Vue.component('video-background', VideoBackground); //Video Background Player
+  //Vue.component('video-background', VideoBackground); //Video Background Player
+  Vue.component('video-bg', VideoBg) //Video Background Player
+
 }

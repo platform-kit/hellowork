@@ -1,40 +1,40 @@
 <template>
   <Layout>
     <ClientOnly>
-    <video-background
-      class="bg w-100 text-center"
-      src="/bg-vid.mp4"
-      style="min-height:500px;max-height: 400px; height: 100vh;"
-    >
-      <div class="container-fluid">
-        <div class="row" style="padding-top:150px;">
-          <div class="col-12 mx-auto">
-            <div class="card bg-none border-0 justify-content-center">
-              <div
-                class="justify-content-center align-self-center"
-                style="position:relative; z-index:999;"
-              >
-                <h1
-                  class="d-inline-block"
-                  style="font-size:150%;margin-top:60px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
-                >JAMES HUNTER CARTER</h1>
-                <h1
-                  class="d-inline-block text-light"
-                  style="font-size:350%;margin-top:60px;"
-                >I WORK IN THE DARK ARTS.</h1>
-                <br />
-                <img
-                  id="avatar"
-                  class="raised"
-                  src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
-                  style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;z-index:999 !important;"
-                />
+    <video-bg :sources="['bg-vid.mp4']" 
+        class="bg w-100 text-center"
+        
+        style="min-height:500px;max-height: 400px; height: 100vh;"
+      >
+        <div class="container-fluid">
+          <div class="row" style="padding-top:150px;">
+            <div class="col-12 mx-auto">
+              <div class="card bg-none border-0 justify-content-center">
+                <div
+                  class="justify-content-center align-self-center"
+                  style="position:relative; z-index:999;"
+                >
+                  <h1
+                    class="d-inline-block"
+                    style="font-size:150%;margin-top:60px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
+                  >JAMES HUNTER CARTER</h1>
+                  <h1
+                    class="d-inline-block text-light"
+                    style="font-size:350%;margin-top:60px;"
+                  >I WORK IN THE DARK ARTS.</h1>
+                  <br />
+                  <img
+                    id="avatar"
+                    class="raised"
+                    src="https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
+                    style="border:6px solid #fff;margin-top:15px;width:100px;height:100px;border-radius:100px;z-index:999 !important;"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </video-background>
+      </video-bg>
     </ClientOnly>
 
     <div class="container p-5" style="z-index:2222 !important;">
