@@ -54,7 +54,7 @@
               <h1
                 class="d-none d-md-inline-block"
                 style="font-size:150%;margin-top:60px;position:absolute;top:-50px;left:0px; width:100%;text-align:center;opacity:1;color:rgb(255,255,255) !important;"
-              >JAMES HUNTER CARTER</h1>
+              >Hi, I'm James Hunter Carter.</h1>
               <h1
                 class="d-inline-block text-light"
                 style="font-size:350%;margin-top:90px;"
