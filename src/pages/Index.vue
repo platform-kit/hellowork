@@ -12,7 +12,7 @@
             <b-nav-item href="https://www.promofoundry.com" target="_blank">Marketing</b-nav-item>
             <b-nav-item href="https://www.platformkit.com" target="_blank">Software</b-nav-item>
             <b-nav-item href="https://www.dharmaworks.com" target="_blank">Coaching</b-nav-item>
-            <b-nav-item href="https://www.popculturealchemy.com" target="_blank">Design</b-nav-item>
+            <b-nav-item href="https://www.aquarianoutfitters.com" target="_blank">Design</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
