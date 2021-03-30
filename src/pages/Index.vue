@@ -153,7 +153,7 @@
           <b-card
             no-body
             class="overflow-hidden border-0 raised w-100"
-            onclick="window.open('https://www.popculturealchemy.com', '_blank')"
+            onclick="window.open('https://www.aquarianoutfitters.com', '_blank')"
             style="cursor:pointer;"
           >
             <b-row no-gutters>
@@ -165,8 +165,8 @@
                 ></b-card-img>
               </b-col>
               <b-col md="6">
-                <b-card-body title="Pop Culture Alchemy">
-                  <b-card-text>A clothing line for spiritual geeks.</b-card-text>
+                <b-card-body title="Aquarian Outfitters">
+                  <b-card-text>A clothing line for modern mystics.</b-card-text>
                 </b-card-body>
               </b-col>
             </b-row>
