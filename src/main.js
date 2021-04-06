@@ -11,7 +11,7 @@ import VuePlyr from '/node_overwrites/vue-plyr-ssr.js' // Vue Plyr
 import 'vue-plyr/dist/vue-plyr.css' // Vue Plyr
 import VideoBg from 'vue-videobg' //Video Background Player
 
-import Embed from 'v-video-embed'
+import Embed from '/node_overwrites/v-video-embed-ssr.js' // Video Embedding
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component

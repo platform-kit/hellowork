@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.21.2",
     "gridsome": "^0.7.0",
+    "v-video-embed": "^1.0.8",
     "vue-mobile-detection": "^1.0.0",
     "vue-plyr": "^7.0.0",
     "vue-videobg": "https://github.com/pespantelis/vue-videobg/tarball/master"
