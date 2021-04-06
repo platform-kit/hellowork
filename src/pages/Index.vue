@@ -1148,7 +1148,12 @@
 </template>
 
 <script>
+if (process.browser) var { Plyr } = require('vue-plyr');
+
 export default {
+  components: {
+		plyr: Plyr
+	},
   metaInfo: {
     title: "Portfolio"
   },
