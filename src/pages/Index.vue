@@ -138,16 +138,8 @@
 
           <!-- Borat Modal -->
           <b-modal hide-footer id="modal-borat" size="xl" title="Borat Subsequent Moviefilm">
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe
-                  src="https://www.youtube.com/watch?v=HOwaypo3jC4"
-                  allowfullscreen
-                  allowtransparency
-                  allow="autoplay"
-                ></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/watch?v=HOwaypo3jC4"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p
               class="mb-3"
@@ -181,19 +173,9 @@
             size="xl"
             title="Detective Pikachu: Consulting"
           >
-            <!-- video element -->
-            <vue-plyr>
-              <video controls crossorigin playsinline data-poster="poster.jpg">
-                <source size="720" src="/detective-pikachu-consulting.mp4" type="video/mp4" />
-                <track
-                  default
-                  kind="captions"
-                  label="English captions"
-                  src="/path/to/english.vtt"
-                  srclang="en"
-                />
-              </video>
-            </vue-plyr>
+            <video controls style="width:100%;max-width:100%;display:block;">
+              <source src="/detective-pikachu-consulting.mp4" type="video/mp4" />
+            </video>
 
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
@@ -230,12 +212,8 @@
             size="xl"
             title="Detective Pikachu - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/embed/wmnkAOO6Qo4"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/wmnkAOO6Qo4"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p
               class="mb-3"
@@ -249,16 +227,8 @@
             size="xl"
             title="Detective Pikachu - Social"
           >
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe
-                  src="https://www.youtube.com/watch?v=4RXdusySjsk"
-                  allowfullscreen
-                  allowtransparency
-                  allow="autoplay"
-                ></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/4RXdusySjsk"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this social promo for Ryan Reynolds' social media accounts.</p>
           </b-modal>
@@ -270,12 +240,8 @@
             size="xl"
             title="The Walking Dead - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=KowNrOoiwRU"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/KowNrOoiwRU"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Produced and edited this 5-minute extended Comic-Con trailer for season 9 of
@@ -290,12 +256,8 @@
             size="xl"
             title="LEGO Batman - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=aBJyp2LFHgk"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/aBJyp2LFHgk"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited this teaser for
@@ -311,12 +273,8 @@
             size="xl"
             title="The Walking Dead - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=Ixdi8XdYHMQ"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/Ixdi8XdYHMQ"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Produced and edited this trailer for season 4A of
@@ -326,12 +284,8 @@
 
           <!-- Trolls Marketing Modal -->
           <b-modal hide-footer id="modal-trolls-marketing" size="xl" title="Trolls - Marketing">
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=iUnRuQLYdTw"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/iUnRuQLYdTw"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited this teaser for
@@ -347,12 +301,8 @@
             size="xl"
             title="San Andreas - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=lDWIc4MGirE"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/lDWIc4MGirE"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited this teaser for
@@ -367,12 +317,7 @@
             size="xl"
             title="San Andreas - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=yhz4A5BCMAA"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/yhz4A5BCMAA"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited this trailer for
@@ -387,32 +332,7 @@
             size="xl"
             title="San Andreas - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=Bz9e0PGSDeU"></iframe>
-              </div>
-            </vue-plyr>
-            <span class="my-3 badge badge-pill badge-dark">Description</span>
-            <p class="mb-3">
-              Edited this teaser for
-              <i>San Andreas</i>.
-            </p>
-          </b-modal>
-
-          <!-- San Andreas Modal -->
-          <b-modal
-            hide-footer
-            id="modal-san-andreas-marketing"
-            size="xl"
-            title="San Andreas - Marketing"
-          >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=Bz9e0PGSDeU"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/Bz9e0PGSDeU"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited this teaser for
@@ -427,12 +347,7 @@
             size="xl"
             title="The LEGO Movie - Marketing"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=lPnY2NjSjrg"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed :params="{autoplay: 1}" src="https://www.youtube.com/embed/lPnY2NjSjrg"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited this teaser for
@@ -447,17 +362,8 @@
             size="xl"
             title="PlatformKit - Explainer"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <iframe
-              style="width:100%;max-width: 600px%;display: inline-block;  max-height: 600px;   border-radius:4px !important;  overflow:hidden !important;"
-              src="https://player.vimeo.com/video/414917709?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-              width="2160"
-              height="2160"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              title="PlatformKit Explainer"
-            ></iframe>
+            <video-embed src="https://vimeo.com/414917709"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this motion-graphic promo for PlatformKit.</p>
           </b-modal>
@@ -469,12 +375,8 @@
             size="xl"
             title="PlatformKit - Promo"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=4czLxjSJNY0"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=4czLxjSJNY0"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited and produced this ad for PlatformKit. Narration via Voices.com</p>
           </b-modal>
@@ -486,17 +388,8 @@
             size="xl"
             title="DharmaWorks - Video Essay"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <iframe
-              style="margin-top:15px; width:100%; max-width: 100%;display: inline-block;  max-height: 600px;  overflow:hidden !important;"
-              src="https://player.vimeo.com/video/521762762?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-              width="2160"
-              height="2160"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              title="The Hero Who Has No Fear"
-            ></iframe>
+            <video-embed src="https://www.vimeo.com/521762762"></video-embed>
+
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p
               class="mb-3"
@@ -510,17 +403,7 @@
             size="xl"
             title="DharmaWorks - Audiobook"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <iframe
-              style="margin-top:15px; width:100%; max-width: 100%;display: inline-block;  max-height: 600px;  overflow:hidden !important;"
-              src="https://player.vimeo.com/video/530078154?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-              width="2160"
-              height="2160"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              title="DharmaWorks - It Works"
-            ></iframe>
+            <video-embed src="https://www.vimeo.com/530078154"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Edited &amp; produced this video/audio-book adaptation of
@@ -535,17 +418,7 @@
             size="xl"
             title="DharmaWorks - Meditation"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <iframe
-              style="margin-top:15px; width:100%; max-width: 100%;display: inline-block;  max-height: 600px;  overflow:hidden !important;"
-              src="https://player.vimeo.com/video/452089938?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-              width="2160"
-              height="2160"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              title="Third Eye Meditation"
-            ></iframe>
+            <video-embed src="https://www.vimeo.com/452089938"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p
               class="mb-3"
@@ -555,11 +428,7 @@
           <!-- Limitless Modal -->
           <b-modal hide-footer id="modal-limitless" size="xl" title="Limitless - Viral Ad">
             <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=Ne8YmpVVH4Q"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=Ne8YmpVVH4Q"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">
               Produced and edited this ad (originally for the 2011 Superbowl) for 2011's
@@ -574,60 +443,35 @@
             size="xl"
             title="Nightmare on Elm Street - TV Spot"
           >
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=NVLagNq2G2A"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=NVLagNq2G2A"></video-embed>
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this TV spot for A Nightmare on Elm Street (2010).</p>
           </b-modal>
 
           <!-- Tron Modal -->
           <b-modal hide-footer id="modal-tron" size="xl" title="Tron Legacy - TV Spot">
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://youtu.be/368swgLpHLs"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=368swgLpHLs"></video-embed>                       
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this TV spot for Tron Legacy.</p>
           </b-modal>
 
           <!-- TinTin Modal -->
           <b-modal hide-footer id="modal-tintin" size="xl" title="Adventures of TinTin - TV Spot">
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://youtu.be/5nyCL2-sp3Q"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=5nyCL2-sp3Q"></video-embed>                       
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this TV spot for The Adventures of TinTin.</p>
           </b-modal>
 
           <!-- Mission Modal -->
           <b-modal hide-footer id="modal-mission" size="xl" title="Mission Impossible - TV Spot">
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://youtu.be/UOvGtWiJC5k"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=UOvGtWiJC5k"></video-embed>                        
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this TV spot for Mission Impossible Ghost Protocol.</p>
           </b-modal>
 
           <!-- Marianne Modal -->
           <b-modal hide-footer id="modal-marianne" size="xl" title="Limitless - Viral Ad">
-            <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://www.youtube.com/watch?v=UnYcLt1Vh6Y"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=UnYcLt1Vh6Y"></video-embed>                        
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Produced and edited this ad for Marianne Williamson.</p>
           </b-modal>
@@ -635,11 +479,7 @@
           <!-- Transformers Modal -->
           <b-modal hide-footer id="modal-transformers" size="xl" title="Limitless - Viral Ad">
             <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
-            <vue-plyr>
-              <div class="plyr__video-embed">
-                <iframe src="https://youtu.be/AP34-8Q4YXY"></iframe>
-              </div>
-            </vue-plyr>
+            <video-embed src="https://www.youtube.com/watch?v=AP34-8Q4YXY"></video-embed>                                    
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">Edited this TV Spot for Transformers 2: Revenge of the Fallen.</p>
           </b-modal>
@@ -1066,7 +906,6 @@
       <div style="background:#000;height:650px;display:block;">
         <video-bg
           :sources="['bg-vid.mp4']"
-          
           class="bg w-100 text-center d-none d-md-block"
           style="height:650pxdisplay:block;min-height:650px;max-height: 400px; height: 100vh; "
         >
@@ -1158,9 +997,6 @@
 </template>
 
 <script>
-
-
-
 export default {
   metaInfo: {
     title: "Portfolio"
@@ -1191,6 +1027,11 @@ export default {
 </script>
 
 <style>
+video,
+iframe {
+  border-radius: 4px !important;
+  overflow: none !important;
+}
 .plyr {
   border-radius: 5px !important;
   overflow: hidden !important;
