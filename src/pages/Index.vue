@@ -38,7 +38,7 @@
       <div
         class="bgImage"
         style="height:650px;display:block;"
-        :style="{background: '#ff0', backgroundImage: 'url(' + randomBackground() + ') !important'}"
+        :style="{background: '#000', backgroundImage: 'url(' + randomBackground() + ') !important'}"
       ></div>
 
       <div class="container-fluid text-center" style="position:absolute;top:0px;left:0px;">
