@@ -1092,9 +1092,9 @@ iframe {
   text-align:center;
 }
   #projects .col-md-4 div {
-    height: 200px;
-    width: 390px;
-    margin-left:-35px;
+    height: 190px;
+    width: 300px;    
+    margin-left:-30px;
     display:inline-block !important;
   }
 }
