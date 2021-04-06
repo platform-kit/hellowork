@@ -550,10 +550,66 @@
             </div>
           </vue-plyr>
           <span class="my-3 badge badge-pill badge-dark">Description</span>
-          <p class="mb-3">Produced and edited this ad (originally for the 2011 Superbowl) for 2011's <i>Limitless</i>, starring Bradley Cooper.</p>
+          <p class="mb-3">
+            Produced and edited this ad (originally for the 2011 Superbowl) for 2011's
+            <i>Limitless</i>, starring Bradley Cooper.
+          </p>
         </b-modal>
 
-         <!-- Marianne Modal -->
+        <!-- Nightmare Modal -->
+        <b-modal
+          hide-footer
+          id="modal-nightmare"
+          size="xl"
+          title="Nightmare on Elm Street - TV Spot"
+        >
+          <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
+          <vue-plyr>
+            <div class="plyr__video-embed">
+              <iframe src="https://www.youtube.com/watch?v=NVLagNq2G2A"></iframe>
+            </div>
+          </vue-plyr>
+          <span class="my-3 badge badge-pill badge-dark">Description</span>
+          <p class="mb-3">Edited this TV spot for A Nightmare on Elm Street (2010).</p>
+        </b-modal>
+
+        <!-- Tron Modal -->
+        <b-modal hide-footer id="modal-tron" size="xl" title="Tron Legacy - TV Spot">
+          <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
+          <vue-plyr>
+            <div class="plyr__video-embed">
+              <iframe src="https://youtu.be/368swgLpHLs"></iframe>
+            </div>
+          </vue-plyr>
+          <span class="my-3 badge badge-pill badge-dark">Description</span>
+          <p class="mb-3">Edited this TV spot for Tron Legacy.</p>
+        </b-modal>
+
+        <!-- TinTin Modal -->
+        <b-modal hide-footer id="modal-tintin" size="xl" title="Adventures of TinTin - TV Spot">
+          <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
+          <vue-plyr>
+            <div class="plyr__video-embed">
+              <iframe src="https://youtu.be/5nyCL2-sp3Q"></iframe>
+            </div>
+          </vue-plyr>
+          <span class="my-3 badge badge-pill badge-dark">Description</span>
+          <p class="mb-3">Edited this TV spot for The Adventures of TinTin.</p>
+        </b-modal>
+
+        <!-- Mission Modal -->
+        <b-modal hide-footer id="modal-mission" size="xl" title="Mission Impossible - TV Spot">
+          <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
+          <vue-plyr>
+            <div class="plyr__video-embed">
+              <iframe src="https://youtu.be/UOvGtWiJC5k"></iframe>
+            </div>
+          </vue-plyr>
+          <span class="my-3 badge badge-pill badge-dark">Description</span>
+          <p class="mb-3">Edited this TV spot for Mission Impossible Ghost Protocol.</p>
+        </b-modal>
+
+        <!-- Marianne Modal -->
         <b-modal hide-footer id="modal-marianne" size="xl" title="Limitless - Viral Ad">
           <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
           <vue-plyr>
@@ -563,6 +619,18 @@
           </vue-plyr>
           <span class="my-3 badge badge-pill badge-dark">Description</span>
           <p class="mb-3">Produced and edited this ad for Marianne Williamson.</p>
+        </b-modal>
+
+        <!-- Transformers Modal -->
+        <b-modal hide-footer id="modal-transformers" size="xl" title="Limitless - Viral Ad">
+          <!-- vimeo iframe with progressive enhancement (extra queries after the url to optimize the embed) -->
+          <vue-plyr>
+            <div class="plyr__video-embed">
+              <iframe src="https://youtu.be/AP34-8Q4YXY"></iframe>
+            </div>
+          </vue-plyr>
+          <span class="my-3 badge badge-pill badge-dark">Description</span>
+          <p class="mb-3">Edited this TV Spot for Transformers 2: Revenge of the Fallen.</p>
         </b-modal>
 
         <!-- Featured Projects -->
@@ -655,7 +723,7 @@
           <!-- Mission: Impossible -->
           <div
             class="col-md-4 mb-3"
-            @click="$bvModal.show('modal-mission-impossible-marketing')"
+            @click="$bvModal.show('modal-mission')"
             v-show="filterWork == 'marketing' || filterWork == 'editorial' || filterWork == 'all'"
           >
             <div
@@ -751,7 +819,7 @@
           <!-- TinTin -->
           <div
             class="col-md-4 mb-3"
-            @click="$bvModal.show('modal-tintin-marketing')"
+            @click="$bvModal.show('modal-tintin')"
             v-show="filterWork == 'marketing' || filterWork == 'editorial' || filterWork == 'all'"
           >
             <div
@@ -775,7 +843,7 @@
           <!-- Transformers -->
           <div
             class="col-md-4 mb-3"
-            @click="$bvModal.show('modal-transformers-marketing')"
+            @click="$bvModal.show('modal-transformers')"
             v-show="filterWork == 'marketing' || filterWork == 'editorial' || filterWork == 'all'"
           >
             <div
@@ -823,7 +891,7 @@
           <!-- Nightmare on Elm Street - Marketing -->
           <div
             class="col-md-4 mb-3"
-            @click="$bvModal.show('modal-nightmare-marketing')"
+            @click="$bvModal.show('modal-nightmare')"
             v-show="filterWork == 'editing' || filterWork == 'marketing' || filterWork == 'all'"
           >
             <div
@@ -843,10 +911,11 @@
               style="background-position:center !important;background:url(/third-eye-meditation.jpg); "
             ></div>
           </div>
+
           <!-- Tron Legacy - Marketing -->
           <div
             class="col-md-4 mb-3"
-            @click="$bvModal.show('modal-tron-marketing')"
+            @click="$bvModal.show('modal-tron')"
             v-show="filterWork == 'editing' || filterWork == 'marketing' || filterWork == 'all'"
           >
             <div
