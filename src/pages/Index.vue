@@ -1094,8 +1094,15 @@ iframe {
   #projects .col-md-4 div {
     height: 190px;
     width: 300px;    
-    margin-left:-30px;
+    margin-left:-5px;
     display:inline-block !important;
+  }
+}
+
+@media (max-width: 375px) {
+ 
+  #projects .col-md-4 div { 
+    margin-left:-48px !important; 
   }
 }
 
