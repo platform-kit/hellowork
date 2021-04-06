@@ -486,7 +486,7 @@
 
           <!-- Featured Projects -->
 
-          <div class="row ml-2 mb-5" id="projects">
+          <div class="row ml-2 mb-5 mx-0" id="projects">
             <!-- Borat -->
             <div
               class="col-md-4 mb-3"
@@ -834,12 +834,8 @@
                 style="cursor:pointer;"
               >
                 <b-row no-gutters>
-                  <b-col md="6">
-                    <b-card-img
-                      src="https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/e35/163599789_475069440295036_2987837820087803364_n.jpg?tp=1&_nc_ht=scontent-lax3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=dl_0cjxcKTsAX8oaMFY&ccb=7-4&oh=675760f71d8c9bdc800a3c10fd2777df&oe=60867BA1&_nc_sid=4f375e"
-                      alt="Image"
-                      class="rounded-0"
-                    ></b-card-img>
+                  <b-col md="6" style="min-height:300px;background:url(https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/e35/163599789_475069440295036_2987837820087803364_n.jpg?tp=1&_nc_ht=scontent-lax3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=dl_0cjxcKTsAX8oaMFY&ccb=7-4&oh=675760f71d8c9bdc800a3c10fd2777df&oe=60867BA1&_nc_sid=4f375e);background-size:cover !important;background-position:center !important;display:block;">
+                    
                   </b-col>
                   <b-col md="6">
                     <b-card-body title="DharmaWorks">
@@ -859,12 +855,9 @@
                 style="cursor:pointer;"
               >
                 <b-row no-gutters>
-                  <b-col md="6">
-                    <b-card-img
-                      src="https://www.platformkit.com/logos/touch-icon.png"
-                      alt="Image"
-                      class="rounded-0"
-                    ></b-card-img>
+                  <b-col md="6" style="min-height:300px;background:url(https://www.platformkit.com/logos/touch-icon.png);background-size:cover !important;background-repeat:no-repeat;background-size:70% !important;background-position:center !important;display:block;">
+                    
+                    
                   </b-col>
                   <b-col md="6">
                     <b-card-body title="PlatformKit">
@@ -884,12 +877,8 @@
                 style="cursor:pointer;"
               >
                 <b-row no-gutters>
-                  <b-col md="6">
-                    <b-card-img
-                      src="https://i.etsystatic.com/26946098/r/il/6d6fb2/2815675809/il_fullxfull.2815675809_pqfx.jpg"
-                      alt="Image"
-                      class="rounded-0"
-                    ></b-card-img>
+                  <b-col md="6" style="min-height:300px;background:url(https://i.etsystatic.com/26946098/r/il/6d6fb2/2815675809/il_fullxfull.2815675809_pqfx.jpg);background-repeat:no-repeat;background-size:70% !important;background-position:center !important;display:block;">
+                    
                   </b-col>
                   <b-col md="6">
                     <b-card-body title="Aquarian Outfitters">
@@ -1058,10 +1047,7 @@ iframe {
 }
 
 @media (min-width: 991px) {
-  #featured-projects .card .col-md-6:first-of-type {
-    max-height: 450px !important;
-    max-width: 450px !important;
-  }
+  
   #featured-projects .card .col-md-6:last-of-type {
     width: 800px !important;
     max-width: 800px !important;
@@ -1101,7 +1087,7 @@ iframe {
   height: 180px;
   width: 320px;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   #projects .col-md-4 {
   text-align:center;
 }
