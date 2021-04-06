@@ -15,10 +15,7 @@ export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.use(BootstrapVue) // Bootstrap Vue
-  Vue.use(IconsPlugin) // Bootstrap Vue
-  Vue.use(VuePlyr, {   // Vue Plyr
-    plyr: {}
-  })
+  Vue.use(IconsPlugin) // Bootstrap Vue 
   Vue.component('video-bg', VideoBg) //Video Background Player
   Vue.use(VueMobileDetection); // Mobile Detection
 
