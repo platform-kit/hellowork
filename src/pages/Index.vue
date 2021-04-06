@@ -826,7 +826,7 @@
           </div>
           <div class="row">
             <div class="col-md-12 mb-3">
-              <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Self Development</span>
+              <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised meta-badge">Self Development</span>
               <b-card
                 no-body
                 class="overflow-hidden border-0 raised w-100"
@@ -847,7 +847,7 @@
             </div>
 
             <div class="col-md-12 mb-3">
-              <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Software Development</span>
+              <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised meta-badge">Software Development</span>
               <b-card
                 no-body
                 class="overflow-hidden border-0 raised w-100"
@@ -869,7 +869,7 @@
             </div>
 
             <div class="col-md-12 mb-3">
-              <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised">Design</span>
+              <span class="badge badge-dark br-25 px-3 py-2 mb-3 raised meta-badge">Product Design</span>
               <b-card
                 no-body
                 class="overflow-hidden border-0 raised w-100"
@@ -1016,6 +1016,16 @@ export default {
 </script>
 
 <style>
+
+.meta-badge {
+  position:absolute !important;
+  top:20px !important;
+  left:0px !important;    
+  z-index:99 !important;
+  background: #eafef3 !important;
+  color:rgb(46, 120, 139); 
+}
+
 video,
 iframe {
   border-radius: 4px !important;
