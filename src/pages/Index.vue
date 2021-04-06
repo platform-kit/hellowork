@@ -1095,14 +1095,20 @@ iframe {
   }
 }
 
+
+
 #projects .col-md-4 div {
   height: 180px;
   width: 320px;
 }
 @media (max-width: 768px) {
+  #projects .col-md-4 {
+  text-align:center;
+}
   #projects .col-md-4 div {
     height: 119px;
     width: 212px;
+    display:inline-block !important;
   }
 }
 
