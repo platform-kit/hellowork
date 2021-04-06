@@ -1158,8 +1158,8 @@
 </template>
 
 <script>
-import VuePlyr from 'vue-plyr';
-Vue.use(VuePlyr);
+
+
 
 export default {
   metaInfo: {
