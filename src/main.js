@@ -6,10 +6,11 @@ import BootstrapVue from 'bootstrap-vue' //Bootstrap Vue
 import 'bootstrap/dist/css/bootstrap.css' //Bootstrap Vue
 import 'bootstrap-vue/dist/bootstrap-vue.css' //Bootstrap Vue
 import { IconsPlugin } from 'bootstrap-vue' //Bootstrap Vue
+
 import VuePlyr from '/node_overwrites/vue-plyr-ssr.js' // Vue Plyr
 import 'vue-plyr/dist/vue-plyr.css' // Vue Plyr
 import VideoBg from 'vue-videobg' //Video Background Player
-import VueMobileDetection from "vue-mobile-detection" // Mobile Detection
+
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
@@ -20,6 +21,6 @@ export default function (Vue, { router, head, isClient }) {
     plyr: {}
   })
   Vue.component('video-bg', VideoBg) //Video Background Player
-  Vue.use(VueMobileDetection); // Mobile Detection
+  
 
 }

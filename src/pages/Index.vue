@@ -1066,8 +1066,8 @@
       <div style="background:#000;height:650px;display:block;">
         <video-bg
           :sources="['bg-vid.mp4']"
-          v-if="!$isMobile()"
-          class="bg w-100 text-center"
+          
+          class="bg w-100 text-center d-none d-md-block"
           style="height:650pxdisplay:block;min-height:650px;max-height: 400px; height: 100vh; "
         >
           <div
@@ -1112,7 +1112,7 @@
             </div>
           </div>
         </video-bg>
-        <div v-else class="bg w-100 text-center">
+        <div class="bg w-100 text-center d-block d-md-none">
           <div class="container-fluid text-center">
             <div class="row" style="padding-top:150px;">
               <div class="col-12 mx-auto">
