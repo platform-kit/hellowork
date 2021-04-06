@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <ClientOnly>
     <div style="background:#000 !important;">
       <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent">
         <b-navbar-brand class="d-inline-block d-md-none" href="/">James Hunter Carter</b-navbar-brand>
@@ -1051,7 +1052,7 @@
         </div>
       </div>
     </div>
-    <ClientOnly>
+    
       <div style="background:#000;height:650px;display:block;">
         <video-bg
           :sources="['bg-vid.mp4']"
