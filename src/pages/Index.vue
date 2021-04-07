@@ -846,7 +846,7 @@ export default {
           video: "https://www.vimeo.com/521762762",
           thumbnail: "/hero-who-has-no-fear.jpg",
           description:
-            "Edited and produced this audiobook/video adaptation of It Works.",
+            "Edited and produced this video essay featuring narratation by Jean Shinoda Bolen from her 'Ring of Power' lecture.",
         },
         {
           id: "dharmaworks-it-works",
