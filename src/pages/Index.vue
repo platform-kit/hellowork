@@ -206,7 +206,7 @@
           <b-modal hide-footer id="modal-dynamic" size="xl" :title="modalTitle">
             <video-embed
               v-if="modalVideo != null && modalVideo.includes('https://')"
-              :params="{ autoplay: 1 }"
+              :params="{ autoplay: 1, modestbranding: 1, controls:1, rel: 0  }"
               :src="modalVideo"
             ></video-embed>
             <video style="max-width:100%;"
@@ -604,14 +604,14 @@ export default {
             " Produced and edited this 5-minute extended Comic-Con trailer for season 9 of The Walking Dead. Featuring custom score by Bear McCreary.",
         },
         {
-          id: "mission-impossible",
-          title: "Mission Impossible - Marketing",
-          tags: ["all", "marketing", "editorial"],
-          video: "https://www.youtube.com/embed/UOvGtWiJC5k",
+          id: "detective-pikachu-featurette",
+          title: "Detective Pikachu - Marketing",
+          tags: ["all", "marketing", "editorial", "social"],
+          video: "https://www.youtube.com/embed/198gzllaumo",
           thumbnail:
-            "https://2.bp.blogspot.com/-qZd9XrPjFls/W2hhfZ5QzKI/AAAAAAAAFTs/JV3EE_UR-2E55Mg2mTXDqloofXPNDoh2gCLcBGAs/s1600/MI-GP.jpg",
+            "https://s3.amazonaws.com/prod-media.gameinformer.com/styles/body_default/s3/2019/04/10/f9734cb2/squirtle.jpg",
           description:
-            "Edited this TV spot for Mission Impossible Ghost Protocol.",
+            "Produced this 'behind-the-scenes' featurette for Detective Pikachu. Visuals and music produced specifically for this piece.",
         },
         {
           id: "fear-the-walking-dead",
@@ -634,15 +634,16 @@ export default {
             "Edited this teaser for The LEGO Batman Movie. Assembled from storyboards and previz/animatics. Animation was produced specifically for this teaser.",
         },
         {
-          id: "detective-pikachu-featurette",
-          title: "Detective Pikachu - Marketing",
-          tags: ["all", "marketing", "editorial", "social"],
-          video: "https://www.youtube.com/embed/198gzllaumo",
+          id: "trolls",
+          title: "DreamWorks' Trolls - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/embed/iUnRuQLYdTw",
           thumbnail:
-            "https://s3.amazonaws.com/prod-media.gameinformer.com/styles/body_default/s3/2019/04/10/f9734cb2/squirtle.jpg",
+            "https://pro2-bar-s3-cdn-cf2.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/3c9b915c-b31f-4c72-a499-a98a220001f6_rwc_0x0x1915x1080x1915.jpg?h=3772253aacb9c7c3a716da4f203b11f8",
           description:
-            "Produced this making-of featurette for Detective Pikachu. Shots and music produced specifically for this teaser.",
+            " Edited this teaser for DreamWorks' Trolls. Animation and music were produced specifically for this teaser.",
         },
+
         {
           id: "lego-movie",
           title: "The LEGO Movie - Marketing",
@@ -663,6 +664,16 @@ export default {
             "Edited this teaser for Star Trek Beyond exhibiting in a special 3-screen format.",
         },
         {
+          id: "mission-impossible",
+          title: "Mission Impossible - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/embed/UOvGtWiJC5k",
+          thumbnail:
+            "https://2.bp.blogspot.com/-qZd9XrPjFls/W2hhfZ5QzKI/AAAAAAAAFTs/JV3EE_UR-2E55Mg2mTXDqloofXPNDoh2gCLcBGAs/s1600/MI-GP.jpg",
+          description:
+            "Edited this TV spot for Mission Impossible Ghost Protocol.",
+        },
+        {
           id: "star-trek-into-darkness",
           title: "Star Trek Into Darkness - Marketing",
           tags: ["all", "marketing", "editorial"],
@@ -670,16 +681,6 @@ export default {
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEca40E4ygi0ftpy0zfd1c5jW0iMy6VkX2UI2K8YK0cJ2xYCH5YSykp3eeleO-iRhhz8&usqp=CAU",
           description: "Edited this trailer for Star Trek Into Darkness.",
-        },
-        {
-          id: "trolls",
-          title: "DreamWorks' Trolls - Marketing",
-          tags: ["all", "marketing", "editorial"],
-          video: "https://www.youtube.com/embed/iUnRuQLYdTw",
-          thumbnail:
-            "https://pro2-bar-s3-cdn-cf2.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/3c9b915c-b31f-4c72-a499-a98a220001f6_rwc_0x0x1915x1080x1915.jpg?h=3772253aacb9c7c3a716da4f203b11f8",
-          description:
-            " Edited this teaser for DreamWorks' Trolls. Animation and music were produced specifically for this teaser.",
         },
         {
           id: "cloud-atlas",
@@ -691,17 +692,7 @@ export default {
           description:
             "Edited this behind-the-scenes featurette for the Wachowski's Cloud Atlas.",
         },
-        {
-          id: "jupiter-ascending",
-          title: "Jupier Ascending - Marketing",
-          tags: ["all", "marketing", "editorial"],
-          video: "https://www.youtube.com/watch?v=THVFkk-sEus",
-          thumbnail:
-            "http://all-things-andy-gavin.com/wp-content/uploads/2015/02/Jupiter-Ascending.jpg",
-          description:
-            "Edited and produced this audiobook/video adaptation of It Works.",
-        },
-        {
+         {
           id: "pan",
           title: "Pan - Marketing",
           tags: ["all", "marketing", "editorial"],
@@ -712,6 +703,16 @@ export default {
             "Edited and produced this audiobook/video adaptation of It Works.",
         },
         {
+          id: "jupiter-ascending",
+          title: "Jupier Ascending - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=THVFkk-sEus",
+          thumbnail:
+            "http://all-things-andy-gavin.com/wp-content/uploads/2015/02/Jupiter-Ascending.jpg",
+          description:
+            "Edited and produced this audiobook/video adaptation of It Works.",
+        },       
+        {
           id: "tintin",
           title: "TinTin - Marketing",
           tags: ["all", "marketing", "editorial"],
@@ -720,7 +721,7 @@ export default {
             "https://pro2-bar-s3-cdn-cf5.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/6473ea25-cac0-4b3a-85f9-7b403dbf7e92_rwc_0x0x1177x664x1177.png?h=2c64fb46fb41670da7585de8c8db532c",
           description: " Edited this TV Spot for The Adventures of TinTin.",
         },
-          {
+        {
           id: "narcos",
           title: "Narcos - Marketing",
           tags: ["all", "marketing", "editorial", "social"],
@@ -729,16 +730,17 @@ export default {
             "https://3.bp.blogspot.com/-FgmIzIVVK9A/W13KU0EgGwI/AAAAAAAAU_E/7y8VLu8Ei3ASRZq1oh5BY6ktbNm_lcEfwCLcBGAs/s1600/Narcos.jpg",
           description: "Edited this TV Spot for Narcos Season 1.",
         },
-          {
+        {
           id: "journey",
           title: "Journey 2 - Marketing",
           tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/watch?v=SpIuOYI9RB4",
           thumbnail:
             "https://i0.wp.com/www.heyuguys.com/images/2012/01/Journey-2-UK-Poster.jpg",
-          description: "Edited this trailer for Journey 2 The Mysterious Island.",
+          description:
+            "Edited this trailer for Journey 2 The Mysterious Island.",
         },
-          {
+        {
           id: "wolfman",
           title: "Wolfman - Marketing",
           tags: ["all", "marketing", "editorial"],
