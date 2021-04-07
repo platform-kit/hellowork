@@ -726,7 +726,7 @@ export default {
           tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/watch?v=Ybwt0S1gDYk",
           thumbnail:
-            "https://conversationsabouther.net/wp-content/uploads/2016/02/narcos-netflix.jpg",
+            "https://3.bp.blogspot.com/-FgmIzIVVK9A/W13KU0EgGwI/AAAAAAAAU_E/7y8VLu8Ei3ASRZq1oh5BY6ktbNm_lcEfwCLcBGAs/s1600/Narcos.jpg",
           description: "Edited this TV Spot for Narcos Season 1.",
         },
           {
