@@ -174,13 +174,13 @@
                       @click="filterWork = 'editorial'"
                       v-bind:class="{ active: filterWork == 'editorial' }"
                       class="btn-light btn-outline-primary"
-                      >Editing</b-button
+                      >Film Editorial</b-button
                     >
                     <b-button
                       @click="filterWork = 'marketing'"
                       v-bind:class="{ active: filterWork == 'marketing' }"
                       class="btn-light btn-outline-primary"
-                      >Marketing</b-button
+                      >Commercial Editorial</b-button
                     >
                     <b-button
                       @click="filterWork = 'original'"
@@ -568,7 +568,7 @@ export default {
         {
           id: "pikachu-marketing",
           title: "Detective Pikachu - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/wmnkAOO6Qo4",
           thumbnail: "https://i.ytimg.com/vi/wmnkAOO6Qo4/maxresdefault.jpg",
           description:
@@ -587,7 +587,7 @@ export default {
         {
           id: "pikachu-social",
           title: "Detective Pikachu - Social Media",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "social"],
           video: "https://www.youtube.com/embed/4RXdusySjsk",
           thumbnail: "https://i.ytimg.com/vi/4RXdusySjsk/maxresdefault.jpg",
           description:
@@ -596,7 +596,7 @@ export default {
         {
           id: "walking-dead",
           title: "The Walking Dead - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/KowNrOoiwRU",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf3.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/eaf8625f-dcce-4860-99cd-bfaba14e6dda_rwc_0x22x1440x811x1440.png?h=f45befbc57df4c9833a5eba309726bf1",
@@ -606,7 +606,7 @@ export default {
         {
           id: "detective-pikachu-featurette",
           title: "Detective Pikachu - Marketing",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "social"],
           video: "https://www.youtube.com/embed/198gzllaumo",
           thumbnail:
             "https://s3.amazonaws.com/prod-media.gameinformer.com/styles/body_default/s3/2019/04/10/f9734cb2/squirtle.jpg",
@@ -616,7 +616,7 @@ export default {
         {
           id: "fear-the-walking-dead",
           title: "Fear The Walking Dead - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/Ixdi8XdYHMQ",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf3.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/44d02f84-5a1b-4759-8aa1-7f1c735d0b33_rwc_0x87x800x451x800.jpeg?h=b22f2a14965994121c52571ccf78e3b3",
@@ -626,7 +626,7 @@ export default {
         {
           id: "fear-the-walking-dead",
           title: "Fear The Walking Dead - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=JAACtzjy1VM",
           thumbnail:
             "https://static0.srcdn.com/wordpress/wp-content/uploads/2018/07/Fear-The-Walking-Dead-4b-poster-1.jpg",
@@ -636,7 +636,7 @@ export default {
         {
           id: "lego-batman",
           title: "Lego Batman - Marketing",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "social"],
           video: "https://www.youtube.com/embed/Ixdi8XdYHMQ",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf6.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/7fa0e97a-36b0-4df6-895c-9ed14cefaf65_rwc_0x0x1177x664x1177.png?h=cffd1ad89de34063c3d5056787e8fbaf",
@@ -646,7 +646,7 @@ export default {
         {
           id: "trolls",
           title: "DreamWorks' Trolls - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/iUnRuQLYdTw",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf2.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/3c9b915c-b31f-4c72-a499-a98a220001f6_rwc_0x0x1915x1080x1915.jpg?h=3772253aacb9c7c3a716da4f203b11f8",
@@ -657,7 +657,7 @@ export default {
         {
           id: "lego-movie",
           title: "The LEGO Movie - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/lPnY2NjSjrg",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf1.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/ca16ec5e-a592-4625-87b0-3ec5342f248e_rwc_0x0x1177x664x1177.png?h=381d8ad84682e1eedcafc32a420f1e00",
@@ -667,7 +667,7 @@ export default {
         {
           id: "star-trek-beyond",
           title: "Star Trek Beyond - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/lDWIc4MGirE",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSqSLVlOSfqyQQiRoNPjJxyhrWvRXQq7ccQ&usqp=CAU",
@@ -677,7 +677,7 @@ export default {
         {
           id: "mission-impossible",
           title: "Mission Impossible - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/UOvGtWiJC5k",
           thumbnail:
             "https://2.bp.blogspot.com/-qZd9XrPjFls/W2hhfZ5QzKI/AAAAAAAAFTs/JV3EE_UR-2E55Mg2mTXDqloofXPNDoh2gCLcBGAs/s1600/MI-GP.jpg",
@@ -687,7 +687,7 @@ export default {
         {
           id: "edge-of-tomorrow",
           title: "Edge of Tomorrow - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=TnObnE7DT-E",
           thumbnail:
             "https://cyberdystopianmatrix.files.wordpress.com/2019/09/edge-of-tomorrow.jpg",
@@ -696,7 +696,7 @@ export default {
         {
           id: "star-trek-into-darkness",
           title: "Star Trek Into Darkness - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/yhz4A5BCMAA",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEca40E4ygi0ftpy0zfd1c5jW0iMy6VkX2UI2K8YK0cJ2xYCH5YSykp3eeleO-iRhhz8&usqp=CAU",
@@ -705,7 +705,7 @@ export default {
         {
           id: "cloud-atlas",
           title: "Cloud Atlas - Marketing",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "social"],
           video: "https://www.youtube.com/watch?v=qpsgYbcELMU",
           thumbnail:
             "https://biblioklept.files.wordpress.com/2013/04/cloud-atlas-poster.jpg",
@@ -715,7 +715,7 @@ export default {
         {
           id: "jupiter-ascending",
           title: "Jupier Ascending - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=THVFkk-sEus",
           thumbnail:
             "http://all-things-andy-gavin.com/wp-content/uploads/2015/02/Jupiter-Ascending.jpg",
@@ -725,7 +725,7 @@ export default {
         {
           id: "pan",
           title: "Pan - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=TQMqvG4t3Mo",
           thumbnail:
             "https://static.wikia.nocookie.net/logopedia/images/8/88/Peter-pan-2015-movie-title-logo.jpg/revision/latest?cb=20141218221651",
@@ -735,7 +735,7 @@ export default {
         {
           id: "tintin",
           title: "TinTin - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/5nyCL2-sp3Q",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf5.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/6473ea25-cac0-4b3a-85f9-7b403dbf7e92_rwc_0x0x1177x664x1177.png?h=2c64fb46fb41670da7585de8c8db532c",
@@ -744,7 +744,7 @@ export default {
         {
           id: "narcos",
           title: "Narcos - Marketing",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "social"],
           video: "https://www.youtube.com/watch?v=Ybwt0S1gDYk",
           thumbnail:
             "https://3.bp.blogspot.com/-FgmIzIVVK9A/W13KU0EgGwI/AAAAAAAAU_E/7y8VLu8Ei3ASRZq1oh5BY6ktbNm_lcEfwCLcBGAs/s1600/Narcos.jpg",
@@ -753,7 +753,7 @@ export default {
         {
           id: "journey",
           title: "Journey 2 - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=SpIuOYI9RB4",
           thumbnail:
             "https://i0.wp.com/www.heyuguys.com/images/2012/01/Journey-2-UK-Poster.jpg",
@@ -763,7 +763,7 @@ export default {
         {
           id: "wolfman",
           title: "Wolfman - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=mmPfsrcT6OY",
           thumbnail:
             "https://s.ecrater.com/stores/60130/4ba70a15c369d_60130b.jpg",
@@ -772,7 +772,7 @@ export default {
         {
           id: "san-andreas",
           title: "San Andreas - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/Bz9e0PGSDeU",
           thumbnail:
             "https://iamyourtargetdemographic.files.wordpress.com/2015/06/san-andreas.jpg",
@@ -781,7 +781,7 @@ export default {
         {
           id: "tron",
           title: "Tron Legacy - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/368swgLpHLs",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP6VxAEKydw9u8uojhSH3kBcvnwf_S_BeMcw&usqp=CAU",
@@ -790,7 +790,7 @@ export default {
         {
           id: "nightmare",
           title: "A Nightmare on Elm Street - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/NVLagNq2G2A",
           thumbnail: "https://images4.alphacoders.com/274/274156.jpg",
           description: "Edited this TV spot for A Nightmare on Elm Street.",
@@ -798,7 +798,7 @@ export default {
         {
           id: "limitless",
           title: "Limitless - Marketing",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "social"],
           video: "https://www.youtube.com/embed/Ne8YmpVVH4Q",
           thumbnail: "https://i.ytimg.com/vi/Ne8YmpVVH4Q/maxresdefault.jpg",
           description:
@@ -816,7 +816,7 @@ export default {
         {
           id: "transformers-2",
           title: "Transformers 2 - Marketing",
-          tags: ["all", "marketing", "editorial"],
+          tags: ["all", "marketing"],
           video: "https://www.youtube.com/embed/AP34-8Q4YXY",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf6.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/768d62c5-8fe5-4e72-ae28-e639ce985986_rwc_0x0x1177x664x1177.png?h=680f71602126a41b9608dcc5442451b2",
@@ -826,7 +826,7 @@ export default {
         {
           id: "platformkit-explainer",
           title: "PlatformKit - Explainer",
-          tags: ["marketing", "editorial", "social", "original"],
+          tags: ["marketing", "social", "original"],
           video: "https://vimeo.com/414917709",
           thumbnail: "https://www.platformkit.com/files/platformkit.jpg",
           description: "Edited this web ad for PlatformKit.",
@@ -834,7 +834,7 @@ export default {
         {
           id: "platformkit-marketing",
           title: "PlatformKit - Explainer",
-          tags: ["all", "marketing", "editorial", "social", "original"],
+          tags: ["all", "marketing", "social", "original"],
           video: "https://www.youtube.com/watch?v=4czLxjSJNY0",
           thumbnail: "/entrepreneurs.jpg",
           description: "Edited this web ad for PlatformKit.",
@@ -869,12 +869,21 @@ export default {
         {
           id: "dharmaworks-promo",
           title: "DharmaWorks - Promo",
-          tags: ["all",  "editorial", "social", "original"],
+          tags: ["all", "social", "original"],
           video: "https://www.vimeo.com/446966638",
           thumbnail: "https://i.pinimg.com/originals/31/5b/b1/315bb19d42bbe42ed47bbd6008aa9412.jpg",
           description:
-            "Edited this meditation.",
+            "Edited this promo for DharmaWorks.",
         },
+         {
+          id: "devil-inside",
+          title: "The Devil Inside - Editorial",
+          tags: ["editorial"],
+          video: "https://www.youtube.com/watch?v=f8w6nnTdAcc",
+          thumbnail: "https://d13ezvd6yrslxm.cloudfront.net/wp/wp-content/images/the-devil-inside-trailer.jpg",
+          description:
+            "Provided additional editing for the found-footage horror film, The Devil Inside.",
+        }
       ],
       filterWork: "all",
       window: null,
