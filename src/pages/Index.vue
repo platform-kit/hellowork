@@ -728,7 +728,7 @@ export default {
           tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=TQMqvG4t3Mo",
           thumbnail:
-            "https://static.wikia.nocookie.net/logopedia/images/8/88/Peter-pan-2015-movie-title-logo.jpg/revision/latest?cb=20141218221651",
+            "https://nerdnationmagazine.files.wordpress.com/2015/10/pan01.jpg",
           description:
             "Edited and produced this audiobook/video adaptation of It Works.",
         },
