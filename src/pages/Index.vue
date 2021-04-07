@@ -765,7 +765,7 @@ export default {
           id: "dharmaworks-it-works",
           title: "DharmaWorks - It Works",
           tags: ['all', 'marketing', 'editorial', 'social'],
-          video: "https://www.youtube.com/watch?v=4czLxjSJNY0",
+          video: "https://www.vimeo.com/530078154",
           thumbnail:
             "https://i.vimeocdn.com/video/1097166542.jpg",
           description:
