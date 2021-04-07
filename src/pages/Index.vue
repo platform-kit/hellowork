@@ -183,10 +183,10 @@
                       >Marketing</b-button
                     >
                     <b-button
-                      @click="filterWork = 'social'"
-                      v-bind:class="{ active: filterWork == 'social' }"
+                      @click="filterWork = 'original'"
+                      v-bind:class="{ active: filterWork == 'original' }"
                       class="btn-light btn-outline-primary"
-                      >Social Media</b-button
+                      >Original Content</b-button
                     >
                     <b-button
                       @click="filterWork = 'all'"
@@ -624,6 +624,16 @@ export default {
             "Produced and edited this trailer for season 4 of Fear The Walking Dead.",
         },
         {
+          id: "fear-the-walking-dead",
+          title: "Fear The Walking Dead - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=JAACtzjy1VM",
+          thumbnail:
+            "https://static0.srcdn.com/wordpress/wp-content/uploads/2018/07/Fear-The-Walking-Dead-4b-poster-1.jpg",
+          description:
+            "Produced and edited this trailer for Season 4B of Fear The Walking Dead.",
+        },
+        {
           id: "lego-batman",
           title: "Lego Batman - Marketing",
           tags: ["all", "marketing", "editorial", "social"],
@@ -653,6 +663,7 @@ export default {
             "https://pro2-bar-s3-cdn-cf1.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/ca16ec5e-a592-4625-87b0-3ec5342f248e_rwc_0x0x1177x664x1177.png?h=381d8ad84682e1eedcafc32a420f1e00",
           description: "Edited this teaser for The LEGO Movie.",
         },
+
         {
           id: "star-trek-beyond",
           title: "Star Trek Beyond - Marketing",
@@ -674,6 +685,15 @@ export default {
             "Edited this TV spot for Mission Impossible Ghost Protocol.",
         },
         {
+          id: "edge-of-tomorrow",
+          title: "Edge of Tomorrow - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=TnObnE7DT-E",
+          thumbnail:
+            "https://cyberdystopianmatrix.files.wordpress.com/2019/09/edge-of-tomorrow.jpg",
+          description: "Edited this piece for Edge of Tomorrow.",
+        },
+        {
           id: "star-trek-into-darkness",
           title: "Star Trek Into Darkness - Marketing",
           tags: ["all", "marketing", "editorial"],
@@ -692,16 +712,6 @@ export default {
           description:
             "Edited this behind-the-scenes featurette for the Wachowski's Cloud Atlas.",
         },
-         {
-          id: "pan",
-          title: "Pan - Marketing",
-          tags: ["all", "marketing", "editorial"],
-          video: "https://www.youtube.com/watch?v=TQMqvG4t3Mo",
-          thumbnail:
-            "https://static.wikia.nocookie.net/logopedia/images/8/88/Peter-pan-2015-movie-title-logo.jpg/revision/latest?cb=20141218221651",
-          description:
-            "Edited and produced this audiobook/video adaptation of It Works.",
-        },
         {
           id: "jupiter-ascending",
           title: "Jupier Ascending - Marketing",
@@ -711,7 +721,17 @@ export default {
             "http://all-things-andy-gavin.com/wp-content/uploads/2015/02/Jupiter-Ascending.jpg",
           description:
             "Edited and produced this audiobook/video adaptation of It Works.",
-        },       
+        },
+        {
+          id: "pan",
+          title: "Pan - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=TQMqvG4t3Mo",
+          thumbnail:
+            "https://static.wikia.nocookie.net/logopedia/images/8/88/Peter-pan-2015-movie-title-logo.jpg/revision/latest?cb=20141218221651",
+          description:
+            "Edited and produced this audiobook/video adaptation of It Works.",
+        },
         {
           id: "tintin",
           title: "TinTin - Marketing",
@@ -784,19 +804,29 @@ export default {
           description:
             "Edited this ad (originally for the 2011 Superbowl) starring Bradley Cooper.",
         },
+         {
+          id: "transformers-5",
+          title: "Transformers 5 - Feature Editorial",
+          tags: ["all", "editorial"],
+          video: "https://youtu.be/4plK7mCobcY?t=82",
+          thumbnail:
+            "https://townsquare.media/site/442/files/2016/05/Transformers.jpg?w=980&q=75",
+          description: "Provided additional editing for this scene from Transformers: The Last Knight.",
+        },
         {
-          id: "transformers",
-          title: "Transformers - Marketing",
+          id: "transformers-2",
+          title: "Transformers 2 - Marketing",
           tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/AP34-8Q4YXY",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf6.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/768d62c5-8fe5-4e72-ae28-e639ce985986_rwc_0x0x1177x664x1177.png?h=680f71602126a41b9608dcc5442451b2",
           description: "Edited this TV spot for Transformers 2.",
         },
+        
         {
           id: "platformkit-explainer",
           title: "PlatformKit - Explainer",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["marketing", "editorial", "social", "original"],
           video: "https://vimeo.com/414917709",
           thumbnail: "https://www.platformkit.com/files/platformkit.jpg",
           description: "Edited this web ad for PlatformKit.",
@@ -804,19 +834,46 @@ export default {
         {
           id: "platformkit-marketing",
           title: "PlatformKit - Explainer",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "marketing", "editorial", "social", "original"],
           video: "https://www.youtube.com/watch?v=4czLxjSJNY0",
           thumbnail: "/entrepreneurs.jpg",
           description: "Edited this web ad for PlatformKit.",
         },
         {
+          id: "dharmaworks-hero",
+          title: "The Hero Who Has No Fear",
+          tags: ["social", "original"],
+          video: "https://www.vimeo.com/521762762",
+          thumbnail: "/hero-who-has-no-fear.jpg",
+          description:
+            "Edited and produced this audiobook/video adaptation of It Works.",
+        },
+        {
           id: "dharmaworks-it-works",
           title: "DharmaWorks - It Works",
-          tags: ["all", "marketing", "editorial", "social"],
+          tags: ["all", "social", "original"],
           video: "https://www.vimeo.com/530078154",
           thumbnail: "https://i.vimeocdn.com/video/1097166542.jpg",
           description:
             "Edited and produced this audiobook/video adaptation of It Works.",
+        },
+        {
+          id: "dharmaworks-meditation",
+          title: "DharmaWorks - Meditation",
+          tags: [ "social", "original"],
+          video: "https://www.vimeo.com/452089938",
+          thumbnail: "https://i.vimeocdn.com/video/947386307_236x133.jpg",
+          description:
+            "Edited this meditation.",
+        },
+        {
+          id: "dharmaworks-promo",
+          title: "DharmaWorks - Promo",
+          tags: ["all",  "editorial", "social", "original"],
+          video: "https://www.vimeo.com/446966638",
+          thumbnail: "https://i.pinimg.com/originals/31/5b/b1/315bb19d42bbe42ed47bbd6008aa9412.jpg",
+          description:
+            "Edited this meditation.",
         },
       ],
       filterWork: "all",
