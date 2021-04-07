@@ -714,7 +714,7 @@ export default {
         },
         {
           id: "jupiter-ascending",
-          title: "Jupier Ascending - Marketing",
+          title: "Jupiter Ascending - Marketing",
           tags: ["all", "marketing"],
           video: "https://www.youtube.com/watch?v=THVFkk-sEus",
           thumbnail:
