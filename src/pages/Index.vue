@@ -537,7 +537,7 @@ export default {
         {
           id: "school",
           title: "School for Good and Evil",
-          tags: ['all', 'consulting', 'editorial'],
+          tags: ["all", "consulting", "editorial"],
           video: null,
           thumbnail:
             "https://movies.mxdwn.com/wp-content/uploads/2020/05/the-school-of-good-and-evil.jpg",
@@ -547,7 +547,7 @@ export default {
         {
           id: "borat",
           title: "Borat Subsequent Moviefilm",
-          tags: ['all', 'consulting', 'editorial'],
+          tags: ["all", "consulting", "editorial"],
           video: "https://www.youtube.com/watch?v=HOwaypo3jC4",
           thumbnail:
             "https://bloximages.chicago2.vip.townnews.com/azdailysun.com/content/tncms/assets/v3/editorial/e/e4/ee496247-dc3e-5545-83e8-0cd1ba93846d/5fc00d0387761.image.jpg?resize=1200%2C675",
@@ -557,7 +557,7 @@ export default {
         {
           id: "fear-street",
           title: "Fear Street - Consulting & Feature Editorial",
-          tags: ['all', 'consulting', 'editorial'],
+          tags: ["all", "consulting", "editorial"],
           video: null,
           thumbnail:
             "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/08/R.L.-Stines-Fear-Street-Logo.jpg",
@@ -568,7 +568,7 @@ export default {
         {
           id: "pikachu-marketing",
           title: "Detective Pikachu - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/wmnkAOO6Qo4",
           thumbnail: "https://i.ytimg.com/vi/wmnkAOO6Qo4/maxresdefault.jpg",
           description:
@@ -577,7 +577,7 @@ export default {
         {
           id: "pikachu-consulting",
           title: "Detective Pikachu - Consulting",
-          tags: ['all', 'consulting', 'editorial'],
+          tags: ["all", "consulting", "editorial"],
           video: "/detective-pikachu-consulting.mp4",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf4.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/f0462446-3a47-48a3-b283-78d5dc39f3eb_rwc_584x319x2663x1501x2663.jpg?h=a17fdc294996b1566e90da5375387e5f",
@@ -587,7 +587,7 @@ export default {
         {
           id: "pikachu-social",
           title: "Detective Pikachu - Social Media",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/embed/4RXdusySjsk",
           thumbnail: "https://i.ytimg.com/vi/4RXdusySjsk/maxresdefault.jpg",
           description:
@@ -596,7 +596,7 @@ export default {
         {
           id: "walking-dead",
           title: "The Walking Dead - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/KowNrOoiwRU",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf3.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/eaf8625f-dcce-4860-99cd-bfaba14e6dda_rwc_0x22x1440x811x1440.png?h=f45befbc57df4c9833a5eba309726bf1",
@@ -606,7 +606,7 @@ export default {
         {
           id: "mission-impossible",
           title: "Mission Impossible - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/UOvGtWiJC5k",
           thumbnail:
             "https://2.bp.blogspot.com/-qZd9XrPjFls/W2hhfZ5QzKI/AAAAAAAAFTs/JV3EE_UR-2E55Mg2mTXDqloofXPNDoh2gCLcBGAs/s1600/MI-GP.jpg",
@@ -616,7 +616,7 @@ export default {
         {
           id: "fear-the-walking-dead",
           title: "Fear The Walking Dead - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/Ixdi8XdYHMQ",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf3.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/44d02f84-5a1b-4759-8aa1-7f1c735d0b33_rwc_0x87x800x451x800.jpeg?h=b22f2a14965994121c52571ccf78e3b3",
@@ -626,7 +626,7 @@ export default {
         {
           id: "lego-batman",
           title: "Lego Batman - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/embed/Ixdi8XdYHMQ",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf6.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/7fa0e97a-36b0-4df6-895c-9ed14cefaf65_rwc_0x0x1177x664x1177.png?h=cffd1ad89de34063c3d5056787e8fbaf",
@@ -636,7 +636,7 @@ export default {
         {
           id: "detective-pikachu-featurette",
           title: "Detective Pikachu - Marketing",
-          tags: ['all', 'marketing', 'editorial', 'social'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/embed/198gzllaumo",
           thumbnail:
             "https://s3.amazonaws.com/prod-media.gameinformer.com/styles/body_default/s3/2019/04/10/f9734cb2/squirtle.jpg",
@@ -646,7 +646,7 @@ export default {
         {
           id: "lego-movie",
           title: "The LEGO Movie - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/lPnY2NjSjrg",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf1.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/ca16ec5e-a592-4625-87b0-3ec5342f248e_rwc_0x0x1177x664x1177.png?h=381d8ad84682e1eedcafc32a420f1e00",
@@ -655,7 +655,7 @@ export default {
         {
           id: "star-trek-beyond",
           title: "Star Trek Beyond - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/lDWIc4MGirE",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSqSLVlOSfqyQQiRoNPjJxyhrWvRXQq7ccQ&usqp=CAU",
@@ -665,7 +665,7 @@ export default {
         {
           id: "star-trek-into-darkness",
           title: "Star Trek Into Darkness - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/yhz4A5BCMAA",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEca40E4ygi0ftpy0zfd1c5jW0iMy6VkX2UI2K8YK0cJ2xYCH5YSykp3eeleO-iRhhz8&usqp=CAU",
@@ -674,100 +674,145 @@ export default {
         {
           id: "trolls",
           title: "DreamWorks' Trolls - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/iUnRuQLYdTw",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf2.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/3c9b915c-b31f-4c72-a499-a98a220001f6_rwc_0x0x1915x1080x1915.jpg?h=3772253aacb9c7c3a716da4f203b11f8",
           description:
             " Edited this teaser for DreamWorks' Trolls. Animation and music were produced specifically for this teaser.",
         },
-         {
+        {
+          id: "cloud-atlas",
+          title: "Cloud Atlas - Marketing",
+          tags: ["all", "marketing", "editorial", "social"],
+          video: "https://www.youtube.com/watch?v=qpsgYbcELMU",
+          thumbnail:
+            "https://lh3.googleusercontent.com/proxy/VmWjE9_tAkRCVipvi3Fm1ezTSi8JjEP4ll_J4K0xfowiUjKwR0fvq8R4HFtckEfmVRiaTj8zUUf85rnJ8g0tIIdKEKxtHkyF_EahFk21qhBJ3xLLTW54a3E6EECv4bC2hQ",
+          description:
+            "Edited this behind-the-scenes featurette for the Wachowski's Cloud Atlas.",
+        },
+        {
+          id: "jupiter-ascending",
+          title: "Jupier Ascending - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=THVFkk-sEus",
+          thumbnail:
+            "http://all-things-andy-gavin.com/wp-content/uploads/2015/02/Jupiter-Ascending.jpg",
+          description:
+            "Edited and produced this audiobook/video adaptation of It Works.",
+        },
+        {
+          id: "pan",
+          title: "Pan - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=TQMqvG4t3Mo",
+          thumbnail:
+            "https://static.wikia.nocookie.net/logopedia/images/8/88/Peter-pan-2015-movie-title-logo.jpg/revision/latest?cb=20141218221651",
+          description:
+            "Edited and produced this audiobook/video adaptation of It Works.",
+        },
+        {
           id: "tintin",
           title: "TinTin - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/5nyCL2-sp3Q",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf5.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/6473ea25-cac0-4b3a-85f9-7b403dbf7e92_rwc_0x0x1177x664x1177.png?h=2c64fb46fb41670da7585de8c8db532c",
-          description:
-            " Edited this TV Spot for The Adventures of TinTin.",
+          description: " Edited this TV Spot for The Adventures of TinTin.",
         },
-         {
+          {
+          id: "narcos",
+          title: "Narcos - Marketing",
+          tags: ["all", "marketing", "editorial", "social"],
+          video: "https://www.youtube.com/watch?v=Ybwt0S1gDYk",
+          thumbnail:
+            "https://conversationsabouther.net/wp-content/uploads/2016/02/narcos-netflix.jpg",
+          description: "Edited this TV Spot for Narcos Season 1.",
+        },
+          {
+          id: "journey",
+          title: "Journey 2 - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=SpIuOYI9RB4",
+          thumbnail:
+            "https://i0.wp.com/www.heyuguys.com/images/2012/01/Journey-2-UK-Poster.jpg",
+          description: "Edited this trailer for Journey 2 The Mysterious Island.",
+        },
+          {
+          id: "wolfman",
+          title: "Wolfman - Marketing",
+          tags: ["all", "marketing", "editorial"],
+          video: "https://www.youtube.com/watch?v=mmPfsrcT6OY",
+          thumbnail:
+            "https://s.ecrater.com/stores/60130/4ba70a15c369d_60130b.jpg",
+          description: "Edited this Superbowl spot for The Wolfman.",
+        },
+        {
           id: "san-andreas",
           title: "San Andreas - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/Bz9e0PGSDeU",
           thumbnail:
             "https://iamyourtargetdemographic.files.wordpress.com/2015/06/san-andreas.jpg",
-          description:
-            "Edited this teaser for San Andreas.",
+          description: "Edited this teaser for San Andreas.",
         },
-         {
+        {
           id: "tron",
           title: "Tron Legacy - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/368swgLpHLs",
           thumbnail:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP6VxAEKydw9u8uojhSH3kBcvnwf_S_BeMcw&usqp=CAU",
-          description:
-            "Edited this TV spot for Tron Legacy.",
+          description: "Edited this TV spot for Tron Legacy.",
         },
-         {
+        {
           id: "nightmare",
           title: "A Nightmare on Elm Street - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/NVLagNq2G2A",
-          thumbnail:
-            "https://images4.alphacoders.com/274/274156.jpg",
-          description:
-            "Edited this TV spot for A Nightmare on Elm Street.",
+          thumbnail: "https://images4.alphacoders.com/274/274156.jpg",
+          description: "Edited this TV spot for A Nightmare on Elm Street.",
         },
-         {
+        {
           id: "limitless",
           title: "Limitless - Marketing",
-          tags: ['all', 'marketing', 'editorial', 'social'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/embed/Ne8YmpVVH4Q",
-          thumbnail:
-            "https://i.ytimg.com/vi/Ne8YmpVVH4Q/maxresdefault.jpg",
+          thumbnail: "https://i.ytimg.com/vi/Ne8YmpVVH4Q/maxresdefault.jpg",
           description:
             "Edited this ad (originally for the 2011 Superbowl) starring Bradley Cooper.",
         },
-            {
+        {
           id: "transformers",
           title: "Transformers - Marketing",
-          tags: ['all', 'marketing', 'editorial'],
+          tags: ["all", "marketing", "editorial"],
           video: "https://www.youtube.com/embed/AP34-8Q4YXY",
           thumbnail:
             "https://pro2-bar-s3-cdn-cf6.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/768d62c5-8fe5-4e72-ae28-e639ce985986_rwc_0x0x1177x664x1177.png?h=680f71602126a41b9608dcc5442451b2",
-          description:
-            "Edited this TV spot for Transformers 2.",
+          description: "Edited this TV spot for Transformers 2.",
         },
         {
           id: "platformkit-explainer",
           title: "PlatformKit - Explainer",
-          tags: ['all', 'marketing', 'editorial', 'social'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://vimeo.com/414917709",
-          thumbnail:
-            "https://www.platformkit.com/files/platformkit.jpg",
-          description:
-            "Edited this web ad for PlatformKit.",
+          thumbnail: "https://www.platformkit.com/files/platformkit.jpg",
+          description: "Edited this web ad for PlatformKit.",
         },
         {
           id: "platformkit-marketing",
           title: "PlatformKit - Explainer",
-          tags: ['all', 'marketing', 'editorial', 'social'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/watch?v=4czLxjSJNY0",
-          thumbnail:
-            "/entrepreneurs.jpg",
-          description:
-            "Edited this web ad for PlatformKit.",
+          thumbnail: "/entrepreneurs.jpg",
+          description: "Edited this web ad for PlatformKit.",
         },
-         {
+        {
           id: "dharmaworks-it-works",
           title: "DharmaWorks - It Works",
-          tags: ['all', 'marketing', 'editorial', 'social'],
+          tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.vimeo.com/530078154",
-          thumbnail:
-            "https://i.vimeocdn.com/video/1097166542.jpg",
+          thumbnail: "https://i.vimeocdn.com/video/1097166542.jpg",
           description:
             "Edited and produced this audiobook/video adaptation of It Works.",
         },
