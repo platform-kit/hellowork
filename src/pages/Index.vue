@@ -540,7 +540,7 @@ export default {
           tags: ["all", "consulting", "editorial"],
           video: null,
           thumbnail:
-            "https://movies.mxdwn.com/wp-content/uploads/2020/05/the-school-of-good-and-evil.jpg",
+            "https://movies-b26f.kxcdn.com/wp-content/uploads/2020/12/The-school-for-good-and-evil-screenshot-IMG_D6FA4EABBCB2-1-e1613860069355.jpeg",
           description:
             "Worked directly with director Paul Fieg & the team at Fiegco to create a sizzle reel for pitching the film to Netflix.",
         },
