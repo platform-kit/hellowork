@@ -708,7 +708,7 @@ export default {
           tags: ["all", "marketing", "editorial", "social"],
           video: "https://www.youtube.com/watch?v=qpsgYbcELMU",
           thumbnail:
-            "https://lh3.googleusercontent.com/proxy/VmWjE9_tAkRCVipvi3Fm1ezTSi8JjEP4ll_J4K0xfowiUjKwR0fvq8R4HFtckEfmVRiaTj8zUUf85rnJ8g0tIIdKEKxtHkyF_EahFk21qhBJ3xLLTW54a3E6EECv4bC2hQ",
+            "https://biblioklept.files.wordpress.com/2013/04/cloud-atlas-poster.jpg",
           description:
             "Edited this behind-the-scenes featurette for the Wachowski's Cloud Atlas.",
         },
