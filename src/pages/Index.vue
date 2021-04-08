@@ -320,7 +320,7 @@
                   >
                   </b-col>
                   <b-col md="6">
-                    <b-card-body title="DharmaWorks">
+                    <b-card-body :title="highlight.title">
                       <b-card-text
                         >{{ highlight.description }}</b-card-text
                       >
