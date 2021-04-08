@@ -2,13 +2,20 @@
   "name": "jhc",
   "private": true,
   "scripts": {
+    "config-cms": "node -r dotenv/config commands/cms-config.js",
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@gridsome/source-filesystem": "^0.6.2",
+    "@gridsome/transformer-remark": "^0.6.4",
     "bootstrap-vue": "^2.21.2",
+    "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-netlify-cms": "^1.0.9",
+    "netlify-cms": "^2.10.111",
+    "replace-in-file": "^6.2.0",
     "v-video-embed": "^1.0.8",
     "vue-mobile-detection": "^1.0.0",
     "vue-plyr": "^7.0.0",
