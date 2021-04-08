@@ -9,7 +9,7 @@ const options = {
     files: 'src/admin/config.yml',
 
     //Replacement to make (string or regex) 
-    from: /replace/g,
+    from: /platform-kit\/hellowork/g,
     to: repo || 'replace',
 };
 
