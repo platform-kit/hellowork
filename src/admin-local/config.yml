@@ -10,10 +10,10 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
-  - label: "Portfolio Page"
+  - label: "Content Editor"
     name: "pages"
     files:
-      - label: "About Page"
+      - label: "Portfolio"
         name: "about"
         file: "static/data.json"
         fields:          
