@@ -2,7 +2,8 @@
   "name": "jhc",
   "private": true,
   "scripts": {
-    "config-cms": "node -r dotenv/config commands/cms-config.js",
+    "cms-local": "npx netlify-cms-proxy-server",
+    "cms-config": "node -r dotenv/config commands/cms-config.js",
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore"
