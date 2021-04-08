@@ -7,6 +7,8 @@ public_folder: "/uploads"
 
 collections:
   - label: "Content Editor"
+    editor:
+        preview: false
     name: "pages"
     files:
       - label: "Portfolio"
