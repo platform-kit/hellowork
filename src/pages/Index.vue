@@ -49,7 +49,7 @@
               </b-nav-item>
               <b-nav-item
                 v-if="links != null && links.linkedin != null"
-                :href="'https://www.linked.in/' + links.linkedin"
+                :href="'https://www.linkedin.com/in/' + links.linkedin"
                 target="_blank"
               >
                 <b-icon icon="linkedin" aria-hidden="true"></b-icon>
@@ -391,7 +391,7 @@
                     </a>
                      <a
                       hv-if="links.linkedin != null"
-                      :href="'https://www.linked.in/' + links.linkedin"
+                      :href="'https://www.linkedin.com/in/' + links.linkedin"
                       target="_blank"
                       class="btn btn-light m-2"
                     >
@@ -451,7 +451,7 @@
                     </a>
                     <a
                       hv-if="links.linkedin != null"
-                      :href="'https://www.linked.in/' + links.linkedin"
+                      :href="'https://www.linkedin.com/in/' + links.linkedin"
                       target="_blank"
                       class="btn btn-light m-2"
                     >
