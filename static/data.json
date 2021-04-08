@@ -445,7 +445,7 @@
        },
        {
           "id": "pk",
-          "title": "Aquarian Outfitters",
+          "title": "PlatformKit",
           "label": "Software Development",
           "description": "An open-source framework for selling e-commerce products/services, content subscriptions, and software subscripions. Built in Node.js and Vue.js.",
           "image": "https://www.platformkit.com/logos/touch-icon.png",
