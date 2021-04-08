@@ -6,6 +6,7 @@
     "cms-config": "node -r dotenv/config commands/cms-config.js",
     "build": "gridsome build",
     "develop": "gridsome develop",
+    "deploy": "npm run cms-config; gridsome build",
     "explore": "gridsome explore"
   },
   "dependencies": {
