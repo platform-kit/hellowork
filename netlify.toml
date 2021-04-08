@@ -13,14 +13,7 @@
   publish = "dist/"
 
   # Default build command.
-  command = "npm run build"
-
-# The following redirect is intended for use with most SPAs that handle
-# routing internally.
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  command = "npm run deploy"
 
 [functions]
   # Directory with serverless functions, including background functions,
