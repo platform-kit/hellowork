@@ -1,10 +1,13 @@
 <template>
   <Layout>
-    <h1>404</h1>
-    <p>Error.</p>
+    
   </Layout>
 </template>
 
 <script>
-export default {}
+export default {
+  async mounted() {    
+      window.location.replace("/");
+  },
+};
 </script>

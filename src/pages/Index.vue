@@ -502,10 +502,16 @@ export default {
   },
   methods: {
     getData() {
-      axios.get(process.env.GRIDSOME_JSON_URL || "/data.json").then((response) => this.updateData(response));
+      var source = '/data.json';
+      if(typeof process.env.GRIDSOME_JSON_URL != 'undefined') {
+        source = process.env.GRIDSOME_JSON_URL;        
+      }
+      console.log ('Pulling data from... \n ' + source);
+      axios.get(source).then((response) => this.updateData(response));
     },
     updateData(data) {
-      //console.log(data.data);
+      console.log(data.data);
+      console.log('Updated data.');
       this.json = data.data;
       if (data.data != null) {
         if (data.data.identity != null) {
