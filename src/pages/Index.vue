@@ -478,8 +478,8 @@ export default {
       json: {},
       identity: {},
       hero: {
-        headline: "Hello, world.",
-        heading: "This is my portfolio.",
+        headline: "",
+        heading: "",
       },
       testimonials: {
         img: "/logos.png",
