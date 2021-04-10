@@ -71,9 +71,9 @@ exports.handler = async (event, context) => {
     });
 
   file.content = content;
-  var message = "Success.";
   var status = 200;
-  if(event.body != null && password == false){
+  var message = "Success.";  
+  if((event.body != null && password == false)){
     status = 500;
     message = "Incorrect Password.";
   }
@@ -87,7 +87,6 @@ exports.handler = async (event, context) => {
   }  
 
   var data = {
-    status: status,
     "message": message,
     params: params,
     body: body,
@@ -96,16 +95,16 @@ exports.handler = async (event, context) => {
 
   var output = null;
 
-  if(password == true && event.body != null){
-    output = data;
-  }
-
-  else {
+  if(event.body == null){
     output = content;
   }
 
+  else {
+    output = data;
+  }
+
   return {
-    statusCode: 200,
+    statusCode: status,
     body: JSON.stringify(output)
   };
 }

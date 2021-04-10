@@ -238,7 +238,7 @@
               style="box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:#e5eaf4;color:rgb(45 87 169);padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"    
               v-b-toggle.sidebar
                 
-              v-bind:class="{active: showAdmin == true, inactive: showadmin == false }"                          
+              v-bind:class="{active: showAdmin == true, inactive: showAdmin == false }"                          
               >
               <b-icon icon="pen-fill" aria-hidden="true"></b-icon>
            </div>
@@ -752,27 +752,35 @@ export default {
       data.backgroundImages = this.backgroundImages;
       this.submitted = true;
       var self = this;
-      axios.post("/.netlify/functions/content-read-v1?p=" + this.password, data, {
-        // Config
-        headers: {
-          // Overwrite Axios's automatically set Content-Type
-          "Content-Type": "application/json",
-        },
-      }).then(function( response ){
+      axios
+        .post("/.netlify/functions/content-read-v1?p=" + this.password, data, {
+          // Config
+          headers: {
+            // Overwrite Axios's automatically set Content-Type
+            "Content-Type": "application/json",
+          },
+        })
+        .catch(function (error) {
+          //console.log("Show error notification!");
+          //return Promise.reject(error);
+          self.submitted = false;
+            self.updateMessage("Incorrect password.");
+        })
+        .then(function (response) {
           // Handle success
           console.log(response);
-          if(response.data.hasOwnProperty('data') && response.data.data.hasOwnProperty('status') && response.data.data.status == 200){
+          console.log(response.status);
+          if (response.status == 200) {
             self.$bvModal.hide("modal-password");
             self.changesMade = false;
             self.submitted = false;
+          } else {
+            self.submitted = false;
+            self.updateMessage("Incorrect password.");
           }
-          else {
-            self.submitted = false;            
-            self.updateMessage('Incorrect password.');
-          }
-      });
+        });
     },
-    updateMessage(input){
+    updateMessage(input) {
       this.message = input;
     },
     login() {
@@ -796,10 +804,8 @@ export default {
       this.$root.$emit("bv::toggle::collapse", "sidebar");
     },
     escapeListener(event) {
-      this.showAdmin = true;
       if (event.key === "Escape") {
-        this.message = "Escape has been pressed";
-        console.log(this.message);        
+        this.showAdmin = true;
       }
     },
     getData() {
@@ -879,7 +885,8 @@ export default {
 
 <style>
 #adminButton {
-  transition:0.2s all !important;
+  z-index: 999 !important;
+  transition: 0.2s all !important;
   transform: scale(0);
 }
 #adminButton.inactive {
