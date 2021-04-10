@@ -121,7 +121,7 @@
       <div class="px-3 py-2">
         <h5 class="m-0 mb-1 p-0">Content Editor</h5>
         <span class="badge badge-pill badge-dark mb-3 mt-2">
-          Your Identity
+          Hero Section
         </span>
         <div class="w-100">
             <b-form >
@@ -133,6 +133,9 @@
               </b-input-group>          
               <b-input-group prepend="Full Name" class="mb-1" >
                 <b-form-input  @input="changesMade = true"  v-model="identity.fullName" placeholder="Enter your full name."></b-form-input>
+              </b-input-group>  
+              <b-input-group prepend="Headline" class="mb-1" >
+                <b-form-input  @input="changesMade = true"  v-model="hero.headline" placeholder="Enter a headline."></b-form-input>
               </b-input-group>        
             </b-form>          
           <b-img  style="max-width:75px; margin:0px 5px 5px 0px;" :src="identity.avatar" fluid thumbnail></b-img>  
@@ -764,7 +767,7 @@ export default {
           //console.log("Show error notification!");
           //return Promise.reject(error);
           self.submitted = false;
-            self.updateMessage("Incorrect password.");
+            self.updateMessage("Something went wrong. Try again.");
         })
         .then(function (response) {
           // Handle success
@@ -776,7 +779,7 @@ export default {
             self.submitted = false;
           } else {
             self.submitted = false;
-            self.updateMessage("Incorrect password.");
+            self.updateMessage("Something went wrong. Try again.");
           }
         });
     },
