@@ -176,7 +176,7 @@
       </div>
     </b-sidebar>
       <div style="background: #000 !important">
-        <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent">
+        <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent" style="z-index:9 !important;">
           <b-navbar-brand v-if="identity != null && identity.fullName != null" class="d-inline-block d-md-none" href="/"
             >{{ identity.fullName}}</b-navbar-brand
           >
@@ -744,6 +744,7 @@ export default {
       data.identity = this.identity;
       data.links = this.links;
       data.hero = this.hero;
+      data.testimonials = this.testimonials;
       data.projects = this.projects;
       data.highlights = this.highlights;
       data.backgroundImages = this.backgroundImages;
