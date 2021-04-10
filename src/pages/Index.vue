@@ -80,9 +80,11 @@
                 style="position: relative; z-index: 999"
               >
                 <h1
+                v-show="identity.name != null && identity.name != ''"
                   class="intro intro-message"
                   style="
                     font-size: 150%;
+                    min-width:250px;
                     margin-top: 90px;
                     position: absolute;
                     top: -50px;
