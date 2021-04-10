@@ -234,9 +234,11 @@
       </div>
 
            <div
+              id="adminButton"
               style="box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:#e5eaf4;color:rgb(45 87 169);padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"    
               v-b-toggle.sidebar
-              v-if="showAdmin == true"                                
+              v-if="showAdmin == true"      
+              v-bind:class="{active: showAdmin == true, inactive: showadmin == false }"                          
               >
               <b-icon icon="pen-fill" aria-hidden="true"></b-icon>
            </div>
@@ -794,10 +796,10 @@ export default {
       this.$root.$emit("bv::toggle::collapse", "sidebar");
     },
     escapeListener(event) {
+      this.showAdmin = true;
       if (event.key === "Escape") {
         this.message = "Escape has been pressed";
-        console.log(this.message);
-        this.$root.$emit("bv::toggle::collapse", "sidebar");
+        console.log(this.message);        
       }
     },
     getData() {
@@ -876,6 +878,16 @@ export default {
 </script>
 
 <style>
+#adminButton {
+  transition:0.2s all !important;
+  transform: scale(0);
+}
+#adminButton.inactive {
+  transform: scale(0);
+}
+#adminButton.active {
+  transform: scale(1) !important;
+}
 .imageSquareLarge {
   height: 350px;
   width: 100%;

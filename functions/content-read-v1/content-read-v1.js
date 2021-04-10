@@ -79,7 +79,7 @@ exports.handler = async (event, context) => {
   }
 
   var body = null;
-  if(event.body != null){
+  if(event.body != null && event.body != ''){
     console.log(' ---- ');
     console.log(typeof event.body);
     console.log(' ---- ');
