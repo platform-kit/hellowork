@@ -11,6 +11,7 @@
   # root directory if a base has not been set. This sample publishes the
   # directory located at the absolute path "root/project/build-output"
   publish = "dist/"
+  functions = "functions/"
 
   # Default build command.
   command = "npm run deploy"
@@ -20,3 +21,7 @@
   # to deploy. This is relative to the base directory if one has been set, 
   # or the root directory if a base hasn’t been set.
   directory = "functions/"
+
+
+[dev]
+  functions = "functions/"

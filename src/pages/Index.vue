@@ -1,6 +1,180 @@
 <template>
   <Layout>
     <ClientOnly>
+      <b-modal  hide-header-close  @shown="focusMyElement" id="modal-password" title="Enter your password." style="z-index:999">
+
+              <span class="text-danger" v-if="message != null">{{ message }}</span>
+                <b-input-group prepend="Password" class="mb-2 mt-3">
+                  <template #prepend>
+                    <b-input-group-text >
+                      <b-icon icon="lock" aria-hidden="true"></b-icon>
+                    </b-input-group-text>
+                  </template>
+                  <b-form-input type="password" v-model="password" ref="focusThis"></b-form-input>
+              </b-input-group>
+
+
+          <template #modal-footer>
+            <div class="w-100"  style="padding:10px 10px 0px 10px !important;">
+              <p class="float-left">            
+                <b-button
+                variant="danger"
+                
+                class="float-right"
+                @click="$bvModal.hide('modal-password');"
+              >
+                Cancel
+              </b-button>
+              </p> 
+              <b-button
+                variant="primary"
+                autocomplete="off"
+                :disabled="password == null"
+                class="float-right"
+                @click="publish()"
+              >
+                Submit
+              </b-button>
+            </div>
+          </template>
+      </b-modal>
+      <b-modal  hide-header-close  @shown="focusMyElement" id="image-editor" title="Edit Image" style="z-index:999">
+
+          <div v-if="imageEditor.newUrl != null && imageEditor.newUrl != ''" class="imageSquareLarge" v-bind:style="{ backgroundImage: 'url(' + imageEditor.newUrl + ')' }" ></div>          
+          <div v-else class="imageSquareLarge" v-bind:style="{ backgroundImage: 'url(' + imageEditor.oldUrl + ')' }" ></div>
+          
+              
+                <b-input-group prepend="URL" class="mb-2 mt-3">
+
+              <b-form-input v-model="imageEditor.newUrl" ref="focusThis"></b-form-input>
+              </b-input-group>
+
+
+          <template #modal-footer>
+            <div class="w-100"  style="padding:10px 10px 0px 10px !important;">
+              <p class="float-left">            
+                <b-button
+                variant="danger"
+                
+                class="float-right"
+                @click="$bvModal.hide('image-editor');imageEditor.newUrl = null;"
+              >
+                Cancel
+              </b-button>
+              </p> 
+              <b-button
+                variant="primary"
+                
+                class="float-right"
+                @click="$bvModal.hide('image-editor'); imageEditor.newUrl = null;"
+              >
+                Save
+              </b-button>
+            </div>
+          </template>
+      </b-modal>
+      <b-modal  hide-header-close  @shown="focusMyElement" id="project-editor" title="Edit Project" style="z-index:999">
+
+          <div v-if="projectEditor.project.thumbnail != null && projectEditor.project.thumbnail != ''" class="imageSquareLarge" v-bind:style="{ backgroundImage: 'url(' + projectEditor.project.thumbnail + ')' }" ></div>          
+          <div v-else class="imageSquareLarge" v-bind:style="{ backgroundImage: 'url(' + projectEditor.project.thumbnail + ')' }" ></div>
+          
+              
+                <b-input-group prepend="Title" class="mb-2 mt-3">
+                  <b-form-input v-model="projectEditor.project.title" ref="focusThis"></b-form-input>
+                </b-input-group>
+
+                <b-input-group prepend="Image URL" class="mb-2 mt-3">
+                  <b-form-input v-model="projectEditor.project.thumbnail" ></b-form-input>
+                </b-input-group>
+
+                <b-input-group prepend="Video URL" class="mb-2 mt-3">
+                  <b-form-input v-model="projectEditor.project.video" ></b-form-input>
+                </b-input-group>
+
+                <b-form-textarea v-model="projectEditor.project.description" ></b-form-textarea>
+
+
+          <template #modal-footer>
+            <div class="w-100"  style="padding:10px 10px 0px 10px !important;">
+              <p class="float-left">            
+                <b-button
+                variant="danger"
+                
+                class="float-right"
+                @click="$bvModal.hide('project-editor');"
+              >
+                Cancel
+              </b-button>
+              </p> 
+              <b-button
+                variant="primary"
+                
+                class="float-right"
+                @click="saveProject();"
+              >
+                Save
+              </b-button>
+            </div>
+          </template>
+      </b-modal>
+      <b-sidebar id="sidebar" ref="sidebar"  right shadow style="width:50%;z-index:9999999999999999999999999 !important; min-width:450px !important;">
+      <div class="px-3 py-2">
+        <h5 class="m-0 mb-1 p-0">Content Editor</h5>
+        <span class="badge badge-pill badge-dark mb-3 mt-2">
+          Your Identity
+        </span>
+        <div class="w-100">
+            <b-form >
+              <b-input-group prepend="Initials" class="mb-1" >
+                <b-form-input @input="changesMade = true"  v-model="identity.initials" placeholder="Enter your initials."></b-form-input>
+              </b-input-group>
+              <b-input-group prepend="Name" class="mb-1" >
+                <b-form-input @input="changesMade = true"   v-model="identity.name" placeholder="Enter your name."></b-form-input>
+              </b-input-group>          
+              <b-input-group prepend="Full Name" class="mb-1" >
+                <b-form-input  @input="changesMade = true"  v-model="identity.fullName" placeholder="Enter your full name."></b-form-input>
+              </b-input-group>        
+            </b-form>          
+          <b-img  style="max-width:75px; margin:0px 5px 5px 0px;" :src="identity.avatar" fluid thumbnail></b-img>  
+        </div>
+
+           <span class="badge badge-pill badge-dark mb-3 mt-2">
+          Contact Info
+        </span>
+        <div class="w-100">
+            <b-form >
+              <b-input-group prepend="Email" class="mb-1" >
+              <b-form-input @input="changesMade = true"  v-model="links.email" placeholder="Email"></b-form-input>
+              </b-input-group>
+              <b-input-group prepend="Resume" class="mb-1" >
+              <b-form-input @input="changesMade = true"  v-model="links.resume" placeholder="Resume URL"></b-form-input>
+              </b-input-group>
+              <b-input-group prepend="Twitter" class="mb-1" >
+              <b-form-input @input="changesMade = true"  v-model="links.twitter" placeholder="Twitter Username"></b-form-input>
+              </b-input-group>
+              <b-input-group prepend="Instagram" class="mb-1" >
+              <b-form-input @input="changesMade = true"  v-model="links.instagram" placeholder="Instagram Username"></b-form-input>
+              </b-input-group>
+              <b-input-group prepend="LinkedIn" class="mb-1" >
+              <b-form-input @input="changesMade = true"  v-model="links.linkedin" placeholder="LinkedIn Username"></b-form-input>
+              </b-input-group>                     
+          </b-form>                    
+        </div>
+        
+        <div class="w-100 d-block">
+          <span class="badge badge-pill badge-dark mb-3 mt-2">Background Images</span>
+          <br>
+          <div class="imageSquare" @click="imageEditor.oldUrl = image; $bvModal.show('image-editor'); hideSidebar()" v-for="image in backgroundImages" v-bind:key="image"  v-bind:style="{ backgroundImage: 'url(' + image + ')' }" ></div>
+          <br>
+        </div>
+        <hr>
+        <span class="badge badge-pill badge-dark mb-3 mt-2">Testimonial Image</span><br>
+        <b-img  @click="imageEditor.oldUrl = testimonials.image; $bvModal.show('image-editor'); hideSidebar()" style="background:#000;padding:15px;max-width:50%; margin:0px 5px 5px 0px;" :src="testimonials.image" fluid thumbnail></b-img>  <br>
+        <span class="badge badge-pill badge-dark mb-3 mt-2">Projects</span><br>
+        <div @click="projectEditor.index = index; projectEditor.project = project;  $bvModal.show('project-editor'); hideSidebar()" v-for="(project, index) in projects" v-bind:key="index" class="imageSquare" v-bind:style="{ backgroundImage: 'url(' + project.thumbnail + ')' }" ></div>
+        
+      </div>
+    </b-sidebar>
       <div style="background: #000 !important">
         <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent">
           <b-navbar-brand v-if="identity != null && identity.fullName != null" class="d-inline-block d-md-none" href="/"
@@ -25,7 +199,7 @@
                 :href="links.resume"
                 target="_blank"
                 >Resume</b-nav-item
-              >
+              >           
               <b-nav-item
                 v-if="links != null && links.email != null"
                 :href="links.email"
@@ -53,11 +227,26 @@
                 target="_blank"
               >
                 <b-icon icon="linkedin" aria-hidden="true"></b-icon>
-              </b-nav-item>
+              </b-nav-item>   
             </b-navbar-nav>
           </b-collapse>
         </b-navbar>
       </div>
+
+           <div
+              style="box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:#e5eaf4;color:rgb(45 87 169);padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"    
+              v-b-toggle.sidebar
+              v-if="showAdmin == true"                                
+              >
+              <b-icon icon="pen-fill" aria-hidden="true"></b-icon>
+           </div>
+            <div
+            @click="login()"
+            style="cursor:pointer;box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;left:20px;height:50px;background:rgb(45 87 169) !important;color:#e5eaf4 !important;padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"                
+            v-if="showAdmin == true && changesMade == true"                                
+            >
+            <b-icon icon="cloud-upload" aria-hidden="true"></b-icon> Publish Changes
+           </div>
 
       <div
         class="bgImage"
@@ -168,9 +357,10 @@
                   <p
                     style="
                       margin-bottom: 25px;
-                      background: #fff;
+                      background: #none;
                       color: #000;
                       font-size: 33px;
+                      z-index:1 !important;
                     "
                     class="badge badge-pill border-0 px-3 py-2 intro"
                   >
@@ -233,6 +423,26 @@
 
             <span class="my-3 badge badge-pill badge-dark">Description</span>
             <p class="mb-3">{{ modalText }}</p>
+            <div class="btn btn-outline-primary"
+            v-if="showAdmin"
+             @click="
+             
+             $bvModal.show('project-editor'); 
+                "
+             >
+              <b-icon icon="pen-fill" class="p-1 mr-2" animation="fade" font-scale="1"></b-icon>Edit Project
+              
+            </div>
+             <div class="btn btn-outline-danger ml-2"
+            v-if="showAdmin"
+             @click="             
+              projects.splice(projectEditor.index, 1);
+              changesMade = true;
+              $bvModal.hide('modal-dynamic');"
+             >
+              <b-icon icon="trash" class="p-1 mr-2" font-scale="1"></b-icon>Delete Project
+              
+            </div>            
           </b-modal>
    
           <!-- Featured Projects -->
@@ -246,7 +456,7 @@
               v-bind:class="{ 'd-none': project.tags == null || !project.tags.includes(filterWork) }"
             >
               <div
-                @click="showProject(index)"
+                @click="showProject(index); projectEditor.project = project; projectEditor.index = index;"
                 class="portfolio-item"
                 :style="{
                   background: '#000',
@@ -281,7 +491,7 @@
                   <p
                     style="
                       margin-bottom: 25px;
-                      background: #fff;
+                      background: none;
                       color: #000;
                       font-size: 33px;
                     "
@@ -465,7 +675,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>      
     </ClientOnly>
   </Layout>
 </template>
@@ -476,6 +686,21 @@ import axios from "axios";
 export default {
   data() {
     return {
+      message: null,
+      password: null,
+      imageEditor: {
+        newUrl: null,
+        oldUrl: null,
+      },
+      projectEditor: {
+        imageUrl: null,
+        project: {
+          thumbnail: null,
+          video: null,
+          titlevideo: null,
+        },
+        index: null,
+      },
       fetched: false,
       json: {},
       identity: {},
@@ -496,25 +721,92 @@ export default {
       filterWork: "all",
       backgroundImages: [""],
       window: null,
+      showAdmin: false,
+      message: null,
+      originalJson: null,
+      currentJson: null,
+      changesMade: null,
     };
   },
   async mounted() {
     this.getData();
     this.window = window;
+    window.addEventListener("keydown", this.escapeListener);
+    if (window.location.href.includes("admin")) {
+      this.showAdmin = true;
+    }
   },
   methods: {
-    getData() {
-      var source = '/data.json';
-      if(typeof process.env.GRIDSOME_JSON_URL != 'undefined') {
-        source = process.env.GRIDSOME_JSON_URL;        
+    publish() {
+      this.message = null;
+      var data = {};
+      data.identity = this.identity;
+      data.links = this.links;
+      data.hero = this.hero;
+      data.projects = this.projects;
+      data.highlights = this.highlights;
+      data.backgroundImages = this.backgroundImages;
+      var self = this;
+      axios.post("/.netlify/functions/content-read-v1?p=" + this.password, data, {
+        // Config
+        headers: {
+          // Overwrite Axios's automatically set Content-Type
+          "Content-Type": "application/json",
+        },
+      }).then(function( response ){
+          // Handle success
+          console.log(response);
+          if(response.data.data.status == 200){
+            self.$bvModal.hide("modal-password");
+          }
+          else {            
+            self.updateMessage('Incorrect password.');
+          }
+      });
+    },
+    updateMessage(input){
+      this.message = input;
+    },
+    login() {
+      this.$bvModal.show("modal-password");
+    },
+    saveProject() {
+      this.$bvModal.hide("project-editor");
+      var index = this.projectEditor.index;
+      this.projects[index] = this.projectEditor.project;
+      this.changesMade = true;
+      this.updateJson();
+    },
+    updateJson() {},
+    focusMyElement() {
+      this.$refs.focusThis.focus();
+    },
+    hideSidebar() {
+      this.$root.$emit("bv::toggle::collapse", "sidebar");
+    },
+    showSidebar() {
+      this.$root.$emit("bv::toggle::collapse", "sidebar");
+    },
+    escapeListener(event) {
+      if (event.key === "Escape") {
+        this.message = "Escape has been pressed";
+        console.log(this.message);
+        this.$root.$emit("bv::toggle::collapse", "sidebar");
       }
-      console.log ('Pulling data from... \n ' + source);
+    },
+    getData() {
+      var source = "/data.json";
+      if (typeof process.env.GRIDSOME_JSON_URL != "undefined") {
+        source = process.env.GRIDSOME_JSON_URL;
+      }
+      console.log("Pulling data from... \n " + source);
       axios.get(source).then((response) => this.updateData(response));
     },
     updateData(data) {
       console.log(data.data);
-      console.log('Updated data.');
+      console.log("Updated data.");
       this.json = data.data;
+      this.originalJson = JSON.stringify(data.data);
       if (data.data != null) {
         if (data.data.identity != null) {
           this.identity = data.data.identity;
@@ -539,11 +831,12 @@ export default {
         }
       }
     },
-    showProject(id) {
-      this.modalVideo = this.projects[id].video;
-      this.modalText = this.projects[id].description;
-      this.modalTitle = this.projects[id].title;
-      this.modalImage = this.projects[id].thumbnail;
+    showProject(index) {
+      this.projectEditor.index = index;
+      this.modalVideo = this.projects[index].video;
+      this.modalText = this.projects[index].description;
+      this.modalTitle = this.projects[index].title;
+      this.modalImage = this.projects[index].thumbnail;
       this.$bvModal.show("modal-dynamic");
     },
     randomBackground() {
@@ -577,6 +870,43 @@ export default {
 </script>
 
 <style>
+.imageSquareLarge {
+  height: 350px;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  background-color: rgba(0, 50, 100, 0.25);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.imageSquare {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.imageSquare:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 991px) {
+  #sidebar {
+    padding-left: 5px;
+    padding-top: 10px;
+    min-width: 440px !important;
+  }
+}
+
+#sidebar .input-group-text {
+  min-width: 100px;
+}
 .meta-badge {
   position: absolute !important;
   top: 20px !important;

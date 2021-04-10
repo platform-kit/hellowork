@@ -13,6 +13,14 @@ import VideoBg from 'vue-videobg' //Video Background Player
 
 import Embed from '/node_overwrites/v-video-embed-ssr.js' // Video Embedding
 
+import VueAxios from 'vue-axios' // Vue Axios
+import VueAuthenticate from 'vue-authenticate' // Vue-Authenticate (Github OAuth)
+
+import axios from 'axios';
+
+var domain = process.env.DOMAIN || 'http://localhost:8080';
+var clientId = process.env.CLIENT_ID || '';
+
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
@@ -24,5 +32,17 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(Embed)
   Vue.component('video-bg', VideoBg) //Video Background Player
   
+  Vue.use(VueAxios, axios) // Vue Axios
+  Vue.use(VueAuthenticate, { // Vue Authenticate
+    baseUrl: domain, // Your API domain
+
+    providers: {
+      github: {
+        clientId: clientId,
+        redirectUri: '/auth/github/callback'// Your client app URL
+      }
+    }
+  })
+
 
 }
