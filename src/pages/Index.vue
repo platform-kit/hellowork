@@ -818,7 +818,7 @@ export default {
     },
     checkData(response){
        if(response.data == "" || response.data == null) {
-        axios.get('/data.json').then((response) => this.updateData(response));
+        axios.get((process.env.GRIDSOME_DOMAIN || '') + '/data.json').then((response) => this.updateData(response));
       }
       else {
         this.updateData(response);

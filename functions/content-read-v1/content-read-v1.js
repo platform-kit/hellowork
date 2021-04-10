@@ -95,7 +95,7 @@ exports.handler = async (event, context) => {
 
   var output = null;
 
-  if(event.body == null){
+  if(event.body == null || params.p == null){
     output = content;
   }
 
