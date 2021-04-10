@@ -9,6 +9,7 @@ import { IconsPlugin } from 'bootstrap-vue' //Bootstrap Vue
 import VideoBg from 'vue-videobg' //Video Background Player
 import Embed from '/node_overwrites/v-video-embed-ssr.js' // Video Embedding
 import axios from 'axios'; // Axios
+import VueAxios from 'vue-axios' // Vue Axios
 
 var domain = process.env.DOMAIN || 'http://localhost:8080';
 var clientId = process.env.CLIENT_ID || '';
@@ -20,5 +21,5 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(IconsPlugin) // Bootstrap Vue 
   Vue.use(Embed)
   Vue.component('video-bg', VideoBg) //Video Background Player  
-  Vue.use(axios) // Vue Axios
+  Vue.use(VueAxios, axios) // Vue Axios
 }
