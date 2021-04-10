@@ -176,7 +176,7 @@
       </div>
     </b-sidebar>
       <div style="background: #000 !important">
-        <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent" style="z-index:9 !important;">
+        <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent" style="z-index:999 !important;">
           <b-navbar-brand v-if="identity != null && identity.fullName != null" class="d-inline-block d-md-none" href="/"
             >{{ identity.fullName}}</b-navbar-brand
           >
@@ -801,7 +801,7 @@ export default {
       }
     },
     getData() {
-      var source = "/data.json";
+      var source = "/.netlify/functions/content-read-v1";
       if (typeof process.env.GRIDSOME_JSON_URL != "undefined") {
         source = process.env.GRIDSOME_JSON_URL;
       }

@@ -73,22 +73,36 @@ exports.handler = async (event, context) => {
   file.content = content;
   var message = "Success.";
   var status = 200;
-  if(password == false){
+  if(event.body != null && password == false){
     status = 500;
     message = "Incorrect Password.";
   }
+
+  var body = null;
+  if(event.body != null){
+    JSON.parse(event.body);
+  }  
 
   var data = {
     status: status,
     "message": message,
     params: params,
-    body: JSON.parse(event.body),
+    body: body,
     file: file,
-
   };
+
+  var output = null;
+
+  if(password == true && event.body != null){
+    output = data;
+  }
+
+  else {
+    output = content;
+  }
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ data })
+    body: JSON.stringify(output)
   };
 }
