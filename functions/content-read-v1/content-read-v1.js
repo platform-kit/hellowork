@@ -73,7 +73,7 @@ exports.handler = async (event, context) => {
   file.content = content;
   var status = 200;
   var message = "Success.";  
-  if((event.body != null && password == false)){
+  if(event.body != null && password == false){
     status = 500;
     message = "Incorrect Password.";
   }
