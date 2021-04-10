@@ -2921,6 +2921,11 @@
   "resolved" "https://registry.npmjs.org/character-reference-invalid/-/character-reference-invalid-1.1.4.tgz"
   "version" "1.1.4"
 
+"child_process@^1.0.2":
+  "integrity" "sha1-sffn/HPSXn/R1FWtyU4UODAYK1o="
+  "resolved" "https://registry.npmjs.org/child_process/-/child_process-1.0.2.tgz"
+  "version" "1.0.2"
+
 "chokidar@^2.0.4", "chokidar@^2.1.0", "chokidar@^2.1.8":
   "integrity" "sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg=="
   "resolved" "https://registry.npmjs.org/chokidar/-/chokidar-2.1.8.tgz"
@@ -5179,7 +5184,7 @@
     "pify" "^3.0.0"
     "slash" "^1.0.0"
 
-"globby@^9.0.0":
+"globby@^9.0.0", "globby@^9.2.0":
   "integrity" "sha512-ollPHROa5mcxDEkwg6bPt3QbEf4pDQSNtd6JPL1YvOvAo/7/0VAm9TccUeoTmarjPw4pfUthSCqcyfNB1I3ZSg=="
   "resolved" "https://registry.npmjs.org/globby/-/globby-9.2.0.tgz"
   "version" "9.2.0"
