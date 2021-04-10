@@ -814,9 +814,17 @@ export default {
         source = process.env.GRIDSOME_JSON_URL;
       }
       console.log("Pulling data from... \n " + source);
-      axios.get(source).then((response) => this.updateData(response));
+      axios.get(source).then((response) => this.checkData(response));
     },
-    updateData(data) {
+    checkData(response){
+       if(response.data == "" || response.data == null) {
+        axios.get('/data.json').then((response) => this.updateData(response));
+      }
+      else {
+        this.updateData(response);
+      }
+    },
+    updateData(data) {     
       console.log(data.data);
       console.log("Updated data.");
       this.json = data.data;
