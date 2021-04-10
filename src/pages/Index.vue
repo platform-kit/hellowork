@@ -812,7 +812,7 @@ export default {
       }
     },
     getData() {
-      var source = "/.netlify/functions/content-read-v1";
+      var source = "/data.json";
       if (typeof process.env.GRIDSOME_JSON_URL != "undefined") {
         source = process.env.GRIDSOME_JSON_URL;
       }
