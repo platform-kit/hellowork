@@ -237,7 +237,7 @@
               id="adminButton"
               style="box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:#e5eaf4;color:rgb(45 87 169);padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"    
               v-b-toggle.sidebar
-              v-if="showAdmin == true"      
+                
               v-bind:class="{active: showAdmin == true, inactive: showadmin == false }"                          
               >
               <b-icon icon="pen-fill" aria-hidden="true"></b-icon>
