@@ -16,7 +16,7 @@
         "headline": "I work in the <span class='d-inline-block'>dark arts.</span>"
     },
     "testimonials": {
-        "image": "/logos.jpg"
+        "img": "/logos.jpg"
     },
     "projects": [
         {
