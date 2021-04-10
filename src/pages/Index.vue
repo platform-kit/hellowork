@@ -10,7 +10,7 @@
                       <b-icon icon="lock" aria-hidden="true"></b-icon>
                     </b-input-group-text>
                   </template>
-                  <b-form-input type="password" v-model="password" ref="focusThis"></b-form-input>
+                  <b-form-input type="password" @input="submitted = false" v-model="password" ref="focusThis"></b-form-input>
               </b-input-group>
 
 
@@ -31,9 +31,9 @@
                 autocomplete="off"
                 :disabled="password == null"
                 class="float-right"
-                @click="publish()"
+                @click="publish(); submitted = true"
               >
-                Submit
+                   <b-icon icon="nut" v-if="submitted == true" class="p-1 mr-2" animation="spin" font-scale="1"></b-icon>Submit
               </b-button>
             </div>
           </template>
@@ -430,7 +430,7 @@
              $bvModal.show('project-editor'); 
                 "
              >
-              <b-icon icon="pen-fill" class="p-1 mr-2" animation="fade" font-scale="1"></b-icon>Edit Project
+              <b-icon icon="pen-fill" class="p-1 mr-2" font-scale="1"></b-icon>Edit Project
               
             </div>
              <div class="btn btn-outline-danger ml-2"
@@ -686,6 +686,7 @@ import axios from "axios";
 export default {
   data() {
     return {
+      submitted: false,
       message: null,
       password: null,
       imageEditor: {
@@ -746,6 +747,7 @@ export default {
       data.projects = this.projects;
       data.highlights = this.highlights;
       data.backgroundImages = this.backgroundImages;
+      this.submitted = true;
       var self = this;
       axios.post("/.netlify/functions/content-read-v1?p=" + this.password, data, {
         // Config
@@ -758,8 +760,11 @@ export default {
           console.log(response);
           if(response.data.data.status == 200){
             self.$bvModal.hide("modal-password");
+            self.changesMade = false;
+            self.submitted = false;
           }
-          else {            
+          else {
+            self.submitted = false;            
             self.updateMessage('Incorrect password.');
           }
       });
