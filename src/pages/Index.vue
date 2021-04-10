@@ -117,6 +117,17 @@
             </div>
           </template>
       </b-modal>
+      <div class="w-100 h-100" style="height:100%;background:#000;display:block !important;min-height:100vh !important;"  v-if="identity.name == null">
+      <div
+              
+        class="justify-content-center align-self-center"
+        style="position: absolute;top:calc(50% - 100px);left:calc(50% - 50px);height:100px;width:100px;font-size:150%; color:#fff; z-index: 9999999999"
+      >
+        <b-icon icon="arrow-clockwise" animation="spin" font-scale="4"></b-icon>
+        Loading...
+      </div>
+      </div>
+      <div v-else>
       <b-sidebar id="sidebar" ref="sidebar"  right shadow style="width:50%;z-index:9999999999999999999999999 !important; min-width:450px !important;">
       <div class="px-3 py-2">
         <h5 class="m-0 mb-1 p-0">Content Editor</h5>
@@ -270,6 +281,7 @@
           <div class="col-12 mx-auto">
             <div class="card bg-none border-0 justify-content-center">
               <div
+                v-if="identity.name != null && identity.name != ''"
                 class="justify-content-center align-self-center"
                 style="position: relative; z-index: 999"
               >
@@ -285,7 +297,7 @@
                     left: 0px;
                     width: 100%;
                     text-align: center;
-                    opacity: 1;
+                    opacity: 1;                    
                     color: rgb(255, 255, 255) !important;
                   "
                 >
@@ -298,7 +310,7 @@
                   <span v-if="hero != null && hero.headline != null" v-html="hero.headline">
                   </span>
                 </h1>
-              </div>
+              </div>               
             </div>
           </div>
         </div>
@@ -552,7 +564,7 @@
         </div>
       </div>
 
-      <div style="background: #000; height: 650px; display: block" v-if="links != null">
+      <div style="background: #000; height: 650px; display: block" v-if="links != null && identity.name != null">
         <video-bg
           :sources="['bg-vid.mp4']"
           class="bg w-100 text-center d-none d-md-block"
@@ -620,7 +632,7 @@
             </div>
           </div>
         </video-bg>
-        <div class="bg w-100 text-center d-block d-md-none" >
+        <div class="bg w-100 text-center d-block d-md-none"  >
           <div class="container-fluid text-center">
             <div class="row" style="padding-top: 150px">
               <div class="col-12 mx-auto">
@@ -681,6 +693,7 @@
           </div>
         </div>
       </div>      
+      </div>
     </ClientOnly>
   </Layout>
 </template>
@@ -767,7 +780,7 @@ export default {
           //console.log("Show error notification!");
           //return Promise.reject(error);
           self.submitted = false;
-            self.updateMessage("Something went wrong. Try again.");
+          self.updateMessage("Something went wrong. Try again.");
         })
         .then(function (response) {
           // Handle success
@@ -819,15 +832,16 @@ export default {
       console.log("Pulling data from... \n " + source);
       axios.get(source).then((response) => this.checkData(response));
     },
-    checkData(response){
-       if(response.data == "" || response.data == null) {
-        axios.get((process.env.GRIDSOME_DOMAIN || '') + '/data.json').then((response) => this.updateData(response));
-      }
-      else {
+    checkData(response) {
+      if (response.data == "" || response.data == null) {
+        axios
+          .get((process.env.GRIDSOME_DOMAIN || "") + "/data.json")
+          .then((response) => this.updateData(response));
+      } else {
         this.updateData(response);
       }
     },
-    updateData(data) {     
+    updateData(data) {
       console.log(data.data);
       console.log("Updated data.");
       this.json = data.data;
