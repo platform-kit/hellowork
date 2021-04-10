@@ -23,7 +23,7 @@
     "netlify-cms": "^2.10.111",
     "replace-in-file": "^6.2.0",
     "v-video-embed": "^1.0.8",
-    "vue-mobile-detection": "^1.0.0",    
+    "vue-mobile-detection": "^1.0.0",
     "vue-videobg": "https://github.com/pespantelis/vue-videobg/tarball/master"
   }
 }
