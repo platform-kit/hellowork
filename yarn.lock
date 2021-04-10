@@ -3322,7 +3322,7 @@
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-1.2.7.tgz"
   "version" "1.2.7"
 
-"core-js@^3.6.4", "core-js@^3.6.5", "core-js@^3.8.1":
+"core-js@^3.6.4", "core-js@^3.6.5":
   "integrity" "sha512-gSjRvzkxQc1zjM/5paAmL4idJBFzuJoo+jDjF1tStYFMV2ERfD02HhahhCGXUyHxQRG4yFKVSdO6g62eoRMcDg=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.9.1.tgz"
   "version" "3.9.1"
@@ -3632,11 +3632,6 @@
   "version" "0.4.1"
   dependencies:
     "array-find-index" "^1.0.1"
-
-"custom-event-polyfill@^1.0.7":
-  "integrity" "sha512-TDDkd5DkaZxZFM8p+1I3yAlvM3rSr1wbrOliG4yJiwinMZN8z/iGL7BTlDkrJcYTmgUSb4ywVCc3ZaUtOtC76w=="
-  "resolved" "https://registry.npmjs.org/custom-event-polyfill/-/custom-event-polyfill-1.0.7.tgz"
-  "version" "1.0.7"
 
 "cwebp-bin@^5.0.0":
   "integrity" "sha512-BsPKStaNr98zfxwejWWLIGELbPERULJoD2v5ijvpeutSAGsegX7gmABgnkRK7MUucCPROXXfaPqkLAwI509JzA=="
@@ -6848,11 +6843,6 @@
     "emojis-list" "^3.0.0"
     "json5" "^1.0.1"
 
-"loadjs@^4.2.0":
-  "integrity" "sha512-AgQGZisAlTPbTEzrHPb6q+NYBMD+DP9uvGSIjSUM5uG+0jG15cb8axWpxuOIqrmQjn6scaaH8JwloiP27b2KXA=="
-  "resolved" "https://registry.npmjs.org/loadjs/-/loadjs-4.2.0.tgz"
-  "version" "4.2.0"
-
 "localforage@^1.7.3":
   "integrity" "sha512-rR1oyNrKulpe+VM9cYmcFn6tsHuokyVHFaCM3+osEmxaHTbEk8oQu6eGDfS6DQLWi/N67XRmB8ECG37OES368g=="
   "resolved" "https://registry.npmjs.org/localforage/-/localforage-1.9.0.tgz"
@@ -8644,15 +8634,6 @@
   dependencies:
     "find-up" "^3.0.0"
 
-"plyr@github:sampotts/plyr#develop":
-  "resolved" "git+ssh://git@github.com/sampotts/plyr.git#028be22dec323b23727315ef0c34682192991488"
-  dependencies:
-    "core-js" "^3.8.1"
-    "custom-event-polyfill" "^1.0.7"
-    "loadjs" "^4.2.0"
-    "rangetouch" "^2.0.1"
-    "url-polyfill" "^1.1.12"
-
 "pngquant-bin@^5.0.0":
   "integrity" "sha512-OLdT+4JZx5BqE1CFJkrvomYV0aSsv6x2Bba+aWaVc0PMfWlE+ZByNKYAdKeIqsM4uvW1HOSEHnf8KcOnykPNxA=="
   "resolved" "https://registry.npmjs.org/pngquant-bin/-/pngquant-bin-5.0.2.tgz"
@@ -9325,11 +9306,6 @@
   "integrity" "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg=="
   "resolved" "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
   "version" "1.2.1"
-
-"rangetouch@^2.0.1":
-  "integrity" "sha512-sln+pNSc8NGaHoLzwNBssFSf/rSYkqeBXzX1AtJlkJiUaVSJSbRAWJk+4omsXkN+EJalzkZhWQ3th1m0FpR5xA=="
-  "resolved" "https://registry.npmjs.org/rangetouch/-/rangetouch-2.0.1.tgz"
-  "version" "2.0.1"
 
 "raw-body@^2.4.1":
   "integrity" "sha512-9WmIKF6mkvA0SLmA2Knm9+qj89e+j1zqgyn8aXGd7+nAduPoqgI9lO57SAZNn/Byzo5P7JhXTyg9PzaJbH73bA=="
@@ -11843,11 +11819,6 @@
     "querystringify" "^2.1.1"
     "requires-port" "^1.0.0"
 
-"url-polyfill@^1.1.12":
-  "integrity" "sha512-mYFmBHCapZjtcNHW0MDq9967t+z4Dmg5CJ0KqysK3+ZbyoNOWQHksGCTWwDhxGXllkWlOc10Xfko6v4a3ucM6A=="
-  "resolved" "https://registry.npmjs.org/url-polyfill/-/url-polyfill-1.1.12.tgz"
-  "version" "1.1.12"
-
 "url-to-options@^1.0.1":
   "integrity" "sha1-FQWgOiiaSMvXpDTvuu7FBV9WM6k="
   "resolved" "https://registry.npmjs.org/url-to-options/-/url-to-options-1.0.1.tgz"
@@ -12132,7 +12103,7 @@
     "babel-runtime" "^5.8.0"
     "vue" "^2.3.2"
 
-"vue@^2.3.2", "vue@^2.6.10", "vue@^2.6.12":
+"vue@^2.3.2", "vue@^2.6.10":
   "integrity" "sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.12.tgz"
   "version" "2.6.12"
