@@ -80,7 +80,10 @@ exports.handler = async (event, context) => {
 
   var body = null;
   if(event.body != null){
-    JSON.parse(event.body);
+    console.log(' ---- ');
+    console.log(typeof event.body);
+    console.log(' ---- ');
+    body = JSON.parse(event.body);
   }  
 
   var data = {

@@ -710,7 +710,7 @@ export default {
         heading: "",
       },
       testimonials: {
-        img: "/logos.png",
+        image: "/logos.png",
       },
       projects: [],
       highlights: null,
@@ -759,7 +759,7 @@ export default {
       }).then(function( response ){
           // Handle success
           console.log(response);
-          if(response.data.data.status == 200){
+          if(response.data.hasOwnProperty('data') && response.data.data.hasOwnProperty('status') && response.data.data.status == 200){
             self.$bvModal.hide("modal-password");
             self.changesMade = false;
             self.submitted = false;
