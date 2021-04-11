@@ -16,7 +16,6 @@
     "bootstrap-vue": "^2.21.2",
     "child_process": "^1.0.2",
     "dotenv": "^8.2.0",
-    "gitorm": "^0.0.25",
     "globby": "^9.2.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-netlify-cms": "^1.0.9",
@@ -25,8 +24,8 @@
     "replace-in-file": "^6.2.0",
     "v-video-embed": "^1.0.8",
     "vue": "^2.6.12",
+    "vue-axios": "*",
     "vue-mobile-detection": "^1.0.0",
-    "vue-videobg": "^2.0.0",
-    "vue-axios": "*"
+    "vue-videobg": "^2.0.0"
   }
 }

@@ -3,6 +3,7 @@
   "description": "Read JSON from Github repo.",
   "private": false,
   "dependencies": {
+    "@octokit/rest": "^18.5.2",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "front-matter": "^4.0.2",
