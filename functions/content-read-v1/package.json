@@ -4,7 +4,9 @@
   "private": false,
   "dependencies": {
     "@octokit/rest": "^18.5.2",
+    "atob": "^2.1.2",
     "axios": "^0.19.2",
+    "btoa": "^1.2.1",
     "dotenv": "^8.2.0",
     "front-matter": "^4.0.2",
     "fs": "0.0.1-security",
