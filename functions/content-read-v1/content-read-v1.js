@@ -28,6 +28,7 @@ exports.handler = async (event, context) => {
     auth: token,
   });
   var sha = null;
+  var atob = require('atob');
   var output = await octokit.rest.repos
     .getContent({
       owner: user,
@@ -36,10 +37,10 @@ exports.handler = async (event, context) => {
     })
     .then(({ data }) => {
       sha = data.sha;
-      data = base64.decode(data.content);
+      data = atob(data.content);
       // handle data
       //console.log(data);
-     return data;
+      return data;
     });
 
   // Check password
@@ -52,32 +53,34 @@ exports.handler = async (event, context) => {
   var status = 200;
 
   // Update the file, if new data is provided & password is correct
-  
+
   if (event.body != null && password == true) {
-    
-    try {
+    var btoa = require('btoa');
+    var b64 = null;    
+    var bin = null;
+    bin = event.body;
+    b64 = btoa(bin);
+    console.log(b64);
+
     var file = await octokit.rest.repos
       .createOrUpdateFileContents({
         owner: user,
-        repo: repo,        
-        path: fileName,        
+        repo: repo,
+        path: fileName,
         branch: 'main',
         sha: sha,
         message: "Content Updated",
-        content: base64.atob(JSON.stringify(JSON.parse(event.body))),
+        content: b64
       })
-      .then(({ data }) => {
-        data = JSON.parse(base64.decode(data.content));
+      .then(({ data }) => {        
         // handle data
         //console.log(data);
+        return data;
       });
-    }
-    catch(err) {
-      error = err;
-      status = 500;
-    }          
 
-    
+
+
+
     var message = "Success.";
     if (event.body != null && password == false) {
       status = 500;
@@ -92,14 +95,14 @@ exports.handler = async (event, context) => {
       body = JSON.parse(event.body);
     }
 
+
+
     var data = {
       "message": message,
       params: params,
       body: body,
       file: file,
     };
-
-    var output = null;
 
     if (event.body == null || params.p == null) {
       output = content;
@@ -108,19 +111,24 @@ exports.handler = async (event, context) => {
     else {
       output = data;
     }
-    
-    
 
-    }
-
-    if(typeof output == 'string') {
+    
+    if (typeof output == 'string') {
       output = JSON.parse(output);
     }
+    if (typeof output == 'object') {
+      output = JSON.stringify(output);
+    }
+    
+    
+  
+  }  
 
-    status = 200;
-    return {
-      statusCode: status,
-      error: error,
-      body: JSON.stringify(output)
-    };
-  }
+  status = 200;
+  return {
+    headers: {"content-type": "application/json"},
+    statusCode: status,
+    error: error,
+    body: output
+  };
+}

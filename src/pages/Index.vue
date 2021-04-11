@@ -844,10 +844,13 @@ export default {
       }
     },
     updateData(data) {
+      if(typeof data.data == 'string') {
+        data.data = JSON.parse(data.data);
+      }
       console.log(data.data);
       console.log("Updated data.");
       this.json = data.data;
-      this.originalJson = JSON.stringify(data.data);
+      this.originalJson = JSON.stringify(data.data);      
       if (data.data != null) {
         if (data.data.identity != null) {
           this.identity = data.data.identity;
