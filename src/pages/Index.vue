@@ -452,6 +452,7 @@
             </div>
              <div class="btn btn-outline-danger ml-2"
             v-if="showAdmin"
+            style="float:right;"
              @click="             
               projects.splice(projectEditor.index, 1);
               changesMade = true;
