@@ -745,6 +745,7 @@ export default {
       originalJson: null,
       currentJson: null,
       changesMade: null,
+      background: null
     };
   },
   async mounted() {
@@ -880,7 +881,10 @@ export default {
     },
     randomBackground() {
       var items = this.backgroundImages;
-      return items[Math.floor(Math.random() * items.length)];
+      if(this.background == null) {
+        this.background = items[Math.floor(Math.random() * items.length)];
+      }
+      return this.background;
     },
     openWindow: function (url) {
       window.open(url, "_blank");
