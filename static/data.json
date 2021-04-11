@@ -6,7 +6,7 @@
       "avatar": "https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
    },
    "hero": {
-      "headline": "I work in the <span class='d-inline-block'>dark arts.</span>"
+      "headline": "I work in the <span class=\'d-inline-block\'>dark arts.</span>"
    },
    "testimonials": {
       "image": "/logos.png"
