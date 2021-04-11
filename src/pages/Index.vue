@@ -258,7 +258,7 @@
            </div>
             <div
             @click="login()"
-            style="cursor:pointer;box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;left:20px;height:50px;background:rgb(45 87 169) !important;color:#e5eaf4 !important;padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"                
+            style="cursor:pointer;box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;left:20px;height:50px;background:rgb(45 87 169) !important;color:#e5eaf4 !important;padding:14px 14px 14px 16px;border-radius:50px;z-index:1000;"                
             v-if="showAdmin == true && changesMade == true"                                
             >
             <b-icon icon="cloud-upload" aria-hidden="true"></b-icon> Publish Changes
