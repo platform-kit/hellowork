@@ -6,7 +6,7 @@
       "avatar": "https://avatars.githubusercontent.com/u/4305297?s=400&u=8022306c08796f8740c44f7668999d6d65944b6d&v=4"
    },
    "hero": {
-      "headline": "I work in the <span class=\'d-inline-block\'>dark arts.</span>"
+      "headline": "I work in the <span class='d-inline-block'>dark arts.</span>"
    },
    "testimonials": {
       "image": "/logos.png"
@@ -81,7 +81,7 @@
          ],
          "video": "https://www.youtube.com/embed/4RXdusySjsk",
          "thumbnail": "https://i.ytimg.com/vi/4RXdusySjsk/maxresdefault.jpg",
-         "description": "Edited this social promo for Ryan Reynolds\' social media accounts."
+         "description": "Edited this social promo for Ryan Reynolds' social media accounts."
       },
       {
          "id": "walking-dead",
@@ -104,7 +104,7 @@
          ],
          "video": "https://www.youtube.com/embed/198gzllaumo",
          "thumbnail": "https://s3.amazonaws.com/prod-media.gameinformer.com/styles/body_default/s3/2019/04/10/f9734cb2/squirtle.jpg",
-         "description": "Produced this \'behind-the-scenes\' featurette for Detective Pikachu. Visuals and music produced specifically for this piece."
+         "description": "Produced this 'behind-the-scenes' featurette for Detective Pikachu. Visuals and music produced specifically for this piece."
       },
       {
          "id": "fear-the-walking-dead",
@@ -142,14 +142,14 @@
       },
       {
          "id": "trolls",
-         "title": "DreamWorks\' Trolls - Marketing",
+         "title": "DreamWorks' Trolls - Marketing",
          "tags": [
             "all",
             "marketing"
          ],
          "video": "https://www.youtube.com/embed/iUnRuQLYdTw",
          "thumbnail": "https://pro2-bar-s3-cdn-cf2.myportfolio.com/dabe2fd9-9ff4-4456-80d8-758c0e1b5c37/3c9b915c-b31f-4c72-a499-a98a220001f6_rwc_0x0x1915x1080x1915.jpg?h=3772253aacb9c7c3a716da4f203b11f8",
-         "description": " Edited this teaser for DreamWorks\' Trolls. Animation and music were produced specifically for this teaser."
+         "description": " Edited this teaser for DreamWorks' Trolls. Animation and music were produced specifically for this teaser."
       },
       {
          "id": "lego-movie",
@@ -216,7 +216,7 @@
          ],
          "video": "https://www.youtube.com/watch?v=qpsgYbcELMU",
          "thumbnail": "https://biblioklept.files.wordpress.com/2013/04/cloud-atlas-poster.jpg",
-         "description": "Edited this behind-the-scenes featurette for the Wachowski\'s Cloud Atlas."
+         "description": "Edited this behind-the-scenes featurette for the Wachowski's Cloud Atlas."
       },
       {
          "id": "jupiter-ascending",
@@ -386,7 +386,7 @@
          ],
          "video": "https://www.vimeo.com/521762762",
          "thumbnail": "/hero-who-has-no-fear.jpg",
-         "description": "Edited and produced this video essay featuring narratation by Jean Shinoda Bolen from her \'Ring of Power\' lecture."
+         "description": "Edited and produced this video essay featuring narratation by Jean Shinoda Bolen from her 'Ring of Power' lecture."
       },
       {
          "id": "dharmaworks-it-works",
@@ -439,7 +439,7 @@
          "id": "dw",
          "title": "DharmaWorks",
          "label": "Self Development",
-         "description": "I have published a small collection of the most impactful spiritual teachings I\ve discovered throughout my life. Read in your browser or subscribe to get lessons daily via email.",
+         "description": "I’ve published a small collection of the most impactful spiritual teachings I’ve discovered throughout my life. Read in your browser or subscribe to get lessons daily via email.",
          "image": "https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/e35/163599789_475069440295036_2987837820087803364_n.jpg?tp=1&_nc_ht=scontent-lax3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=dl_0cjxcKTsAX8oaMFY&ccb=7-4&oh=675760f71d8c9bdc800a3c10fd2777df&oe=60867BA1&_nc_sid=4f375e",
          "link": "https://www.dharmaworks.com"
       },
