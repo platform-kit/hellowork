@@ -1,6 +1,52 @@
 <template>
   <Layout>
     <ClientOnly>
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop id="modal-sort-projects" title="Sort Projects" style="z-index:999">
+        <ul class="list-group" >
+            
+            <draggable v-model="projects" group="people" @start="drag=true" @end="drag=false">
+              <li class="list-group-item" v-for="project in projects" v-bind:key="project.id">
+              {{ project.title }} 
+              <b-icon icon="arrows-move"  style="float:right;margin-top:4px;" font-scale="1"></b-icon>
+            </li>
+            </draggable>
+        </ul>
+          <template #modal-footer>
+            <div class="w-100"  style="padding:10px 10px 0px 10px !important;">           
+              <b-button
+                variant="primary"
+                autocomplete="off"                
+                class="float-right"
+                @click="$bvModal.hide('modal-sort-projects');changesMade = true;"
+              >
+                   <b-icon icon="nut" v-if="submitted == true" class="p-1 mr-2" animation="spin" font-scale="1"></b-icon>Submit
+              </b-button>
+            </div>
+          </template>
+      </b-modal>
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop id="modal-sort-highlights" title="Sort Highlighted Links" style="z-index:999">
+        <ul class="list-group" >
+            
+            <draggable v-model="highlights" group="people" @start="drag=true" @end="drag=false">
+              <li class="list-group-item" v-for="project in highlights" v-bind:key="project.id">
+              {{ project.title }} 
+              <b-icon icon="arrows-move"  style="float:right;margin-top:4px;" font-scale="1"></b-icon>
+            </li>
+            </draggable>
+        </ul>
+          <template #modal-footer>
+            <div class="w-100"  style="padding:10px 10px 0px 10px !important;">           
+              <b-button
+                variant="primary"
+                autocomplete="off"                
+                class="float-right"
+                @click="$bvModal.hide('modal-sort-highlights');changesMade = true;"
+              >
+                   <b-icon icon="nut" v-if="submitted == true" class="p-1 mr-2" animation="spin" font-scale="1"></b-icon>Submit
+              </b-button>
+            </div>
+          </template>
+      </b-modal>
       <b-modal  hide-header-close  @shown="focusMyElement" id="modal-password" title="Enter your password." style="z-index:999">
 
               <span class="text-danger" v-if="message != null">{{ message }}</span>
@@ -234,14 +280,20 @@
         
         <span class="badge badge-pill badge-dark mb-3 mt-2">Testimonial Image</span><br>
         <b-img  @click="imageEditor.oldUrl = testimonials.image; $bvModal.show('image-editor'); hideSidebar()" style="background:#000;padding:15px;max-width:50%; margin:0px 5px 5px 0px;" :src="testimonials.image" fluid thumbnail></b-img>  <br>
-        <span class="badge badge-pill badge-dark mb-3 mt-2">Gallery</span><br>
+        
+        <span class="badge badge-pill badge-dark mb-3 mt-2">Gallery</span>
+        <span class="badge badge-pill border text-dark ml-2" @click="$bvModal.show('modal-sort-projects')" style="cursor:pointer;">Sort</span>
+        <br>
+
         <b-input-group prepend="Section Title" style="margin-bottom:6px;width:calc(100% - 8px);" >
           <b-form-input @input="changesMade = true"  v-model="language.galleryTitle" placeholder="Featured Work"></b-form-input>
         </b-input-group>
         <div class="imageSquare" @click="var id = Date.now(); projects.unshift({id:id, title: 'New Project'  }); projectEditor.index = 0; projectEditor.project = {id:id, title: 'New Project'};  $bvModal.show('project-editor'); hideSidebar()" style="display:inline-block;"><b-icon icon="plus" font-scale="3" style="color:rgba(0,50,150,0.4);margin:12px auto;display:block;" aria-hidden="true"></b-icon></div>
         <div @click="projectEditor.index = index; projectEditor.project = project;  $bvModal.show('project-editor'); hideSidebar()" v-for="(project, index) in projects" v-bind:key="index" class="imageSquare" v-bind:style="{ backgroundImage: 'url(' + project.thumbnail + ')' }" ></div>
         <br>
-        <span class="badge badge-pill badge-dark mb-3 mt-2">Highlighted Links</span><br>
+        
+        <span class="badge badge-pill badge-dark mb-3 mt-2">Highlighted Links</span>
+        <span class="badge badge-pill border text-dark ml-2" @click="$bvModal.show('modal-sort-highlights')" style="cursor:pointer;">Sort</span><br>
         <b-input-group prepend="Section Title" style="margin-bottom:6px;width:calc(100% - 8px);" >
           <b-form-input @input="changesMade = true"  v-model="language.linksTitle" placeholder="Projects"></b-form-input>
         </b-input-group>
@@ -761,8 +813,12 @@
 
 <script>
 import axios from "axios";
+import draggable from 'vuedraggable';
 
 export default {
+  components: {
+    draggable,
+  },
   data() {
     return {
       submitted: false,
@@ -788,7 +844,7 @@ export default {
       linkEditor: {
         imageUrl: null,
         link: {
-          thumbnail: null,          
+          thumbnail: null,
           title: null,
         },
         index: null,
@@ -805,7 +861,7 @@ export default {
       },
       projects: [],
       highlights: null,
-      links: {},      
+      links: {},
       modalVideo: "",
       modalText: "",
       modalTitle: "",

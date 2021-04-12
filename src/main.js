@@ -10,6 +10,7 @@ import VideoBg from 'vue-videobg' //Video Background Player
 import Embed from '/node_overwrites/v-video-embed-ssr.js' // Video Embedding
 import axios from 'axios'; // Axios
 import VueAxios from 'vue-axios' // Vue Axios
+import draggable from 'vuedraggable' // Vue Draggable
 
 var domain = process.env.DOMAIN || 'http://localhost:8080';
 var clientId = process.env.CLIENT_ID || '';
@@ -22,4 +23,5 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(Embed)
   Vue.component('video-bg', VideoBg) //Video Background Player  
   Vue.use(VueAxios, axios) // Vue Axios
+  Vue.component('draggable', draggable) // Vue Draggable
 }
