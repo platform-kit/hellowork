@@ -134,6 +134,10 @@
                   <b-form-input v-model="linkEditor.link.image" ></b-form-input>
                 </b-input-group>
 
+                 <b-input-group prepend="Link URL" class="mb-2 mt-3">
+                  <b-form-input v-model="linkEditor.link.link" ></b-form-input>
+                </b-input-group>
+
                 <b-form-textarea v-model="linkEditor.link.description" ></b-form-textarea>
 
           <template #modal-footer>
