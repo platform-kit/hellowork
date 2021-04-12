@@ -958,7 +958,7 @@ export default {
   #sidebar {
     padding-left: 5px;
     padding-top: 10px;
-    min-width: 440px !important;
+    min-width: 520px !important;
   }
 }
 
