@@ -117,6 +117,48 @@
             </div>
           </template>
       </b-modal>
+      <b-modal  hide-header-close  @shown="focusMyElement" id="link-editor" title="Edit Link" style="z-index:999">
+
+          <div v-if="linkEditor.link.thumbnail != null && linkEditor.link.thumbnail != ''" class="imageSquareLarge" v-bind:style="{ backgroundImage: 'url(' + linkEditor.link.thumbnail + ')' }" ></div>          
+          <div v-else class="imageSquareLarge" v-bind:style="{ backgroundImage: 'url(' + linkEditor.link.image + ')' }" ></div>        
+              
+                <b-input-group prepend="Title" class="mb-2 mt-3">
+                  <b-form-input v-model="linkEditor.link.title" ref="focusThis"></b-form-input>
+                </b-input-group>
+
+                 <b-input-group prepend="Label" class="mb-2 mt-3">
+                  <b-form-input v-model="linkEditor.link.label" ref="focusThis"></b-form-input>
+                </b-input-group>
+
+                <b-input-group prepend="Image URL" class="mb-2 mt-3">
+                  <b-form-input v-model="linkEditor.link.image" ></b-form-input>
+                </b-input-group>
+
+                <b-form-textarea v-model="linkEditor.link.description" ></b-form-textarea>
+
+          <template #modal-footer>
+            <div class="w-100"  style="padding:10px 10px 0px 10px !important;">
+              <p class="float-left">            
+                <b-button
+                variant="danger"
+                
+                class="float-right"
+                @click="$bvModal.hide('link-editor');"
+              >
+                Cancel
+              </b-button>
+              </p> 
+              <b-button
+                variant="primary"
+                
+                class="float-right"
+                @click="saveLink();"
+              >
+                Save
+              </b-button>
+            </div>
+          </template>
+      </b-modal>
       <div class="w-100 h-100" style="height:100%;background:#000;display:block !important;min-height:100vh !important;"  v-if="identity.name == null">
       <div
               
@@ -147,9 +189,12 @@
               </b-input-group>  
               <b-input-group prepend="Headline" class="mb-1" >
                 <b-form-input  @input="changesMade = true"  v-model="hero.headline" placeholder="Enter a headline."></b-form-input>
+              </b-input-group> 
+              <b-input-group prepend="Avatar" class="mb-1" >
+                <b-form-input  @input="changesMade = true"  v-model="identity.avatar" placeholder="Enter an image url."></b-form-input>
               </b-input-group>        
             </b-form>          
-          <b-img  style="max-width:75px; margin:0px 5px 5px 0px;" :src="identity.avatar" fluid thumbnail></b-img>  
+          <div v-if="identity.avatar != null && identity.avatar != ''" class="imageSquare"  v-bind:style="{ backgroundImage: 'url(' + identity.avatar + ')' }" ></div>  
         </div>
 
            <span class="badge badge-pill badge-dark mb-3 mt-2">
@@ -178,15 +223,26 @@
         <div class="w-100 d-block">
           <span class="badge badge-pill badge-dark mb-3 mt-2">Background Images</span>
           <br>
+          <div class="imageSquare" @click="backgroundImages.unshift('');imageEditor.oldUrl = ''; $bvModal.show('image-editor'); hideSidebar()" style="display:inline-block;"><b-icon icon="plus" font-scale="3" style="color:rgba(0,50,150,0.4);margin:12px auto;display:block;" aria-hidden="true"></b-icon></div>
           <div class="imageSquare" @click="imageEditor.oldUrl = image; $bvModal.show('image-editor'); hideSidebar()" v-for="image in backgroundImages" v-bind:key="image"  v-bind:style="{ backgroundImage: 'url(' + image + ')' }" ></div>
           <br>
         </div>
-        <hr>
+        
         <span class="badge badge-pill badge-dark mb-3 mt-2">Testimonial Image</span><br>
         <b-img  @click="imageEditor.oldUrl = testimonials.image; $bvModal.show('image-editor'); hideSidebar()" style="background:#000;padding:15px;max-width:50%; margin:0px 5px 5px 0px;" :src="testimonials.image" fluid thumbnail></b-img>  <br>
-        <span class="badge badge-pill badge-dark mb-3 mt-2">Projects</span><br>
+        <span class="badge badge-pill badge-dark mb-3 mt-2">Gallery</span><br>
+        <b-input-group prepend="Section Title" style="margin-bottom:6px;width:calc(100% - 8px);" >
+          <b-form-input @input="changesMade = true"  v-model="language.galleryTitle" placeholder="Featured Work"></b-form-input>
+        </b-input-group>
+        <div class="imageSquare" @click="var id = Date.now(); projects.unshift({id:id, title: 'New Project'  }); projectEditor.index = 0; projectEditor.project = {id:id, title: 'New Project'};  $bvModal.show('project-editor'); hideSidebar()" style="display:inline-block;"><b-icon icon="plus" font-scale="3" style="color:rgba(0,50,150,0.4);margin:12px auto;display:block;" aria-hidden="true"></b-icon></div>
         <div @click="projectEditor.index = index; projectEditor.project = project;  $bvModal.show('project-editor'); hideSidebar()" v-for="(project, index) in projects" v-bind:key="index" class="imageSquare" v-bind:style="{ backgroundImage: 'url(' + project.thumbnail + ')' }" ></div>
-        
+        <br>
+        <span class="badge badge-pill badge-dark mb-3 mt-2">Highlighted Links</span><br>
+        <b-input-group prepend="Section Title" style="margin-bottom:6px;width:calc(100% - 8px);" >
+          <b-form-input @input="changesMade = true"  v-model="language.linksTitle" placeholder="Projects"></b-form-input>
+        </b-input-group>
+        <div class="imageSquare" @click="var id = Date.now(); highlights.unshift({id:id, title: 'New Link'  }); linkEditor.index = 0; linkEditor.link = {id:id, title: 'New Project'};  $bvModal.show('link-editor'); hideSidebar()" style="display:inline-block;"><b-icon icon="plus" font-scale="3" style="color:rgba(0,50,150,0.4);margin:12px auto;display:block;" aria-hidden="true"></b-icon></div>
+        <div @click="linkEditor.index = index; linkEditor.link = link;  $bvModal.show('link-editor'); hideSidebar()" v-for="(link, index) in highlights" v-bind:key="link.id" class="imageSquare" v-bind:style="{ backgroundImage: 'url(' + link.image + ')' }" ></div>
       </div>
     </b-sidebar>
       <div style="background: #000 !important">
@@ -202,8 +258,8 @@
 
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item href="#featured-work">Featured Work</b-nav-item>
-              <b-nav-item href="#featured-projects">Projects</b-nav-item>
+              <b-nav-item href="#featured-work">{{ language.galleryTitle }}</b-nav-item>
+              <b-nav-item href="#featured-projects">{{ language.linksTitle }}</b-nav-item>
             </b-navbar-nav>
 
             <!-- Right aligned nav items -->
@@ -381,7 +437,7 @@
                     "
                     class="badge badge-pill border-0 px-3 py-2 intro"
                   >
-                    - Featured Work -
+                    - {{ language.galleryTitle }} -
                   </p>
                   <br />
                   <div class="br-25 toggles">
@@ -515,7 +571,7 @@
                     "
                     class="badge badge-pill border-0 px-3 py-2 intro"
                   >
-                    - Projects -
+                    - {{ language.linksTitle }} -
                   </p>
                   <br />
                 </div>
@@ -712,12 +768,24 @@ export default {
         newUrl: null,
         oldUrl: null,
       },
+      language: {
+        galleryTitle: "Featured Work",
+        linksTitle: "Projects",
+      },
       projectEditor: {
         imageUrl: null,
         project: {
           thumbnail: null,
           video: null,
-          titlevideo: null,
+          title: null,
+        },
+        index: null,
+      },
+      linkEditor: {
+        imageUrl: null,
+        link: {
+          thumbnail: null,          
+          title: null,
         },
         index: null,
       },
@@ -733,7 +801,7 @@ export default {
       },
       projects: [],
       highlights: null,
-      links: {},
+      links: {},      
       modalVideo: "",
       modalText: "",
       modalTitle: "",
@@ -746,7 +814,7 @@ export default {
       originalJson: null,
       currentJson: null,
       changesMade: null,
-      background: null
+      background: null,
     };
   },
   async mounted() {
@@ -811,6 +879,13 @@ export default {
       this.changesMade = true;
       this.updateJson();
     },
+    saveLink() {
+      this.$bvModal.hide("link-editor");
+      var index = this.linkEditor.index;
+      this.highlights[index] = this.linkEditor.link;
+      this.changesMade = true;
+      this.updateJson();
+    },
     updateJson() {},
     focusMyElement() {
       this.$refs.focusThis.focus();
@@ -844,13 +919,13 @@ export default {
       }
     },
     updateData(data) {
-      if(typeof data.data == 'string') {
+      if (typeof data.data == "string") {
         data.data = JSON.parse(data.data);
       }
       console.log(data.data);
       console.log("Updated data.");
       this.json = data.data;
-      this.originalJson = JSON.stringify(data.data);      
+      this.originalJson = JSON.stringify(data.data);
       if (data.data != null) {
         if (data.data.identity != null) {
           this.identity = data.data.identity;
@@ -885,7 +960,7 @@ export default {
     },
     randomBackground() {
       var items = this.backgroundImages;
-      if(this.background == null) {
+      if (this.background == null) {
         this.background = items[Math.floor(Math.random() * items.length)];
       }
       return this.background;
@@ -939,6 +1014,7 @@ export default {
   background-position: center;
 }
 .imageSquare {
+  background-color: rgba(0, 50, 150, 0.2);
   width: 75px;
   height: 75px;
   display: inline-block;
