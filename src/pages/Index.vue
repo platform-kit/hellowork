@@ -213,13 +213,13 @@
               <b-form-input @input="changesMade = true"  v-model="links.resume" placeholder="Resume URL"></b-form-input>
               </b-input-group>
               <b-input-group prepend="Twitter" class="mb-1" >
-              <b-form-input @input="changesMade = true"  v-model="links.twitter" placeholder="username (no @)"></b-form-input>
+              <b-form-input @input="changesMade = true"  v-model="links.twitter" placeholder="Twitter Username"></b-form-input>
               </b-input-group>
               <b-input-group prepend="Instagram" class="mb-1" >
-              <b-form-input @input="changesMade = true"  v-model="links.instagram" placeholder="username (no @)"></b-form-input>
+              <b-form-input @input="changesMade = true"  v-model="links.instagram" placeholder="Instagram Username"></b-form-input>
               </b-input-group>
               <b-input-group prepend="LinkedIn" class="mb-1" >
-              <b-form-input @input="changesMade = true"  v-model="links.linkedin" placeholder="your-linkedin-url-slug"></b-form-input>
+              <b-form-input @input="changesMade = true"  v-model="links.linkedin" placeholder="LinkedIn url-slug"></b-form-input>
               </b-input-group>                     
           </b-form>                    
         </div>
