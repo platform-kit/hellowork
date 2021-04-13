@@ -1167,6 +1167,13 @@ export default {
   }
 }
 
+#postImageContainerLarge #postImage {
+    width:900px !important;
+    height:900px !important;
+    min-width:900px !important;
+    min-height:900px !important;
+}
+
 #adminButton,
 #newPostButton {
   z-index: 999 !important;
