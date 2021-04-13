@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <ClientOnly>
-      <b-modal hide-footer id="modal-generatedPostImage" title="Your Image" style="z-index:999">
+      <b-modal hide-footer id="modal-generatedPostImage" title="Your Image" style="z-index:99999 !important">
         <img v-if="postEditor.generatedPostImage != null" id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;display:inline !important;"/>                           
         <b-aspect v-else id="postImage" class="d-flex"  aspect="1:1" style="display:inline-block;border-radius:4px;background:rgba(0,50,150,0.1);color:#fff;padding:25px;text-align:center;display:flex !important">
           <b-icon style="height:50px;width:50px;position:absolute;top:calc(50% - 50px);left:calc(50% - 25px)" icon="arrow-clockwise" class="text-primary" animation="spin" font-scale="1"></b-icon>
@@ -249,7 +249,7 @@
       <div v-else>
         <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999999999999999999999999 !important; min-width:100% !important;">          
 
-           <div @click="savePost()" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
+           <div @click="savePost(); $root.$emit('bv::toggle::collapse', 'newpostSidebar');" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
 
