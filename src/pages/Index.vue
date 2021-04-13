@@ -240,18 +240,19 @@
       </div>
       <div v-else>
         <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999999999999999999999999 !important; min-width:100% !important;">
-          <div class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" @click="savePost()">
+          <div class="btn btn-light text-primary btn-sm d-none d-md-inline-block" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" @click="savePost()">
             <b-icon icon="cloud-download" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
           <div class="px-3 py-2" style="max-width:483px;">
             <h5 class="m-0 mb-1 p-0">New Post</h5>
                 <b-input-group prepend="Image" class="mb-1" >
-                  <b-form-input @input="changesMade = true"  v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
+                  <b-form-input @input="generatePostImage()" v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
                 </b-input-group>
                 <b-input-group prepend="Text" class="mb-1" >
-                  <b-form-input @input="changesMade = true"  v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
+                  <b-form-input @input="generatePostImage()" v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
                 </b-input-group>
-            <div id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
+            <img id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;"/>
+            <div v-if="postEditor.generatedPostImage == null" id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
@@ -873,13 +874,26 @@ export default {
       message: null,
       password: null,
       postEditor: {
+        generatedPostImage: null,
         text: null,
         image:
           "https://images.unsplash.com/photo-1618178498578-68352fccdc6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1234&q=80",
         overlay: "/images/overlays/overlay.png",
         config: {
-          target: "#postImageContainerLarge",          
-          returnAction: "download",         
+          inline: {
+            target: "#postImageContainerLarge",
+            returnAction: "base64",
+            callback: (img) => { // modifies what image is returned
+              //console.log('image:');
+              // console.log(img);
+              //return img 
+              this.postEditor.generatedPostImage = img;
+              } 
+          },
+          download: {
+            target: "#postImageContainerLarge",
+            returnAction: "download",
+          },
         },
       },
       imageEditor: {
@@ -944,8 +958,11 @@ export default {
     }
   },
   methods: {
-    savePost(){      
-      vue2img().image(this.postEditor.config);
+    generatePostImage() {
+      this.postEditor.generatedImage = vue2img().image(this.postEditor.config.inline);
+    },
+    savePost() {
+      vue2img().image(this.postEditor.config.download);
     },
     publish() {
       this.message = null;
@@ -1114,10 +1131,10 @@ export default {
 
 <style>
 #postText {
-  max-width:90%;
+  max-width: 90%;
   overflow-wrap: break-word !important;
   font-family: "Cabin" !important;
-  font-size:115%;
+  font-size: 115%;
 }
 
 .b-aspect-content {
@@ -1127,17 +1144,15 @@ export default {
 #postImage {
   overflow: hidden;
   background-size: cover !important;
-  background-position: center !important;  
+  background-position: center !important;
 }
 
-
-
 #postImageContainerLarge {
-  position:absolute;
-  top:-900px !important;
-  left:-900px !important;
-  float:left !important;
-  z-index:-10 !important;
+  position: absolute;
+  top: -900px !important;
+  left: -900px !important;
+  float: left !important;
+  z-index: -10 !important;
   background-size: cover !important;
   background-position: center !important;
   display: inline-block;
@@ -1145,8 +1160,8 @@ export default {
   min-width: 900px;
   border-radius: 0px;
   overflow: hidden;
-  font-size:215%;
-  max-width:900px;
+  font-size: 215%;
+  max-width: 900px;
 }
 #postImageContainer {
   background-size: cover !important;
@@ -1158,20 +1173,21 @@ export default {
   overflow: hidden;
 }
 
-@media(max-width:991px){
-  #postImage, #postImageContainer  {
-    width:342px !important;
-    height:342px !important;
-    min-width:342px !important;
-    min-height:342px !important;
+@media (max-width: 991px) {
+  #postImage,
+  #postImageContainer {
+    width: 342px !important;
+    height: 342px !important;
+    min-width: 342px !important;
+    min-height: 342px !important;
   }
 }
 
 #postImageContainerLarge #postImage {
-    width:900px !important;
-    height:900px !important;
-    min-width:900px !important;
-    min-height:900px !important;
+  width: 900px !important;
+  height: 900px !important;
+  min-width: 900px !important;
+  min-height: 900px !important;
 }
 
 #adminButton,
