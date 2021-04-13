@@ -13,6 +13,8 @@ import VueAxios from 'vue-axios' // Vue Axios
 import draggable from 'vuedraggable' // Vue Draggable
 // import Vue2Img from 'vue-2-img' // Vue2Img
 // import 'vue-2-img/dist/vue-2-img.css' // Vue2Img
+//import Unsplash from 'vue-unsplash' // Vue Unsplash
+
 
 var domain = process.env.DOMAIN || 'http://localhost:8080';
 var clientId = process.env.CLIENT_ID || '';
@@ -26,4 +28,5 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('video-bg', VideoBg) //Video Background Player  
   Vue.use(VueAxios, axios) // Vue Axios
   Vue.component('draggable', draggable) // Vue Draggable
+  
 }

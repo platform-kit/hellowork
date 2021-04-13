@@ -24,6 +24,7 @@
     "js-base64": "^3.6.0",
     "netlify-cms": "^2.10.111",
     "replace-in-file": "^6.2.0",
+    "unsplash-js": "^7.0.10",
     "v-video-embed": "^1.0.8",
     "vue": "^2.6.12",
     "vue-2-img": "0.0.6",

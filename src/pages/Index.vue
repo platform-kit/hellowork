@@ -266,8 +266,16 @@
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
-              </b-aspect>
+              </b-aspect>              
             </div>
+            <span class="badge badge-dark badge-pill">Background Images</span><span class="badge">via <a href="https://unsplash.com" target="_blank">Unsplash</a></span>
+            <b-input-group prepend="Search" class="mt-2 mb-2" >
+                  <b-form-input @input="searchForImages()" v-model="postEditor.imageSearchTerms" placeholder="Search for images."></b-form-input>
+              </b-input-group>
+              <div v-if="postEditor.unsplashImages != null">
+                <div @click="postEditor.image = result.urls.full; postEditor.selectedUnsplash = result" class="imageSquare" v-for="result in postEditor.unsplashImages.results" v-bind:key="result"  v-bind:style="{ backgroundImage: 'url(' + result.urls.full + ')' }" ></div>
+              </div>              
+              <div v-if="postEditor.selectedUnsplash != null" class="border br-5 p-3">Image by <a :href="postEditor.selectedUnsplash.user.links.html">{{ postEditor.selectedUnsplash.user.name }}</a></div>
           </div>
         </b-sidebar>
       <b-sidebar id="sidebar" ref="sidebar"  right shadow style="width:50%;z-index:9999999999999999999999999 !important; min-width:450px !important;">
@@ -884,10 +892,14 @@ export default {
       message: null,
       password: null,
       postEditor: {
+        selectedUnsplash: null,
         generatedPostImage: null,
+        unsplashImages: {
+          results: null
+        },
+        imageSearchTerms: '',
         text: null,
-        image:
-          "https://source.unsplash.com/daily",
+        image: "https://source.unsplash.com/daily",
         overlay: "/images/overlays/overlay.png",
         config: {
           inline: {
@@ -969,6 +981,20 @@ export default {
     }
   },
   methods: {
+    searchForImages() {
+      axios
+        .get(
+          "https://api.unsplash.com/search/photos/?client_id=d0ebc52e406b1ac89f78ab30e1f6112338d663ef349501d65fb2f380e4987e9e&query=" + this.postEditor.imageSearchTerms
+        )
+        .then((response) => {
+          this.postEditor.unsplashImages = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    },
     generatePostImage() {
       this.postEditor.generatedImage = vue2img().image(
         this.postEditor.config.inline
