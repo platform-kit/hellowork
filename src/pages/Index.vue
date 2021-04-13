@@ -252,7 +252,6 @@
            <div v-b-toggle:newpostSidebar  @click="savePost();" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
-
           
           <div class="px-3 py-2" style="max-width:483px;">
             <h5 class="m-0 mb-1 p-0">New Post</h5>
@@ -268,12 +267,12 @@
 
               </b-aspect>              
             </div>
-            <span class="badge badge-dark badge-pill">Background Images</span><span class="badge">via <a href="https://unsplash.com" target="_blank">Unsplash</a></span>
+            <span class="badge badge-dark badge-pill">Background Images</span><span class="badge">via <a href="https://unsplash.com" target="_blank">Unsplash</a></span> <span style="float:right;margin-top:5px;" class="badge border badge-pill">Overlays</span>
             <b-input-group prepend="Search" class="mt-2 mb-2" >
                   <b-form-input @input="searchForImages()" v-model="postEditor.imageSearchTerms" placeholder="Search for images."></b-form-input>
               </b-input-group>
               <div v-if="postEditor.unsplashImages != null">
-                <div @click="postEditor.image = result.urls.full; postEditor.selectedUnsplash = result" class="imageSquare" v-for="result in postEditor.unsplashImages.results" v-bind:key="result"  v-bind:style="{ backgroundImage: 'url(' + result.urls.full + ')' }" ></div>
+                <div @click="postEditor.image = result.urls.full; postEditor.selectedUnsplash = result" class="imageSquare" v-for="result in postEditor.unsplashImages.results" v-bind:key="result"  v-bind:style="{ backgroundImage: 'url(' + result.urls.thumb + ')' }" ></div>
               </div>              
               <div v-if="postEditor.selectedUnsplash != null" class="border br-5 p-3">Image by <a :href="postEditor.selectedUnsplash.user.links.html">{{ postEditor.selectedUnsplash.user.name }}</a></div>
           </div>
@@ -500,8 +499,7 @@
         class="raised"
         :src="identity.avatar"
         style="
-          border: 6px solid #fff;
-          margin-top: 45px;
+          border: 6px solid #fff; margin-top: 45px;
           width: 100px;
           height: 100px;
           border-radius: 100px;
@@ -606,11 +604,11 @@
           <b-modal hide-footer id="modal-dynamic" size="xl" :title="modalTitle">
             <video-embed
               v-if="modalVideo != null && modalVideo.includes('https://')"
-              :params="{ autoplay: 1, modestbranding: 1, controls:1, rel: 0  }"
+              :params="{ autoplay: 0, modestbranding: 1, controls:1, rel: 0  }"
               :src="modalVideo"
             ></video-embed>
             <video style="max-width:100%;"
-            autoplay
+            preload="none"
               v-else-if="modalVideo != null && modalVideo.includes('.mp4')"                           
             >
               <source type="video/mp4"  :src="modalVideo">
@@ -892,17 +890,18 @@ export default {
       message: null,
       password: null,
       postEditor: {
+        mode: "backgroundImages",
         selectedUnsplash: null,
         generatedPostImage: null,
         unsplashImages: {
-          results: null
+          results: null,
         },
-        imageSearchTerms: '',
+        imageSearchTerms: "",
         text: null,
         image: "https://source.unsplash.com/daily",
         overlay: "/images/overlays/overlay.png",
         config: {
-          inline: {
+          inline: {            
             target: "#postImageContainerLarge",
             returnAction: "base64",
             callback: (img) => {
@@ -984,7 +983,8 @@ export default {
     searchForImages() {
       axios
         .get(
-          "https://api.unsplash.com/search/photos/?client_id=d0ebc52e406b1ac89f78ab30e1f6112338d663ef349501d65fb2f380e4987e9e&query=" + this.postEditor.imageSearchTerms
+          "https://api.unsplash.com/search/photos/?client_id=d0ebc52e406b1ac89f78ab30e1f6112338d663ef349501d65fb2f380e4987e9e&per_page=20&query=" +
+            this.postEditor.imageSearchTerms
         )
         .then((response) => {
           this.postEditor.unsplashImages = response.data;
