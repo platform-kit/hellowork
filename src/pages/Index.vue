@@ -1129,7 +1129,14 @@ export default {
   background-size: cover !important;
   background-position: center !important;  
 }
+
+
+
 #postImageContainerLarge {
+  position:absolute;
+  top:-900px !important;
+  left:-900px !important;
+  float:left !important;
   z-index:-10 !important;
   background-size: cover !important;
   background-position: center !important;
@@ -1149,6 +1156,15 @@ export default {
   min-width: 450px;
   border-radius: 4px;
   overflow: hidden;
+}
+
+@media(max-width:991px){
+  #postImage, #postImageContainer  {
+    width:342px !important;
+    height:342px !important;
+    min-width:342px !important;
+    min-height:342px !important;
+  }
 }
 
 #adminButton,
