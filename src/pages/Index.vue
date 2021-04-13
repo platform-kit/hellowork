@@ -249,7 +249,7 @@
       <div v-else>
         <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999; min-width:100% !important;">          
 
-           <div v-b-toggle:newpostSidebar  @click="savePost();$bvModal.hide('modal-dynamic');" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
+           <div v-b-toggle:newpostSidebar  @click="savePost();" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
           
@@ -742,75 +742,12 @@
         </div>
       </div>
 
-      <div style="background: #000; height: 650px; display: block" v-if="links != null && identity.name != null">
-        <video-bg
-          :sources="['bg-vid.mp4']"
-          class="bg w-100 text-center d-none d-md-block"
-          style="height:650pxdisplay:block;min-height:650px;max-height: 400px; height: 100vh; "
-        >
-          <div
-            class="container-fluid text-center"
-            style="0px;z-index:99999 !important;width:100%;height:650px;"
-          >
-            <div class="row" style="padding-top: 150px">
-              <div class="col-12 mx-auto">
-                <div class="card bg-none border-0 justify-content-center">
-                  <div
-                    class="w-100 justify-content-center align-self-center contact-section"
-                    style="position: relative; z-index: 999"
-                  >
-                    <h1
-                      class="w-100 intro intro-message"
-                      style="
-                        font-size: 250%;
-                        margin-top: 100px;
-                        width: 100%;
-                        text-align: center;
-                        opacity: 1;
-                        color: rgb(255, 255, 255) !important;
-                      "
-                    >
-                      - Contact -
-                    </h1>
-                    <a
-                    v-if="links.email != null"
-                      :href="links.email"
-                      target="_blank"
-                      class="btn btn-light m-2"
-                    >
-                      <b-icon icon="envelope"></b-icon>
-                    </a>
-                    <a
-                      v-if="links.twitter != null"
-                      :href="'https://www.twitter.com/' + links.twitter"
-                      target="_blank"
-                      class="btn btn-light m-2"
-                    >
-                      <b-icon icon="twitter"></b-icon>
-                    </a>
-                    <a
-                      hv-if="links.instagram != null"
-                      :href="'https://www.instagram.com/' + links.instagram"
-                      target="_blank"
-                      class="btn btn-light m-2"
-                    >
-                      <b-icon icon="instagram"></b-icon>
-                    </a>
-                     <a
-                      hv-if="links.linkedin != null"
-                      :href="'https://www.linkedin.com/in/' + links.linkedin"
-                      target="_blank"
-                      class="btn btn-light m-2"
-                    >
-                      <b-icon icon="linkedin"></b-icon>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </video-bg>
-        <div class="bg w-100 text-center d-block d-md-none"  >
+      <div style="background-size:cover !important;background-position:center !important;height: 650px; display: block"  :style="{
+          background: '#000',
+          backgroundImage: 'url(' + randomBackground() + ') !important',
+        }" v-if="links != null && identity.name != null">
+        
+        <div class="bg w-100 text-center"  >
           <div class="container-fluid text-center">
             <div class="row" style="padding-top: 150px">
               <div class="col-12 mx-auto">
@@ -901,7 +838,7 @@ export default {
         image: "https://source.unsplash.com/daily",
         overlay: "/images/overlays/overlay.png",
         config: {
-          inline: {            
+          inline: {
             target: "#postImageContainerLarge",
             returnAction: "base64",
             callback: (img) => {
