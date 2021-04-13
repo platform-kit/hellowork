@@ -1,6 +1,12 @@
 <template>
   <Layout>
     <ClientOnly>
+      <div id="postImageContainerLarge" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="position:absolute;top:0px;left:0px;z-index:999999999999999999999999999999;display:inline-block;">
+              <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
+                <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
+
+              </b-aspect>
+            </div>
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop id="modal-sort-projects" title="Sort Projects" style="z-index:999">
         <template #modal-header="{ close }">
           <!-- Emulate built in modal header close button action -->
@@ -872,11 +878,8 @@ export default {
           "https://images.unsplash.com/photo-1618178498578-68352fccdc6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1234&q=80",
         overlay: "/images/overlays/overlay.png",
         config: {
-          target: "#postImageContainer",          
-          returnAction: "download",
-          pageHeight: 900, // 612 for letter
-          pageHeight: 900, // 612 for letter
-
+          target: "#postImageContainerLarge",          
+          returnAction: "download",         
         },
       },
       imageEditor: {
@@ -941,8 +944,7 @@ export default {
     }
   },
   methods: {
-    savePost(){
-      window.alert(123);
+    savePost(){      
       vue2img().image(this.postEditor.config);
     },
     publish() {
@@ -1118,7 +1120,7 @@ export default {
   font-size:115%;
 }
 
-#newpostSidebar .b-aspect-content {
+.b-aspect-content {
   display: flex !important;
 }
 
@@ -1127,7 +1129,18 @@ export default {
   background-size: cover !important;
   background-position: center !important;  
 }
-
+#postImageContainerLarge {
+  z-index:-10 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  display: inline-block;
+  min-height: 900px;
+  min-width: 900px;
+  border-radius: 0px;
+  overflow: hidden;
+  font-size:215%;
+  max-width:900px;
+}
 #postImageContainer {
   background-size: cover !important;
   background-position: center !important;

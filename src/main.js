@@ -11,8 +11,8 @@ import Embed from '/node_overwrites/v-video-embed-ssr.js' // Video Embedding
 import axios from 'axios'; // Axios
 import VueAxios from 'vue-axios' // Vue Axios
 import draggable from 'vuedraggable' // Vue Draggable
-import Vue2Img from 'vue-2-img' // Vue2Img
-import 'vue-2-img/dist/vue-2-img.css' // Vue2Img
+// import Vue2Img from 'vue-2-img' // Vue2Img
+// import 'vue-2-img/dist/vue-2-img.css' // Vue2Img
 
 var domain = process.env.DOMAIN || 'http://localhost:8080';
 var clientId = process.env.CLIENT_ID || '';
