@@ -233,6 +233,26 @@
       </div>
       </div>
       <div v-else>
+        <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999999999999999999999999 !important; min-width:100% !important;">
+          <div class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" @click="savePost()">
+            <b-icon icon="cloud-download" font-scale="1"  aria-hidden="true"></b-icon>
+          </div>
+          <div class="px-3 py-2" style="max-width:483px;">
+            <h5 class="m-0 mb-1 p-0">New Post</h5>
+                <b-input-group prepend="Image" class="mb-1" >
+                  <b-form-input @input="changesMade = true"  v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
+                </b-input-group>
+                <b-input-group prepend="Text" class="mb-1" >
+                  <b-form-input @input="changesMade = true"  v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
+                </b-input-group>
+            <div id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
+              <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
+                <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
+
+              </b-aspect>
+            </div>
+          </div>
+        </b-sidebar>
       <b-sidebar id="sidebar" ref="sidebar"  right shadow style="width:50%;z-index:9999999999999999999999999 !important; min-width:450px !important;">
       <div class="px-3 py-2">
         <h5 class="m-0 mb-1 p-0">Content Editor</h5>
@@ -380,6 +400,15 @@
               v-bind:class="{active: showAdmin == true, inactive: showAdmin == false }"                          
               >
               <b-icon icon="pen-fill" aria-hidden="true"></b-icon>
+           </div>
+           <div
+              id="newPostButton"
+              style="box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;right:80px;width:50px;height:50px;background:#e5eaf4;color:rgb(45 87 169);padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"    
+              v-b-toggle.newpostSidebar
+                
+              v-bind:class="{active: showAdmin == true, inactive: showAdmin == false }"                          
+              >
+              <b-icon icon="plus" font-scale="3" style="margin-top:-12px;margin-left:-15px;" aria-hidden="true"></b-icon>
            </div>
             <div
             @click="login()"
@@ -837,6 +866,19 @@ export default {
       submitted: false,
       message: null,
       password: null,
+      postEditor: {
+        text: null,
+        image:
+          "https://images.unsplash.com/photo-1618178498578-68352fccdc6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1234&q=80",
+        overlay: "/images/overlays/overlay.png",
+        config: {
+          target: "#postImageContainer",          
+          returnAction: "download",
+          pageHeight: 900, // 612 for letter
+          pageHeight: 900, // 612 for letter
+
+        },
+      },
       imageEditor: {
         newUrl: null,
         oldUrl: null,
@@ -899,6 +941,10 @@ export default {
     }
   },
   methods: {
+    savePost(){
+      window.alert(123);
+      vue2img().image(this.postEditor.config);
+    },
     publish() {
       this.message = null;
       var data = {};
@@ -1065,15 +1111,45 @@ export default {
 </script>
 
 <style>
-#adminButton {
+#postText {
+  max-width:90%;
+  overflow-wrap: break-word !important;
+  font-family: "Cabin" !important;
+  font-size:115%;
+}
+
+#newpostSidebar .b-aspect-content {
+  display: flex !important;
+}
+
+#postImage {
+  overflow: hidden;
+  background-size: cover !important;
+  background-position: center !important;  
+}
+
+#postImageContainer {
+  background-size: cover !important;
+  background-position: center !important;
+  display: inline-block;
+  min-height: 450px;
+  min-width: 450px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#adminButton,
+#newPostButton {
   z-index: 999 !important;
   transition: 0.2s all !important;
   transform: scale(0);
 }
-#adminButton.inactive {
+#adminButton.inactive,
+#newPostButton.inactive {
   transform: scale(0);
 }
-#adminButton.active {
+#adminButton.active,
+#newPostButton.active {
   transform: scale(1) !important;
 }
 .imageSquareLarge {
@@ -1111,7 +1187,8 @@ export default {
   }
 }
 
-#sidebar .input-group-text {
+#sidebar .input-group-text,
+#newpostSidebar .input-group-text {
   min-width: 100px;
 }
 .meta-badge {
