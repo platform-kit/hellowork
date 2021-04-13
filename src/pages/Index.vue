@@ -1,6 +1,11 @@
 <template>
   <Layout>
     <ClientOnly>
+      <b-modal hide-footer id="modal-generatedPostImage" title="Your Image" style="z-index:999">
+        <img id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;"/>                           
+        <br>
+        <p class="mt-4 w-100 text-center">You can save this image.</p>
+      </b-modal>
       <div id="postImageContainerLarge" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="position:absolute;top:0px;left:0px;z-index:999999999999999999999999999999;display:inline-block;">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
@@ -239,20 +244,22 @@
       </div>
       </div>
       <div v-else>
-        <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999999999999999999999999 !important; min-width:100% !important;">
-          <div class="btn btn-light text-primary btn-sm d-none d-md-inline-block" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" @click="savePost()">
-            <b-icon icon="cloud-download" font-scale="1"  aria-hidden="true"></b-icon>
+        <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999999999999999999999999 !important; min-width:100% !important;">          
+
+           <div @click="savePost()" class="btn btn-light text-primary btn-sm d-none d-md-inline-block" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
+            <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
+
+          
           <div class="px-3 py-2" style="max-width:483px;">
             <h5 class="m-0 mb-1 p-0">New Post</h5>
                 <b-input-group prepend="Image" class="mb-1" >
-                  <b-form-input @input="generatePostImage()" v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
+                  <b-form-input v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
                 </b-input-group>
                 <b-input-group prepend="Text" class="mb-1" >
-                  <b-form-input @input="generatePostImage()" v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
-                </b-input-group>
-            <img id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;"/>
-            <div v-if="postEditor.generatedPostImage == null" id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
+                  <b-form-input v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
+                </b-input-group>            
+            <div  id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
@@ -962,7 +969,8 @@ export default {
       this.postEditor.generatedImage = vue2img().image(this.postEditor.config.inline);
     },
     savePost() {
-      vue2img().image(this.postEditor.config.download);
+      vue2img().image(this.postEditor.config.inline);
+      this.$bvModal.show("modal-generatedPostImage");      
     },
     publish() {
       this.message = null;
