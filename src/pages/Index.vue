@@ -249,7 +249,7 @@
       <div v-else>
         <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999; min-width:100% !important;">          
 
-           <div v-b-toggle:newpostSidebar  @click="savePost();" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
+           <div v-b-toggle:newpostSidebar  @click="savePost();$bvModal.hide('modal-dynamic');" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
           
