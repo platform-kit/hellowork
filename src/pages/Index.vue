@@ -2,11 +2,14 @@
   <Layout>
     <ClientOnly>
       <b-modal hide-footer id="modal-generatedPostImage" title="Your Image" style="z-index:999">
-        <img id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;"/>                           
+        <img v-if="postEditor.generatedPostImage != null" id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;display:inline !important;"/>                           
+        <b-aspect v-else id="postImage" class="d-flex"  aspect="1:1" style="display:inline-block;border-radius:4px;background:rgba(0,50,150,0.1);color:#fff;padding:25px;text-align:center;display:flex !important">
+          <b-icon style="height:50px;width:50px;position:absolute;top:calc(50% - 50px);left:calc(50% - 25px)" icon="arrow-clockwise" class="text-primary" animation="spin" font-scale="1"></b-icon>
+        </b-aspect>
         <br>
-        <p class="mt-4 w-100 text-center">You can save this image.</p>
+        <p v-if="postEditor.generatedPostImage != null" class="mt-4 w-100 text-center">You can save this image.</p>
       </b-modal>
-      <div id="postImageContainerLarge" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="position:absolute;top:0px;left:0px;z-index:999999999999999999999999999999;display:inline-block;">
+      <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="position:absolute;top:0px;left:0px;z-index:999999999999999999999999999999;display:inline-block;">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
@@ -890,12 +893,13 @@ export default {
           inline: {
             target: "#postImageContainerLarge",
             returnAction: "base64",
-            callback: (img) => { // modifies what image is returned
+            callback: (img) => {
+              // modifies what image is returned
               //console.log('image:');
               // console.log(img);
-              //return img 
+              //return img
               this.postEditor.generatedPostImage = img;
-              } 
+            },
           },
           download: {
             target: "#postImageContainerLarge",
@@ -966,11 +970,14 @@ export default {
   },
   methods: {
     generatePostImage() {
-      this.postEditor.generatedImage = vue2img().image(this.postEditor.config.inline);
+      this.postEditor.generatedImage = vue2img().image(
+        this.postEditor.config.inline
+      );
     },
     savePost() {
+      this.postEditor.generatedPostImage = null;
       vue2img().image(this.postEditor.config.inline);
-      this.$bvModal.show("modal-generatedPostImage");      
+      this.$bvModal.show("modal-generatedPostImage");
     },
     publish() {
       this.message = null;
