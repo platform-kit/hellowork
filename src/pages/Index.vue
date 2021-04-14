@@ -865,10 +865,8 @@ export default {
           },
         },
       },
-      postOverlays: [
-        "/images/overlays/overlay.png",
-        "/images/overlays/overlay-blank.png",
-        "/images/overlays/overlay-astrocast.png",
+      postOverlays: [        
+        "/images/overlays/overlay-blank.png",        
       ],
       imageEditor: {
         newUrl: null,
@@ -1071,11 +1069,15 @@ export default {
         if (data.data.projects != null) {
           this.projects = data.data.projects;
         }
+        
         if (data.data.highlights != null) {
           this.highlights = data.data.highlights;
         }
         if (data.data.backgroundImages != null) {
           this.backgroundImages = data.data.backgroundImages;
+        }
+        if (data.data.postOverlays != null) {
+          this.postOverlays = data.data.postOverlays;
         }
         if (data.data.links != null) {
           this.links = data.data.links;
