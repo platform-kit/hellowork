@@ -9,8 +9,8 @@
         <br>
         <p v-if="postEditor.generatedPostImage != null" class="mt-4 w-100 text-center">You can save this image.</p>
       </b-modal>
-      <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="z-index:999999999999999999999999999999;display:inline-block;">
-        <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
+      <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" >
+        <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important;">
           <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
         </b-aspect>
       </div>
@@ -838,7 +838,7 @@ export default {
         overlay: "/images/overlays/overlay.png",
         config: {
           inline: {
-            target: "#postImageContainerLarge",
+            target: "#postImageContainer",
             returnAction: "base64",
             callback: (img) => {
               // modifies what image is returned
@@ -1125,21 +1125,23 @@ export default {
 }
 
 #postImageContainerLarge {
-  position: fixed !important;
+  display:none !important;
+  padding:0px !important;
+  position: absolute !important;
   top: -900px !important;
-  left: -900px !important;
-  float: left !important;
+  left: -900px !important;  
   z-index: -10 !important;
   background-size: cover !important;
-  background-position: center !important;
-  display: inline-block;
+  background-position: center !important;  
   min-height: 900px;
   min-width: 900px;
   border-radius: 0px;
   overflow: hidden;
   font-size: 215%;
-  max-width: 900px;
+  max-width: 900px !important;
+  max-height: 900px !important;
 }
+
 #postImageContainer {
   background-size: cover !important;
   background-position: center !important;
