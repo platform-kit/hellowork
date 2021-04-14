@@ -241,13 +241,13 @@
       </div>
       </div>
       <div v-else>
-        <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999; min-width:100% !important;">          
+        <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999;  ">          
 
            <div v-b-toggle:newpostSidebar  @click="postEditor.rendering = true;savePost();" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
           
-          <div class="px-3 py-2" style="max-width:483px;">
+          <div class="px-3 py-2" >
             <h5 class="m-0 mb-1 p-0">New Post</h5>
                 <b-input-group prepend="Image" class="mb-1" >
                   <b-form-input v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
@@ -853,7 +853,7 @@ export default {
         overlay: "/images/overlays/overlay.png",
         config: {
           inline: {
-            target: "#postImageContainer",            
+            target: "#postImageContainer",
             returnAction: "base64",
             callback: (img) => {
               // modifies what image is returned
@@ -953,7 +953,7 @@ export default {
       );
     },
     savePost() {
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
       this.postEditor.generatedPostImage = null;
       vue2img().image(this.postEditor.config.inline);
       this.$bvModal.show("modal-generatedPostImage");
@@ -1146,7 +1146,8 @@ export default {
   background-position: center !important;
 }
 
-#postImageContainer, #postImagePreview {
+#postImageContainer,
+#postImagePreview {
   background-size: cover !important;
   background-position: center !important;
   display: inline-block;
@@ -1157,19 +1158,20 @@ export default {
 }
 
 @media (max-width: 991px) {
-  #postImageContainer, #postImagePreview {
+  #postImageContainer,
+  #postImagePreview {
     transform: scale(0.76);
     margin-left: -55px;
     margin-top: -53px;
   }
 }
 
-
-#postImageContainer.scaled, #postImageContainer {  
-  padding: 0px !important;    
+#postImageContainer.scaled,
+#postImageContainer {
+  padding: 0px !important;
   position: absolute !important;
   top: -1350px !important;
-  left: -1350px !important;  
+  left: -1350px !important;
   z-index: -100 !important;
   background-size: cover !important;
   background-position: center !important;
@@ -1239,6 +1241,10 @@ export default {
 #sidebar .input-group-text,
 #newpostSidebar .input-group-text {
   min-width: 100px;
+}
+
+#newpostSidebar .b-sidebar-body {
+  oveflow-x:hidden;
 }
 .meta-badge {
   position: absolute !important;
