@@ -260,20 +260,31 @@
                 <b-input-group prepend="Text" class="mb-1" >
                   <b-form-input v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
                 </b-input-group>            
+            
             <div  id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
               </b-aspect>              
             </div>
-            <span class="badge badge-dark badge-pill">Background Images</span><span class="badge">via <a href="https://unsplash.com" target="_blank">Unsplash</a></span> <span style="float:right;margin-top:5px;" class="badge border badge-pill">Overlays</span>
-            <b-input-group prepend="Search" class="mt-2 mb-2" >
-                  <b-form-input @input="searchForImages()" v-model="postEditor.imageSearchTerms" placeholder="Search for images."></b-form-input>
-              </b-input-group>
-              <div v-if="postEditor.unsplashImages != null">
-                <div @click="postEditor.image = result.urls.full; postEditor.selectedUnsplash = result" class="imageSquare" v-for="result in postEditor.unsplashImages.results" v-bind:key="result"  v-bind:style="{ backgroundImage: 'url(' + result.urls.thumb + ')' }" ></div>
-              </div>              
-              <div v-if="postEditor.selectedUnsplash != null" class="border br-5 p-3">Image by <a :href="postEditor.selectedUnsplash.user.links.html">{{ postEditor.selectedUnsplash.user.name }}</a></div>
+            
+            <div style="margin-top:0px;display:inline-block !important;width:100%;">
+              <span @click="postEditor.mode='backgroundImages'" class="border badge badge-pill" v-bind:class="{'badge-dark': postEditor.mode == 'backgroundImages', 'border': postEditor.mode == 'overlays' }"                           >Background Images</span><span class="badge">via <a href="https://unsplash.com" target="_blank">Unsplash</a></span> 
+              <span v-bind:class="{'badge-dark': postEditor.mode == 'overlays', 'border': postEditor.mode == 'backgroundImages' }"  style="float:right;margin-top:5px;" class="badge border badge-pill" @click="postEditor.mode = 'overlays'">Overlays</span>
+              
+              <div v-if="postEditor.mode == 'backgroundImages'">
+                <b-input-group prepend="Search" class="mt-2 mb-2" >
+                    <b-form-input @input="searchForImages()" v-model="postEditor.imageSearchTerms" placeholder="Search for images."></b-form-input>
+                </b-input-group>
+                <div v-if="postEditor.unsplashImages != null">
+                  <div @click="postEditor.image = result.urls.full; postEditor.selectedUnsplash = result" class="imageSquare" v-for="result in postEditor.unsplashImages.results" v-bind:key="result"  v-bind:style="{ backgroundImage: 'url(' + result.urls.thumb + ')' }" ></div>
+                </div>              
+                <div v-if="postEditor.selectedUnsplash != null" class="border br-5 p-3">Image by <a :href="postEditor.selectedUnsplash.user.links.html">{{ postEditor.selectedUnsplash.user.name }}</a></div>
+              </div>
+              <div v-if="postEditor.mode == 'overlays'" class="pt-2">
+                <div @click="postEditor.overlay = option" class="imageSquare" v-for="option in postOverlays" v-bind:key="option"  v-bind:style="{ backgroundImage: 'url(' + option + ')' }" ></div>
+              </div>
+            </div>  
           </div>
         </b-sidebar>
       <b-sidebar id="sidebar" ref="sidebar"  right shadow style="width:50%;z-index:9999999999999999999999999 !important; min-width:450px !important;">
@@ -854,6 +865,11 @@ export default {
           },
         },
       },
+      postOverlays: [
+        "/images/overlays/overlay.png",
+        "/images/overlays/overlay-blank.png",
+        "/images/overlays/overlay-astrocast.png",
+      ],
       imageEditor: {
         newUrl: null,
         oldUrl: null,
@@ -1125,14 +1141,14 @@ export default {
 }
 
 #postImageContainerLarge {
-  display:none !important;
-  padding:0px !important;
+  display: none !important;
+  padding: 0px !important;
   position: absolute !important;
   top: -900px !important;
-  left: -900px !important;  
+  left: -900px !important;
   z-index: -10 !important;
   background-size: cover !important;
-  background-position: center !important;  
+  background-position: center !important;
   min-height: 900px;
   min-width: 900px;
   border-radius: 0px;
@@ -1150,16 +1166,6 @@ export default {
   min-width: 450px;
   border-radius: 4px;
   overflow: hidden;
-}
-
-@media (max-width: 991px) {
-  #postImage,
-  #postImageContainer {
-    width: 342px !important;
-    height: 342px !important;
-    min-width: 342px !important;
-    min-height: 342px !important;
-  }
 }
 
 #postImageContainerLarge #postImage {
