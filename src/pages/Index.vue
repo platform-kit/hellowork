@@ -1010,9 +1010,8 @@ export default {
       }
     },
     insertPostImage(){
-      this.$bvModal.hide("modal-uploadImage");
-      this.files = this.$refs.pond.getFiles();
-      this.postEditor.image = this.$refs.pond.getFiles()[0].getFileEncodeDataURL();
+      this.$bvModal.hide("modal-uploadImage");      
+      this.postEditor.image = this.files[0].getFileEncodeDataURL();
       this.$root.$emit("bv::toggle::collapse", "newpostSidebar");
       //this.files[0].get
     },    
