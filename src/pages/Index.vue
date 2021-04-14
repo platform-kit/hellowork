@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <ClientOnly>
-      <b-modal id="modal-uploadImage" size="xl" title="Uplaod Image" style="z-index:9999 !important;">         
+      <b-modal id="modal-uploadImage" size="xl" title="Upload Image" style="z-index:9999 !important;">         
         <file-pond 
         allow-multiple="true" 
         max-files="1"         
