@@ -996,25 +996,56 @@ export default {
     }
   },
   methods: {
+    padBase64Image(b64str) {
+      // fixes bug with Safari on iOS - encoded data string must have # of characters that's divisible by 4
+      var string = b64str;
+      console.log(string);
+      if(string.includes('png')){
+        var exclude = "data:image/jpeg;base64,";
+      }
+      else {
+        var exclude = "data:image/jpeg;base64,";
+      }
+      string = string.substring(string.lastIndexOf(",") + 1);
+      console.log(string);
+      while (string.length % 4 > 0) {
+        string += "=";
+      }
+
+      console.log("DIFF:");
+
+      function findDiff(str1, str2) {
+        let diff = "";
+        str2.split("").forEach(function (val, i) {
+          if (val != str1.charAt(i)) diff += val;
+        });
+        return diff;
+      }
+
+      console.log(findDiff(exclude + string, b64str));
+
+      return exclude + string;
+    },
     handleFileProcess() {
       console.log("FilePond has processed files.");
       // example of instance method call on pond reference
       this.files = this.$refs.pond.getFiles();
     },
-    imageUploaded(){
-      if (this.files != null && this.files.length > 0){
+    imageUploaded() {
+      if (this.files != null && this.files.length > 0) {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
     },
-    insertPostImage(){
-      this.$bvModal.hide("modal-uploadImage");      
-      this.postEditor.image = this.files[0].getFileEncodeDataURL();
+    insertPostImage() {
+      this.$bvModal.hide("modal-uploadImage");
+      this.postEditor.image = this.padBase64Image(
+        this.files[0].getFileEncodeDataURL()
+      );
       this.$root.$emit("bv::toggle::collapse", "newpostSidebar");
       //this.files[0].get
-    },    
+    },
     handleFilePondInit() {
       console.log("FilePond has initialized");
 
@@ -1252,7 +1283,7 @@ export default {
     transform: scale(0.76);
     margin-left: -55px;
     margin-top: -53px;
-    margin-bottom: -55px ;
+    margin-bottom: -55px;
   }
 }
 
