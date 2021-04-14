@@ -248,7 +248,7 @@
       <div v-else>
         <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999; min-width:100% !important;">          
 
-           <div v-b-toggle:newpostSidebar  @click="savePost();" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
+           <div v-b-toggle:newpostSidebar  @click="savePost();postEditor.rendering = true" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
           
@@ -261,7 +261,7 @@
                   <b-form-input v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
                 </b-input-group>            
             
-            <div  id="postImageContainer" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
+            <div  id="postImageContainer" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
@@ -437,6 +437,7 @@
            </div>
            <div
               id="newPostButton"
+              @click="postEditor.rendering = false"
               style="box-shadow:0px 5px 15px rgba(0,50,150,0.2);position:fixed;bottom:20px;right:80px;width:50px;height:50px;background:#e5eaf4;color:rgb(45 87 169);padding:14px 14px 14px 16px;border-radius:50px;z-index:999999;"    
               v-b-toggle.newpostSidebar
                 
@@ -837,6 +838,7 @@ export default {
       message: null,
       password: null,
       postEditor: {
+        rendering: false,
         mode: "backgroundImages",
         selectedUnsplash: null,
         generatedPostImage: null,
@@ -1176,6 +1178,19 @@ export default {
   height: 900px !important;
   min-width: 900px !important;
   min-height: 900px !important;
+}
+
+@media(max-width:991px){
+  #postImageContainer {
+    transform: scale(0.76);
+      margin-left: -55px;
+      margin-top: -53px;
+  }
+  #postImageContainer.scaled {
+    transform: scale(1);
+      margin-left: 0px;
+      margin-top: 0px;
+  }
 }
 
 #adminButton,
