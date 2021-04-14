@@ -295,14 +295,14 @@
             
             <div  id="postImageContainer" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
-                <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
+                <div id="postText" class="my-auto mx-auto">{{ postEditor.text}}</div>
 
               </b-aspect>              
             </div>
 
             <div  id="postImagePreview" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
-                <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
+                <div id="postText" class="my-auto mx-auto">{{ postEditor.text}}</div>
 
               </b-aspect>              
             </div>
