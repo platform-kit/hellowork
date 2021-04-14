@@ -10,11 +10,10 @@
         <p v-if="postEditor.generatedPostImage != null" class="mt-4 w-100 text-center">You can save this image.</p>
       </b-modal>
       <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="z-index:999999999999999999999999999999;display:inline-block;">
-              <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
-                <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
-
-              </b-aspect>
-            </div>
+        <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
+          <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
+        </b-aspect>
+      </div>
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop id="modal-sort-projects" title="Sort Projects" style="z-index:999">
         <template #modal-header="{ close }">
           <!-- Emulate built in modal header close button action -->
