@@ -8,12 +8,7 @@
         </b-aspect>
         <br>
         <p v-if="postEditor.generatedPostImage != null" class="mt-4 w-100 text-center">You can save this image.</p>
-      </b-modal>
-      <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" >
-        <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important;">
-          <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
-        </b-aspect>
-      </div>
+      </b-modal>      
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop id="modal-sort-projects" title="Sort Projects" style="z-index:999">
         <template #modal-header="{ close }">
           <!-- Emulate built in modal header close button action -->
@@ -852,6 +847,7 @@ export default {
         config: {
           inline: {
             target: "#postImageContainer",
+            fileType: 'jpg',
             returnAction: "base64",
             callback: (img) => {
               // modifies what image is returned
@@ -862,7 +858,7 @@ export default {
             },
           },
           download: {
-            target: "#postImageContainerLarge",
+            target: "#postImageContainer",
             returnAction: "download",
           },
         },
@@ -1145,23 +1141,7 @@ export default {
   background-position: center !important;
 }
 
-#postImageContainerLarge {
-  display: none !important;
-  padding: 0px !important;
-  position: absolute !important;
-  top: -900px !important;
-  left: -900px !important;
-  z-index: -10 !important;
-  background-size: cover !important;
-  background-position: center !important;
-  min-height: 900px;
-  min-width: 900px;
-  border-radius: 0px;
-  overflow: hidden;
-  font-size: 215%;
-  max-width: 900px !important;
-  max-height: 900px !important;
-}
+
 
 #postImageContainer {
   background-size: cover !important;
@@ -1169,15 +1149,8 @@ export default {
   display: inline-block;
   min-height: 450px;
   min-width: 450px;
-  border-radius: 4px;
+  border-radius: 0px;
   overflow: hidden;
-}
-
-#postImageContainerLarge #postImage {
-  width: 900px !important;
-  height: 900px !important;
-  min-width: 900px !important;
-  min-height: 900px !important;
 }
 
 @media(max-width:991px){
@@ -1187,10 +1160,33 @@ export default {
       margin-top: -53px;
   }
   #postImageContainer.scaled {
-    transform: scale(1);
-      margin-left: 0px;
-      margin-top: 0px;
+    transform: scale(2);
+    margin-left: 0px;
+    margin-top: 0px;
   }
+}
+
+
+#postImageContainer.scaled {
+  display: none !important;
+  padding: 0px !important;
+  position: absolute !important;
+  top: -1350px !important;
+  left: -1350px !important;
+  z-index: -10 !important;
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 1350px;
+  min-width: 1350px;
+  border-radius: 0px;
+  overflow: hidden;
+  font-size: 315%;
+  max-width: 1350px !important;
+  max-height: 1350px !important;
+}
+
+#postImageContainer.scaled, #postImageContainer.scaled #postImage {
+    border-radius:0px !important;
 }
 
 #adminButton,
