@@ -9,7 +9,7 @@
         <br>
         <p v-if="postEditor.generatedPostImage != null" class="mt-4 w-100 text-center">You can save this image.</p>
       </b-modal>
-      <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="position:absolute;top:0px;left:0px;z-index:999999999999999999999999999999;display:inline-block;">
+      <div id="postImageContainerLarge" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }" style="z-index:999999999999999999999999999999;display:inline-block;">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
@@ -1126,7 +1126,7 @@ export default {
 }
 
 #postImageContainerLarge {
-  position: absolute;
+  position: fixed !important;
   top: -900px !important;
   left: -900px !important;
   float: left !important;
