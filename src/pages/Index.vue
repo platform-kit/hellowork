@@ -1,6 +1,36 @@
 <template>
   <Layout>
     <ClientOnly>
+      <b-modal id="modal-uploadImage" size="xl" title="Uplaod Image" style="z-index:9999 !important;">         
+        <file-pond 
+        allow-multiple="true" 
+        max-files="1"         
+        allowImageCrop="true"
+        imageCropAspectRatio="1:1"
+        accepted-file-types="image/jpeg, image/png"
+        :files="files"
+        ref="pond"
+        />
+        <template #modal-footer>
+          <div class="w-100">            
+            <b-button
+              variant="outline-primary"
+              size="sm"
+              class="float-right"
+              @click="show=false"
+            >
+              Close
+            </b-button>
+            <b-button
+              variant="outline-primary"
+              size="sm"
+              class="float-right mr-1"              
+              @click="insertBackgroundImages()">
+              Add as background images.
+            </b-button>
+          </div>
+        </template>
+      </b-modal>
       <b-modal hide-footer id="modal-generatedPostImage" title="Your Image" style="z-index:9999999 !important">
         <img v-if="postEditor.generatedPostImage != null" id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="display:inline !important;"/>                           
         <b-aspect v-else id="postImage" class="d-flex"  aspect="1:1" style="display:inline-block;border-radius:4px;background:rgba(0,50,150,0.1);color:#fff;padding:25px;text-align:center;display:flex !important">
@@ -248,9 +278,14 @@
           </div>
           
           <div class="px-3 py-2" >
-            <h5 class="m-0 mb-1 p-0">New Post</h5>
+            <h5 class="m-0 mb-1 p-0">New Post</h5>          
                 <b-input-group prepend="Image" class="mb-1" >
                   <b-form-input v-model="postEditor.image" placeholder="Paste an image url."></b-form-input>
+                  <b-input-group-append>                                        
+                      <div class="btn btn-primary" style="border-radius:0px 4px 4px 0px !important;" @click="$bvModal.show('modal-uploadImage');$root.$emit('bv::toggle::collapse', 'newpostSidebar')"> 
+                        Upload <b-icon style="padding-top:3px;" icon="cloud-upload" aria-hidden="true"></b-icon>
+                        </div>
+                  </b-input-group-append>
                 </b-input-group>
                 <b-input-group prepend="Text" class="mb-1" >
                   <b-form-input v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
@@ -830,12 +865,39 @@
 import axios from "axios";
 import draggable from "vuedraggable";
 
+// Import FilePond
+import * as FilePond from "filepond";
+// Import Vue FilePond
+import vueFilePond from "vue-filepond";
+// Import FilePond styles
+import "filepond/dist/filepond.min.css";
+// Import FilePond plugins
+// Please note that you need to install these plugins separately
+// Import image preview plugin styles
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+// Import image preview and file type validation plugins
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+// Import encoding plugin
+import FilePondPluginFileEncode from "filepond-plugin-file-encode";
+// Import crop plugin
+import FilePondPluginImageCrop from "filepond-plugin-image-crop";
+// Create component
+var FilePondComponent = vueFilePond(
+  FilePondPluginFileValidateType,
+  FilePondPluginImagePreview,
+  FilePondPluginFileEncode,
+  FilePondPluginImageCrop
+);
+
 export default {
   components: {
     draggable,
+    FilePondComponent,
   },
   data() {
     return {
+      files: null,
       submitted: false,
       message: null,
       password: null,
@@ -932,6 +994,18 @@ export default {
     }
   },
   methods: {
+    insertBackgroundImages(){
+      this.files = this.$refs.pond.getFiles();
+      this.postEditor.image = this.$refs.pond.getFiles()[0].getFileEncodeDataURL();
+      this.$root.$emit("bv::toggle::collapse", "newpostSidebar");
+      //this.files[0].get
+    },    
+    handleFilePondInit() {
+      console.log("FilePond has initialized");
+
+      // example of instance method call on pond reference
+      this.files = this.$refs.pond.getFiles();
+    },
     searchForImages() {
       axios
         .get(
@@ -1244,7 +1318,7 @@ export default {
 }
 
 #newpostSidebar .b-sidebar-body {
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 .meta-badge {
   position: absolute !important;
