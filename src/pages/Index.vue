@@ -1,13 +1,14 @@
 <template>
   <Layout>
     <ClientOnly>
-      <b-modal id="modal-uploadImage" size="xl" title="Upload Image" style="z-index:9999 !important;">         
+      <b-modal id="modal-uploadImage" size="xl" title="Upload Image" style="z-index:999 !important;">         
         <file-pond 
         allow-multiple="true" 
         max-files="1"         
         allowImageCrop="true"
         imageCropAspectRatio="1:1"
         accepted-file-types="image/jpeg, image/png"
+        v-on:addfile="handleFileProcess()"
         :files="files"
         ref="pond"
         />
@@ -24,8 +25,9 @@
             <b-button
               variant="outline-primary"
               size="sm"
-              class="float-right mr-1"              
-              @click="show=false; insertBackgroundImages()">
+              class="float-right mr-1"   
+              :disabled="imageUploaded() == false"
+              @click="insertPostImage()">
               Add Image
             </b-button>
           </div>
@@ -994,7 +996,21 @@ export default {
     }
   },
   methods: {
-    insertBackgroundImages(){
+    handleFileProcess() {
+      console.log("FilePond has processed files.");
+      // example of instance method call on pond reference
+      this.files = this.$refs.pond.getFiles();
+    },
+    imageUploaded(){
+      if (this.files != null && this.files.length > 0){
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
+    insertPostImage(){
+      this.$bvModal.hide("modal-uploadImage");
       this.files = this.$refs.pond.getFiles();
       this.postEditor.image = this.$refs.pond.getFiles()[0].getFileEncodeDataURL();
       this.$root.$emit("bv::toggle::collapse", "newpostSidebar");
