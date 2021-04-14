@@ -1253,6 +1253,7 @@ export default {
     transform: scale(0.76);
     margin-left: -55px;
     margin-top: -53px;
+    margin-bottom: -55px ;
   }
 }
 
