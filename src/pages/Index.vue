@@ -2,7 +2,7 @@
   <Layout>
     <ClientOnly>
       <b-modal hide-footer id="modal-generatedPostImage" title="Your Image" style="z-index:9999999 !important">
-        <img v-if="postEditor.generatedPostImage != null" id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="border-radius:4px;display:inline !important;"/>                           
+        <img v-if="postEditor.generatedPostImage != null" id="generatedPostImage" :src="postEditor.generatedPostImage" class="w-100" style="display:inline !important;"/>                           
         <b-aspect v-else id="postImage" class="d-flex"  aspect="1:1" style="display:inline-block;border-radius:4px;background:rgba(0,50,150,0.1);color:#fff;padding:25px;text-align:center;display:flex !important">
           <b-icon style="height:50px;width:50px;position:absolute;top:calc(50% - 50px);left:calc(50% - 25px)" icon="arrow-clockwise" class="text-primary" animation="spin" font-scale="1"></b-icon>
         </b-aspect>
@@ -243,7 +243,7 @@
       <div v-else>
         <b-sidebar id="newpostSidebar" ref="newpostSidebar" width="483px"  right shadow style="z-index:9999; min-width:100% !important;">          
 
-           <div v-b-toggle:newpostSidebar  @click="savePost();postEditor.rendering = true" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
+           <div v-b-toggle:newpostSidebar  @click="postEditor.rendering = true;savePost();" class="btn btn-light text-primary btn-sm" style="position:absolute;top:8px;right:15px;background:rgba(0,50,150,0.075)" >
             <b-icon icon="eye" font-scale="1"  aria-hidden="true"></b-icon>
           </div>
           
@@ -257,7 +257,14 @@
                 </b-input-group>            
             
             <div  id="postImageContainer" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
-              <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="max-width:450px;color:#fff;padding:25px;text-align:center;display:flex !important">
+              <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
+                <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
+
+              </b-aspect>              
+            </div>
+
+            <div  id="postImagePreview" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
+              <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
                 <div id="postText" class="my-auto mx-auto">{{ postEditor.text || 'Write a new post.'}}</div>
 
               </b-aspect>              
@@ -846,8 +853,7 @@ export default {
         overlay: "/images/overlays/overlay.png",
         config: {
           inline: {
-            target: "#postImageContainer",
-            fileType: 'jpg',
+            target: "#postImageContainer",            
             returnAction: "base64",
             callback: (img) => {
               // modifies what image is returned
@@ -863,9 +869,7 @@ export default {
           },
         },
       },
-      postOverlays: [        
-        "/images/overlays/overlay-blank.png",        
-      ],
+      postOverlays: ["/images/overlays/overlay-blank.png"],
       imageEditor: {
         newUrl: null,
         oldUrl: null,
@@ -944,11 +948,12 @@ export default {
         .finally(() => (this.loading = false));
     },
     generatePostImage() {
-      this.postEditor.generatedImage = vue2img().image(
+      this.postEditor.generatedImage = vue2img().pdf(
         this.postEditor.config.inline
       );
     },
     savePost() {
+      window.scrollTo(0,0);
       this.postEditor.generatedPostImage = null;
       vue2img().image(this.postEditor.config.inline);
       this.$bvModal.show("modal-generatedPostImage");
@@ -1067,7 +1072,7 @@ export default {
         if (data.data.projects != null) {
           this.projects = data.data.projects;
         }
-        
+
         if (data.data.highlights != null) {
           this.highlights = data.data.highlights;
         }
@@ -1141,9 +1146,7 @@ export default {
   background-position: center !important;
 }
 
-
-
-#postImageContainer {
+#postImageContainer, #postImagePreview {
   background-size: cover !important;
   background-position: center !important;
   display: inline-block;
@@ -1153,31 +1156,25 @@ export default {
   overflow: hidden;
 }
 
-@media(max-width:991px){
-  #postImageContainer {
+@media (max-width: 991px) {
+  #postImageContainer, #postImagePreview {
     transform: scale(0.76);
-      margin-left: -55px;
-      margin-top: -53px;
-  }
-  #postImageContainer.scaled {
-    transform: scale(2);
-    margin-left: 0px;
-    margin-top: 0px;
+    margin-left: -55px;
+    margin-top: -53px;
   }
 }
 
 
-#postImageContainer.scaled {
-  display: none !important;
-  padding: 0px !important;
+#postImageContainer.scaled, #postImageContainer {  
+  padding: 0px !important;    
   position: absolute !important;
   top: -1350px !important;
-  left: -1350px !important;
-  z-index: -10 !important;
+  left: -1350px !important;  
+  z-index: -100 !important;
   background-size: cover !important;
   background-position: center !important;
-  min-height: 1350px;
-  min-width: 1350px;
+  min-height: 1350px !important;
+  min-width: 1350px !important;
   border-radius: 0px;
   overflow: hidden;
   font-size: 315%;
@@ -1185,8 +1182,9 @@ export default {
   max-height: 1350px !important;
 }
 
-#postImageContainer.scaled, #postImageContainer.scaled #postImage {
-    border-radius:0px !important;
+#postImageContainer.scaled,
+#postImageContainer.scaled #postImage {
+  border-radius: 0px !important;
 }
 
 #adminButton,
