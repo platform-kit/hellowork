@@ -14,9 +14,9 @@
         <template #modal-footer>
           <div class="w-100">            
             <b-button
-              variant="outline-primary"
+              variant="outline-danger"
               size="sm"
-              class="float-right"
+              class="float-left"
               @click="show=false"
             >
               Close
@@ -25,8 +25,8 @@
               variant="outline-primary"
               size="sm"
               class="float-right mr-1"              
-              @click="insertBackgroundImages()">
-              Add as background images.
+              @click="show=false; insertBackgroundImages()">
+              Add Image
             </b-button>
           </div>
         </template>
