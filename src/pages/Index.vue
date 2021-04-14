@@ -965,6 +965,7 @@ export default {
       data.hero = this.hero;
       data.testimonials = this.testimonials;
       data.projects = this.projects;
+      data.postOverlays = this.postOverlays;
       data.highlights = this.highlights;
       data.backgroundImages = this.backgroundImages;
       this.submitted = true;
