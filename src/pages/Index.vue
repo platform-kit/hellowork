@@ -22,14 +22,23 @@
             >
               Close
             </b-button>
+                      
             <b-button
               variant="outline-primary"
               size="sm"
               class="float-right mr-1"   
-              :disabled="imageUploaded() == false"
+              :disabled="imageUploaded() == false || password == null"
               @click="insertPostImage()">
               Add Image
             </b-button>
+            <b-input-group prepend="Password" class="mb-2 mt-3" style="max-width:150px;max-height:33px;float:right;position:absolute;right:120px;bottom:8px;" >
+                  <template #prepend>
+                    <b-input-group-text style="max-height:33px;" >
+                      <b-icon icon="lock" aria-hidden="true"></b-icon>
+                    </b-input-group-text>
+                  </template>
+                  <b-form-input type="password" @input="submitted = false" style="max-height:33px;" v-model="password" ref="focusThis"></b-form-input>
+                </b-input-group>    
           </div>
         </template>
       </b-modal>
@@ -110,7 +119,7 @@
                     </b-input-group-text>
                   </template>
                   <b-form-input type="password" @input="submitted = false" v-model="password" ref="focusThis"></b-form-input>
-              </b-input-group>
+                </b-input-group>
 
 
           <template #modal-footer>
@@ -1000,10 +1009,9 @@ export default {
       // fixes bug with Safari on iOS - encoded data string must have # of characters that's divisible by 4
       var string = b64str;
       console.log(string);
-      if(string.includes('png')){
+      if (string.includes("png")) {
         var exclude = "data:image/jpeg;base64,";
-      }
-      else {
+      } else {
         var exclude = "data:image/jpeg;base64,";
       }
       string = string.substring(string.lastIndexOf(",") + 1);
@@ -1042,11 +1050,11 @@ export default {
       //this.$bvModal.hide("modal-uploadImage");
       var imageData = this.files[0].getFileEncodeDataURL();
       var data = {
-        filename: 'temp.jpg',
-        contents: imageData.substring(imageData.lastIndexOf(",") + 1)
+        filename: "temp.jpg",
+        contents: imageData.substring(imageData.lastIndexOf(",") + 1),
       };
       axios
-        .post("/.netlify/functions/upload-image-v1?p=" + this.password + "&file=temp.jpg", data, {
+        .post("/.netlify/functions/upload-image-v1?p=" + this.password, data, {
           // Config
           headers: {
             // Overwrite Axios's automatically set Content-Type
@@ -1078,7 +1086,8 @@ export default {
       console.log(string);
       */
 
-      this.postEditor.image = '/.netlify/functions/read-image-v1?file=static/uploads/temp.jpg';
+      this.postEditor.image =
+        "/.netlify/functions/read-image-v1";
       /*
       this.postEditor.image = this.padBase64Image(
         this.files[0].getFileEncodeDataURL()

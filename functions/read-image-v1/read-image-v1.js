@@ -12,7 +12,10 @@ exports.handler = async (event, context) => {
   if (typeof params.data == 'string') {
     params.data = JSON.parse(params.data);
   }
-  const fileName = params.file || 'static/uploads/temp.jpg'
+  var fileName = params.file;
+  if(fileName == null){
+    fileName = 'temp.jpg';
+  }
   console.log(params);
 
   //
@@ -22,18 +25,18 @@ exports.handler = async (event, context) => {
   var sha = null;
   var output = null;
   var atob = require('atob');
-  
+
   if (params.mode == 'data') {
     output = await octokit.rest.repos
-    .getContent({
-      owner: user,
-      repo: repo,
-      path: fileName,
-    })
-    .then(({ data }) => {
-      sha = data.sha;
-      return data;
-    });
+      .getContent({
+        owner: user,
+        repo: repo,
+        path: fileName,
+      })
+      .then(({ data }) => {
+        sha = data.sha;
+        return data;
+      });
     output =
     {
       statusCode: 200,
@@ -42,41 +45,35 @@ exports.handler = async (event, context) => {
     };
   }
   else {
-    
-    output = await octokit.rest.repos    
-    .getContent({
-      owner: user,
-      repo: repo,
-      path: fileName,
-    })
-    .then(({ data }) => {
-      sha = data.sha;
-      return data;
+    output = await octokit.rest.repos
+      .getContent({
+        owner: user,
+        repo: repo,
+        path: '/static/uploads'
+      })
+      .then(({ data }) => {
+        return data;
+      });
+
+    output.forEach(element => {
+      if (element.name == fileName) {
+        sha = element._links.git.substring(element._links.git.lastIndexOf("/") + 1);
+      }
     });
 
-    console.log('------' + sha + '-----');
-    
-    /* output = await octokit.rest.git.getBlob({
-      owner: user,
-      repo: repo,
-      sha: sha,
-    }); */
-
-    var sha = output.sha;
-
-    var blob = await octokit.request('GET /repos/{owner}/{repo}/git/blobs/' + sha, {
+    var blob = await octokit.request('GET /repos/{owner}/{repo}/git/blobs/{file_sha}', {
       owner: user,
       repo: repo,
       file_sha: sha
-    });
-
-    console.log(blob);
+    })
+    
+    console.log(output);
 
     output =
     {
       statusCode: 200,
-      contentType: 'image/png',
       body: blob.data.content,
+      // body: output.content,
       isBase64Encoded: true
     };
   }
