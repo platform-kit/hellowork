@@ -1,27 +1,21 @@
-var axios = require('axios');
 require('dotenv').config();
 const { Octokit } = require("@octokit/rest");
-var base64 = require('js-base64').Base64;
-
 var token = process.env.GITHUB_TOKEN;
 var user = process.env.GITHUB_USER;
 var repo = process.env.GITHUB_REPO;
 
-
-
-
-
-
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 exports.handler = async (event, context) => {
+
+  console.log('\n\n----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----\n\n');
 
   // Params
   var params = event.queryStringParameters || null;
   if (typeof params.data == 'string') {
     params.data = JSON.parse(params.data);
   }
-  const fileName = params.file || 'static/data.json'
-  console.log(params);
+  
+  var fileName = 'static/uploads/temp.jpg';
 
   //
   const octokit = new Octokit({
@@ -37,11 +31,13 @@ exports.handler = async (event, context) => {
     })
     .then(({ data }) => {
       sha = data.sha;
-      data = atob(data.content);
+      data = data;
       // handle data
       //console.log(data);
       return data;
     });
+
+    console.log(output);
 
   // Check password
   var password = false;
@@ -52,77 +48,36 @@ exports.handler = async (event, context) => {
   var error = null;
   var status = 200;
 
+  
   // Update the file, if new data is provided & password is correct
-
-  if (event.body != null && password == true) {
-    var btoa = require('btoa');
-    var b64 = null;    
-    var bin = null;
-    bin = event.body;
-    b64 = btoa(bin);
-    console.log(b64);
-
+  if (event.body != null && password == true) {       
+    bin = JSON.parse(event.body).contents;    
+    console.log(bin);
+    if(params.file != null){
+      fileName = 'static/uploads/' + params.file;
+    }
+    console.log(fileName);
     var file = await octokit.rest.repos
       .createOrUpdateFileContents({
         owner: user,
-        repo: repo,
+        repo: repo, 
         path: fileName,
         branch: 'main',
         sha: sha,
         message: "Content Updated",
-        content: b64
+        content: bin,
+        encoding: "base64"
       })
       .then(({ data }) => {        
         // handle data
         //console.log(data);
         return data;
       });
-
-
-
-
-    var message = "Success.";
-    if (event.body != null && password == false) {
-      status = 500;
-      message = "Incorrect Password.";
     }
-
-    var body = null;
-    if (event.body != null && event.body != '') {
-      console.log(' ---- ');
-      console.log(typeof event.body);
-      console.log(' ---- ');
-      body = JSON.parse(event.body);
-    }
-
-
-
-    var data = {
-      "message": message,
-      params: params,
-      body: body,
-      file: file,
-    };
-
-    if (event.body == null || params.p == null) {
-      output = content;
-    }
-
-    else {
-      output = data;
-    }
-
-    
-    if (typeof output == 'string') {
-      output = JSON.parse(output);
-    }
-    if (typeof output == 'object') {
-      output = JSON.stringify(output);
-    }
-    
-    
   
-  }  
+
+  output = JSON.stringify(output);
+
 
   status = 200;
   return {

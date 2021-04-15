@@ -65,7 +65,7 @@ exports.handler = async (event, context) => {
     var file = await octokit.rest.repos
       .createOrUpdateFileContents({
         owner: user,
-        repo: repo,
+        repo: repo, 
         path: fileName,
         branch: 'main',
         sha: sha,

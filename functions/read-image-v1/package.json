@@ -1,6 +1,6 @@
 {
-  "name": "content-read-v1",
-  "description": "Read JSON from Github repo.",
+  "name": "read-image-v1",
+  "description": "Read image from Github repo.",
   "private": false,
   "dependencies": {
     "@octokit/rest": "^18.5.2",

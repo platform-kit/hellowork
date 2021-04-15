@@ -1,6 +1,6 @@
 {
-  "name": "content-read-v1",
-  "description": "Read JSON from Github repo.",
+  "name": "content-v1",
+  "description": "Read & write files from Github repo.",
   "private": false,
   "dependencies": {
     "@octokit/rest": "^18.5.2",

@@ -1039,10 +1039,51 @@ export default {
       }
     },
     insertPostImage() {
-      this.$bvModal.hide("modal-uploadImage");
+      //this.$bvModal.hide("modal-uploadImage");
+      var imageData = this.files[0].getFileEncodeDataURL();
+      var data = {
+        filename: 'temp.jpg',
+        contents: imageData.substring(imageData.lastIndexOf(",") + 1)
+      };
+      axios
+        .post("/.netlify/functions/upload-image-v1?p=" + this.password + "&file=temp.jpg", data, {
+          // Config
+          headers: {
+            // Overwrite Axios's automatically set Content-Type
+            "Content-Type": "application/json",
+          },
+        })
+        .catch(function (error) {
+          //console.log("Show error notification!");
+          //return Promise.reject(error);
+          //self.submitted = false;
+          self.updateMessage("Something went wrong. Try again.");
+        })
+        .then(function (response) {
+          // Handle success
+          console.log(response);
+          console.log(response.status);
+          if (response.status == 200) {
+            //self.$bvModal.hide("modal-password");
+            //self.changesMade = false;
+            //self.submitted = false;
+          } else {
+            //self.submitted = false;
+            self.updateMessage("Something went wrong. Try again.");
+          }
+        });
+      /*
+      var string = this.files[0].getFileEncodeDataURL();
+      string = '/.nelify/functions/base64-image-v1?data=' + string.substring(string.lastIndexOf(",") + 1);
+      console.log(string);
+      */
+
+      this.postEditor.image = '/.netlify/functions/read-image-v1?file=static/uploads/temp.jpg';
+      /*
       this.postEditor.image = this.padBase64Image(
         this.files[0].getFileEncodeDataURL()
       );
+      */
       this.$root.$emit("bv::toggle::collapse", "newpostSidebar");
       //this.files[0].get
     },
@@ -1092,7 +1133,7 @@ export default {
       this.submitted = true;
       var self = this;
       axios
-        .post("/.netlify/functions/content-read-v1?p=" + this.password, data, {
+        .post("/.netlify/functions/content-v1?p=" + this.password, data, {
           // Config
           headers: {
             // Overwrite Axios's automatically set Content-Type
