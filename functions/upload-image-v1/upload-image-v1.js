@@ -23,18 +23,20 @@ exports.handler = async (event, context) => {
   });
   var sha = null;
   var atob = require('atob');
-  var output = await octokit.rest.repos
-    .getContent({
-      owner: user,
-      repo: repo,
-      path: fileName,
-    })
-    .then(({ data }) => {
-      sha = data.sha;
-      data = data;
-      // handle data
-      //console.log(data);
-      return data;
+  output = await octokit.rest.repos
+      .getContent({
+        owner: user,
+        repo: repo,
+        path: '/static/uploads'
+      })
+      .then(({ data }) => {
+        return data;
+      });
+
+    output.forEach(element => {
+      if (element.name == 'temp.jpg') {
+        sha = element._links.git.substring(element._links.git.lastIndexOf("/") + 1);
+      }
     });
 
     console.log(output);

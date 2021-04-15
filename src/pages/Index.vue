@@ -1047,7 +1047,7 @@ export default {
       }
     },
     insertPostImage() {
-      //this.$bvModal.hide("modal-uploadImage");
+      
       var imageData = this.files[0].getFileEncodeDataURL();
       var data = {
         filename: "temp.jpg",
@@ -1075,11 +1075,13 @@ export default {
             //self.$bvModal.hide("modal-password");
             //self.changesMade = false;
             //self.submitted = false;
+            
           } else {
             //self.submitted = false;
             self.updateMessage("Something went wrong. Try again.");
           }
         });
+        this.$bvModal.hide("modal-uploadImage");
       /*
       var string = this.files[0].getFileEncodeDataURL();
       string = '/.nelify/functions/base64-image-v1?data=' + string.substring(string.lastIndexOf(",") + 1);
