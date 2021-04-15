@@ -298,20 +298,20 @@
                         </div>
                   </b-input-group-append>
                 </b-input-group>
-                <b-input-group prepend="Text" class="mb-1" >
-                  <b-form-input v-model="postEditor.text" placeholder="Enter some text."></b-form-input>
-                </b-input-group>            
+                
+                <b-form-textarea style="min-height:85px;" class="mb-1" v-model="postEditor.text" placeholder="Enter some text." />
+                
             
             <div  id="postImageContainer" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
-                <div id="postText" class="my-auto mx-auto">{{ postEditor.text}}</div>
+                <div id="postText" class="my-auto mx-auto" v-html="postEditor.text">{{ postEditor.text }}</div>
 
               </b-aspect>              
             </div>
 
             <div  id="postImagePreview" v-bind:class="{'scaled': postEditor.rendering == true}" style="" v-bind:style="{ backgroundImage: 'url(' + postEditor.image + ')' }">
               <b-aspect id="postImage" class="d-flex"  aspect="1:1" v-bind:style="{ backgroundImage: 'url(' + postEditor.overlay + ')' }" style="color:#fff;padding:25px;text-align:center;display:flex !important">
-                <div id="postText" class="my-auto mx-auto">{{ postEditor.text}}</div>
+                <div id="postText" class="my-auto mx-auto" v-html="postEditor.text">{{ postEditor.text}}</div>
 
               </b-aspect>              
             </div>
