@@ -461,7 +461,7 @@
 "label": "Web App",
 "description": "Make beautiful images for social media in under 30 seconds - with customized text, watermarks, and overlays.",
 "image": "https://github.com/platform-kit/hellowork/blob/main/static/uploads/postmaker-screenshot.png?raw=true",
-"link": "https://pk-postmaker.netlify.app"
+"link": "http://postmaker.platformkit.com/"
 },
 {
 "id": "pk",
