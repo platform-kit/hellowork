@@ -461,8 +461,8 @@
         {
             "id": "ac",
             "title": "The Astrocast",
-            "label": "Podcast",
-            "description": "The astrology podcast for everybody. Featuring easy-to-understand forecasts of the year ahead for all 12 signs.",
+            "label": "App",
+            "description": "Astrology for everybody. Featuring easy-to-understand daily forecasts & birth charts.",
             "image": "https://images-internal.transistor.fm/images/show/19654/1618178391-artwork.jpg",
             "link": "https://www.theastrocast.com"
         },
