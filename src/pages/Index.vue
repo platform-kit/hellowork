@@ -1441,8 +1441,11 @@ iframe {
   overflow: none !important;
 }
 
+#featured-projects .card-title {
+  font-size: 18px !important;
+}
 #featured-projects p.card-text {
-  font-size: 25px !important;
+  font-size: 18px !important;
   opacity: 0.85;
 }
 
