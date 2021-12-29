@@ -417,7 +417,7 @@
       </div>
     </b-sidebar>
       <div style="background: #000 !important">
-        <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent" style="z-index:999 !important;">
+        <b-navbar fixed toggleable="lg" type="dark" class="navbar-transparent d-none d-md-flex" style="z-index:999 !important;">
           <b-navbar-brand v-if="identity != null && identity.fullName != null" class="d-inline-block d-md-none" href="/"
             >{{ identity.fullName}}</b-navbar-brand
           >
@@ -429,7 +429,7 @@
 
           <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
-              <b-nav-item href="#featured-work">{{ language.galleryTitle }}</b-nav-item>
+              <b-nav-item v-if="sections!= null && sections.work != null && sections.work.enabled != null && sections.work.enabled == true" href="#featured-work">{{ language.galleryTitle }}</b-nav-item>
               <b-nav-item href="#featured-projects">{{ language.linksTitle }}</b-nav-item>
             </b-navbar-nav>
 
@@ -525,17 +525,9 @@
                 <h1
                 v-show="identity.name != null && identity.name != ''"
                   class="intro intro-message"
+                  id="hero-text"
                   style="
-                    font-size: 150%;
-                    min-width:250px;
-                    margin-top: 90px;
-                    position: absolute;
-                    top: -50px;
-                    left: 0px;
-                    width: 100%;
-                    text-align: center;
-                    opacity: 1;                    
-                    color: rgb(255, 255, 255) !important;
+                   
                   "
                 >
                   Hi, I'm {{ identity.name }}.
@@ -570,7 +562,7 @@
 
       <div
         id="testimonials"
-        v-if="testimonials != null && testimonials.image != null"
+        v-if="sections!= null && sections.testimonials != null && sections.testimonials.enabled != null && sections.testimonials.enabled == true && testimonials != null && testimonials.image != null"
         class="w-100 text-center pt-4 px-5 pb-5"
         style="
           border-top: 1px solid #111;
@@ -590,6 +582,7 @@
 
       <div
         id="featured-work"
+        v-if="sections!= null && sections.work != null && sections.work.enabled != null && sections.work.enabled == true"
         class="w-100 text-center pt-4 px-5 pb-5"
         style="
           background: none;
@@ -617,7 +610,7 @@
                     "
                     class="badge badge-pill border-0 px-3 py-2 intro"
                   >
-                    - {{ language.galleryTitle }} -
+                    {{ language.galleryTitle }}
                   </p>
                   <br />
                   <div class="br-25 toggles">
@@ -723,19 +716,17 @@
         </div>
       </div>
       <!-- Highlights !-->
+      <a id="featured-projects"/>
       <div
         v-if="highlights != null"
         class="w-100"
         id="featured-projects"
         style="
-          background: linear-gradient(
-            rgb(255, 255, 255) 200px,
-            rgb(97 204 255 / 17%) 2000px
-          );
+          background: #fff;
         "
       >
         <div class="container p-5" style="z-index: 2222 !important">
-          <div class="row align-items-center py-5">
+          <div class="row align-items-center pb-5 pt-4 mt-1 mt-md-0 pt-md-3">
             <div class="col-12 mx-auto">
               <div class="card bg-none border-0 justify-content-center">
                 <div
@@ -751,7 +742,7 @@
                     "
                     class="badge badge-pill border-0 px-3 py-2 intro"
                   >
-                    - {{ language.linksTitle }} -
+                    {{ language.linksTitle }}
                   </p>
                   <br />
                 </div>
@@ -787,7 +778,7 @@
                   </b-col>
                   <b-col md="6">
                     <b-card-body :title="highlight.title">
-                      <b-card-text
+                      <b-card-text class="text-left"
                         >{{ highlight.description }}</b-card-text
                       >
                     </b-card-body>
@@ -801,10 +792,14 @@
         </div>
       </div>
 
-      <div style="background-size:cover !important;background-position:center !important;height: 650px; display: block"  :style="{
+      <div
+       style="background-size:cover !important;background-position:center !important;height: 650px; display: block"  :style="{
           background: '#000',
           backgroundImage: 'url(' + randomBackground() + ') !important',
-        }" v-if="links != null && identity.name != null">
+        }" 
+        v-if="sections!= null && sections.contact != null && sections.contact.enabled != null && sections.contact.enabled == true && links != null && identity.name != null"
+        
+        >
         
         <div class="bg w-100 text-center"  >
           <div class="container-fluid text-center">
@@ -865,9 +860,19 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>      
+        </div>           
       </div>
+      <div id="mobile-footer" class="w-100 pb-5 d-flex d-md-none">
+          <a
+                    v-if="links.email != null"
+                      :href="links.email"
+                      target="_blank"
+                      class="btn btn-light m-2 text-dark mx-auto br-25 border"
+                    >
+                      <b-icon icon="envelope" scale=".75" style="padding-top:3px;"></b-icon> E-MAIL
+                    </a>
+        </div>
+      </div>   
     </ClientOnly>
   </Layout>
 </template>
@@ -912,6 +917,7 @@ export default {
       submitted: false,
       message: null,
       password: null,
+      sections: null,
       postEditor: {
         rendering: false,
         mode: "backgroundImages",
@@ -948,8 +954,8 @@ export default {
         oldUrl: null,
       },
       language: {
-        galleryTitle: "Featured Work",
-        linksTitle: "Projects",
+        galleryTitle: "Gallery",
+        linksTitle: "Featured Work",
       },
       projectEditor: {
         imageUrl: null,
@@ -978,6 +984,7 @@ export default {
       testimonials: {
         image: "/logos.png",
       },
+      showNav: true,
       projects: [],
       highlights: null,
       links: {},
@@ -1047,7 +1054,6 @@ export default {
       }
     },
     insertPostImage() {
-      
       var imageData = this.files[0].getFileEncodeDataURL();
       var data = {
         filename: "temp.jpg",
@@ -1075,21 +1081,19 @@ export default {
             //self.$bvModal.hide("modal-password");
             //self.changesMade = false;
             //self.submitted = false;
-            
           } else {
             //self.submitted = false;
             self.updateMessage("Something went wrong. Try again.");
           }
         });
-        this.$bvModal.hide("modal-uploadImage");
+      this.$bvModal.hide("modal-uploadImage");
       /*
       var string = this.files[0].getFileEncodeDataURL();
       string = '/.nelify/functions/base64-image-v1?data=' + string.substring(string.lastIndexOf(",") + 1);
       console.log(string);
       */
 
-      this.postEditor.image =
-        "/.netlify/functions/read-image-v1";
+      this.postEditor.image = "/.netlify/functions/read-image-v1";
       /*
       this.postEditor.image = this.padBase64Image(
         this.files[0].getFileEncodeDataURL()
@@ -1240,6 +1244,9 @@ export default {
         }
         if (data.data.testimonials != null) {
           this.testimonials = data.data.testimonials;
+        }
+        if (data.data.sections != null) {
+          this.sections = data.data.sections;
         }
         if (data.data.projects != null) {
           this.projects = data.data.projects;
@@ -1529,7 +1536,7 @@ iframe {
 #avatar {
   position: absolute !important;
   left: calc(50% - 50px) !important;
-  top: 350px !important;
+  top: 380px !important;
 }
 @media (max-width: 991px) {
   #avatar {
@@ -1598,5 +1605,24 @@ iframe {
 .br-25 .btn {
   margin: 3px;
   padding: 3px 12px;
+}
+
+#hero-text {
+  font-size: 150%;
+  min-width: 250px;
+  margin-top: 90px;
+  position: absolute;
+  top: -120px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+  color: rgb(255, 255, 255) !important;
+}
+
+@media(min-width:991px){
+  #hero-text {
+    top: -105px;
+  }
 }
 </style>

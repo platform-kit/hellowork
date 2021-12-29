@@ -18,6 +18,11 @@
     "testimonials": {
         "image": "/logos.png"
     },
+    "sections": {
+        "hero": {"enabled": true},
+        "testimonials": {"enabled": false},
+        "projects": {"enabled": true}
+    },
     "projects": [
         {
             "id": "school",
@@ -435,52 +440,63 @@
     ],
     "highlights": [
         {
+            "id": "ac",
+            "title": "Archetype Creative",
+            "label": "Entertainment",
+            "description": "A full-service entertainment consultancy. Development, pre-production, post-production, & marketing services for filmmakers and production companies.",
+            "image": "/images/wallpapers/archetype-creative.jpg",
+            "link": "https://www.archetype-creative.com"
+        },
+        {
             "id": "dw",
             "title": "DharmaWorks",
-            "label": "Books",
-            "description": "I published a small collection of the most impactful spiritual teachings I know of. Subscribe to get lessons daily via email.",
-            "image": "https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2072&q=80",
+            "label": "Publishing",
+            "description": "A small collection of the world's best books on self-actualization. Subscribe to get lessons daily via email. Learn how to live your personal legend.",
+            "image": "/images/wallpapers/dharmaworks.jpg",
             "link": "https://www.dharmaworks.com"
         },
         {
-            "id": "pk",
+            "id": "pm",
             "title": "Postmaker",
-            "label": "Software",
+            "label": "Marketing Software",
             "description": "Create & schedule beautiful posts for social media in 30 seconds from your browser or on mobile.",
-            "image": "https://www.postmakerpro.com/social-thumbnail.jpg",
+            "image": "/images/wallpapers/postmaker.jpg",
             "link": "https://www.postmakerpro.com"
         },
         {
             "id": "pk",
             "title": "PlatformKit",
-            "label": "Software",
+            "label": "Open-Source Software",
             "description": "An open-source framework for running serverless API's & static sites on any cloud platform.",
-            "image": "https://platformkit.com/images/icon.png",
+            "image": "/images/wallpapers/platformkit.jpg",
             "link": "https://www.platformkit.com"
         },
         {
-            "id": "ac",
+            "id": "tac",
             "title": "The Astrocast",
-            "label": "App",
+            "label": "Mobile App",
             "description": "Astrology for everybody. Featuring easy-to-understand daily forecasts, birth charts, & a podcast that makes astrology fun and accessible to beginners.",
-            "image": "https://images-internal.transistor.fm/images/show/19654/1618178391-artwork.jpg",
+            "image": "/images/wallpapers/astrocast.jpg",
             "link": "https://www.theastrocast.com"
         },
         {
-            "id": "ao",
+            "id": "pca",
             "title": "Pop Culture Alchemy",
-            "label": "Clothing",
-            "description": "A clothing line for modern mystics. Featuring pop-culture references, esoteric symbols, and sacred geometry, in a modern, minimal style.",
-            "image": "https://i.etsystatic.com/26946098/r/il/6d6fb2/2815675809/il_fullxfull.2815675809_pqfx.jpg",
+            "label": "Clothing & Content",
+            "description": "Clothing & content for modern mystics. Pop-culture references & sacred geometry, in a modern, minimal style.",
+            "image": "/images/wallpapers/popculturealchemy.jpg",
             "link": "https://www.popculturealchemy.com"
+        },
+        {
+            "id": "ttg",
+            "title": "The Time Traveler's Guide to the Apocalypse",
+            "label": "Original Series",
+            "description": "Dont stop the apocalypse. Pull the trigger. An original series based on the book by the same name. Currently in development.",
+            "image": "/images/wallpapers/timetravelersguide.jpg",
+            "link": "https://www.timetravelerguide.com/"
         }
     ],
     "backgroundImages": [
-        "https://images.unsplash.com/photo-1602292678572-16cb94ea0d88?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1271&q=80",
-        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80",
-        "https://images.unsplash.com/photo-1604871000636-074fa5117945?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
-        "https://images.unsplash.com/photo-1470338229081-eb5980be28c9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2550&q=80",
-        "https://images.unsplash.com/photo-1519326931307-6003daea39f0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2650&q=80",
-        "https://images.unsplash.com/photo-1542393545-10f5cde2c810?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1301&q=80"
+        "/images/wallpapers/eye-abstract.jpg"        
     ]
 }
