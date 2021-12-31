@@ -1441,12 +1441,14 @@ iframe {
   overflow: none !important;
 }
 
-#featured-projects .card-title {
-  font-size: 18px !important;
-}
-#featured-projects p.card-text {
-  font-size: 18px !important;
-  opacity: 0.85;
+@media (max-width: 991px) {
+  #featured-projects .card-title {
+    font-size: 18px !important;
+  }
+  #featured-projects p.card-text {
+    font-size: 18px !important;
+    opacity: 0.85;
+  }
 }
 
 #featured-projects .card img {
@@ -1463,6 +1465,7 @@ iframe {
   }
   #featured-projects p.card-text {
     padding: 15px;
+    font-size: 25px !important;
   }
   #featured-projects .card-title {
     margin-left: 15px;
@@ -1529,7 +1532,7 @@ iframe {
   width: 100%;
   height: 100%;
   max-height: 650px !important;
-  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
 }
 .bgImage {
   background-size: cover !important;
@@ -1623,7 +1626,7 @@ iframe {
   color: rgb(255, 255, 255) !important;
 }
 
-@media(min-width:991px){
+@media (min-width: 991px) {
   #hero-text {
     top: -105px;
   }
