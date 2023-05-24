@@ -328,14 +328,7 @@
       "image": "/images/wallpapers/dharmaworks.jpg",
       "link": "https://www.dharmaworks.com"
     },
-    {
-      "id": "pk",
-      "title": "PlatformKit",
-      "label": "Open-Source Software",
-      "description": "An open-source framework for running serverless API's & static sites on any cloud platform.",
-      "image": "/images/wallpapers/platformkit.jpg",
-      "link": "https://www.platformkit.com"
-    },
+
     {
       "id": "tac",
       "title": "The Astrocast",
@@ -346,11 +339,11 @@
     },
     {
       "id": "pca",
-      "title": "Pop Culture Alchemy",
+      "title": "Aquarian Outfitters",
       "label": "Clothing Line",
       "description": "Clothing & content for modern mystics. Pop-culture references & sacred geometry, in a modern, minimal style.",
-      "image": "/images/wallpapers/popculturealchemy.jpg",
-      "link": "https://www.popculturealchemy.com"
+      "image": "/images/wallpapers/ao.jpg",
+      "link": "https://www.aquarianoutfitters.com"
     },
     {
       "id": "render",
@@ -362,6 +355,6 @@
     }
   ],
   "backgroundImages": [
-    "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    "https://images.unsplash.com/photo-1513111168953-34fc252c9279?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2148&q=80"
   ]
 }
